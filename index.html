@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>London Property Investment Dashboard</title>
+<script>
+window.LIVE_LISTINGS = {
+  "scraped_at": "2026-06-24T09:00:00",
+  "total_found": 20,
+  "price_min": 250000,
+  "price_max": 500000,
+  "listings": [
+    {"id":"RM001","title":"Stunning 2-bed apartment with private balcony and residents gym in Hackney — moments from London Fields","suburb":"Hackney","postcode":"E8","url":"https://www.rightmove.co.uk/properties/RM001","price":425000,"beds":"2","baths":"1","size_m2":72,"type":"Apartment","image":"/blank.gif","search_area":"East London","tenure":"Leasehold","lease_years":125,"dcf":{"est_monthly_rent":2100,"est_levy":250}},
+    {"id":"RM002","title":"Contemporary 1-bed flat moments from Stratford International and Westfield — ideal buy-to-let","suburb":"Stratford","postcode":"E15","url":"https://www.rightmove.co.uk/properties/RM002","price":360000,"beds":"1","baths":"1","size_m2":52,"type":"Apartment","image":"/blank.gif","search_area":"East London","tenure":"Leasehold","lease_years":150,"dcf":{"est_monthly_rent":1800,"est_levy":300}},
+    {"id":"RM003","title":"Bright 1-bed flat in Bethnal Green with period features, close to tube and Victoria Park","suburb":"Bethnal Green","postcode":"E2","url":"https://www.rightmove.co.uk/properties/RM003","price":450000,"beds":"1","baths":"1","size_m2":55,"type":"Apartment","image":"/blank.gif","search_area":"East London","tenure":"Leasehold","lease_years":89,"dcf":{"est_monthly_rent":2050,"est_levy":280}},
+    {"id":"RM004","title":"Well-presented 2-bed purpose-built flat in Lewisham with parking and excellent transport links","suburb":"Lewisham","postcode":"SE13","url":"https://www.rightmove.co.uk/properties/RM004","price":380000,"beds":"2","baths":"1","size_m2":68,"type":"Apartment","image":"/blank.gif","search_area":"South London","tenure":"Leasehold","lease_years":110,"dcf":{"est_monthly_rent":1900,"est_levy":200}},
+    {"id":"RM005","title":"Characterful 1-bed flat in vibrant Peckham with roof terrace, near Overground","suburb":"Peckham","postcode":"SE15","url":"https://www.rightmove.co.uk/properties/RM005","price":390000,"beds":"1","baths":"1","size_m2":50,"type":"Apartment","image":"/blank.gif","search_area":"South London","tenure":"Leasehold","lease_years":95,"dcf":{"est_monthly_rent":1850,"est_levy":220}},
+    {"id":"RM006","title":"Superb 2-bed riverside apartment in Greenwich with DLR access and panoramic Thames views","suburb":"Greenwich","postcode":"SE10","url":"https://www.rightmove.co.uk/properties/RM006","price":440000,"beds":"2","baths":"2","size_m2":75,"type":"Apartment","image":"/blank.gif","search_area":"South London","tenure":"Leasehold","lease_years":125,"dcf":{"est_monthly_rent":2100,"est_levy":300}},
+    {"id":"RM007","title":"Smart 1-bed flat in Woolwich Arsenal — DLR, Elizabeth line and future Crossrail 2 nearby","suburb":"Woolwich","postcode":"SE18","url":"https://www.rightmove.co.uk/properties/RM007","price":320000,"beds":"1","baths":"1","size_m2":48,"type":"Apartment","image":"/blank.gif","search_area":"South London","tenure":"Leasehold","lease_years":247,"dcf":{"est_monthly_rent":1600,"est_levy":250}},
+    {"id":"RM008","title":"Spacious 2-bed flat in central Croydon — excellent value, strong rental demand and regeneration upside","suburb":"Croydon","postcode":"CR0","url":"https://www.rightmove.co.uk/properties/RM008","price":310000,"beds":"2","baths":"1","size_m2":70,"type":"Apartment","image":"/blank.gif","search_area":"South London","tenure":"Leasehold","lease_years":115,"dcf":{"est_monthly_rent":1600,"est_levy":200}},
+    {"id":"RM009","title":"2-bed apartment in Bromley town centre, converted Victorian building with high ceilings and garden","suburb":"Bromley","postcode":"BR1","url":"https://www.rightmove.co.uk/properties/RM009","price":340000,"beds":"2","baths":"1","size_m2":65,"type":"Apartment","image":"/blank.gif","search_area":"South London","tenure":"Leasehold","lease_years":83,"dcf":{"est_monthly_rent":1650,"est_levy":200}},
+    {"id":"RM010","title":"Attractive 2-bed garden flat in Walthamstow Village — E17 postcode, strong investor yields","suburb":"Walthamstow","postcode":"E17","url":"https://www.rightmove.co.uk/properties/RM010","price":420000,"beds":"2","baths":"1","size_m2":70,"type":"Apartment","image":"/blank.gif","search_area":"North London","tenure":"Leasehold","lease_years":105,"dcf":{"est_monthly_rent":2000,"est_levy":200}},
+    {"id":"RM011","title":"Newly built 2-bed flat in regenerating Tottenham — N17 with significant regeneration investment planned","suburb":"Tottenham","postcode":"N17","url":"https://www.rightmove.co.uk/properties/RM011","price":375000,"beds":"2","baths":"1","size_m2":66,"type":"Apartment","image":"/blank.gif","search_area":"North London","tenure":"Leasehold","lease_years":250,"dcf":{"est_monthly_rent":1850,"est_levy":200}},
+    {"id":"RM012","title":"3-bed semi-detached house in sought-after Enfield with large garden — excellent family let potential","suburb":"Enfield","postcode":"EN1","url":"https://www.rightmove.co.uk/properties/RM012","price":480000,"beds":"3","baths":"2","size_m2":110,"type":"House","image":"/blank.gif","search_area":"North London","tenure":"Freehold","lease_years":null,"dcf":{"est_monthly_rent":2200,"est_levy":100}},
+    {"id":"RM013","title":"2-bed flat in Ilford close to Elizabeth line — exceptional commuter access to Canary Wharf in 20 mins","suburb":"Ilford","postcode":"IG1","url":"https://www.rightmove.co.uk/properties/RM013","price":330000,"beds":"2","baths":"1","size_m2":65,"type":"Apartment","image":"/blank.gif","search_area":"Outer London","tenure":"Leasehold","lease_years":118,"dcf":{"est_monthly_rent":1700,"est_levy":200}},
+    {"id":"RM014","title":"Well-located 2-bed apartment in Barking — strong yields, District line and c2c rail access","suburb":"Barking","postcode":"IG11","url":"https://www.rightmove.co.uk/properties/RM014","price":295000,"beds":"2","baths":"1","size_m2":63,"type":"Apartment","image":"/blank.gif","search_area":"Outer London","tenure":"Leasehold","lease_years":125,"dcf":{"est_monthly_rent":1550,"est_levy":200}},
+    {"id":"RM015","title":"2-bed flat in Watford town centre — strong demand from London commuters, 17 mins to Euston","suburb":"Watford","postcode":"WD17","url":"https://www.rightmove.co.uk/properties/RM015","price":350000,"beds":"2","baths":"1","size_m2":68,"type":"Apartment","image":"/blank.gif","search_area":"Commuter Belt","tenure":"Leasehold","lease_years":115,"dcf":{"est_monthly_rent":1700,"est_levy":200}},
+    {"id":"RM016","title":"Stylish 2-bed apartment in Reading Oracle Quarter — excellent yield and commuter demand","suburb":"Reading","postcode":"RG1","url":"https://www.rightmove.co.uk/properties/RM016","price":320000,"beds":"2","baths":"1","size_m2":65,"type":"Apartment","image":"/blank.gif","search_area":"Commuter Belt","tenure":"Leasehold","lease_years":125,"dcf":{"est_monthly_rent":1600,"est_levy":180}},
+    {"id":"RM017","title":"Modern 2-bed flat in Slough — Elizabeth line to Paddington in 17 mins, strong rental market","suburb":"Slough","postcode":"SL1","url":"https://www.rightmove.co.uk/properties/RM017","price":280000,"beds":"2","baths":"1","size_m2":62,"type":"Apartment","image":"/blank.gif","search_area":"Commuter Belt","tenure":"Leasehold","lease_years":250,"dcf":{"est_monthly_rent":1400,"est_levy":180}},
+    {"id":"RM018","title":"Affordable 2-bed flat in Luton — highest gross yield in portfolio, near Thameslink to St Pancras","suburb":"Luton","postcode":"LU1","url":"https://www.rightmove.co.uk/properties/RM018","price":250000,"beds":"2","baths":"1","size_m2":60,"type":"Apartment","image":"/blank.gif","search_area":"Commuter Belt","tenure":"Leasehold","lease_years":115,"dcf":{"est_monthly_rent":1300,"est_levy":150}},
+    {"id":"RM019","title":"2-bed apartment in Chelmsford city centre — fast trains to Liverpool Street, growing market","suburb":"Chelmsford","postcode":"CM1","url":"https://www.rightmove.co.uk/properties/RM019","price":340000,"beds":"2","baths":"1","size_m2":65,"type":"Apartment","image":"/blank.gif","search_area":"Commuter Belt","tenure":"Leasehold","lease_years":125,"dcf":{"est_monthly_rent":1600,"est_levy":150}},
+    {"id":"RM020","title":"2-bed flat in Basildon — strong demand from London commuters, great value entry point for BTL","suburb":"Basildon","postcode":"SS14","url":"https://www.rightmove.co.uk/properties/RM020","price":295000,"beds":"2","baths":"1","size_m2":62,"type":"Apartment","image":"/blank.gif","search_area":"Commuter Belt","tenure":"Leasehold","lease_years":115,"dcf":{"est_monthly_rent":1500,"est_levy":150}}
+  ],
+  "assumptions": {"mortgage_rate":5.0,"deposit_pct":25.0,"loan_term_yrs":25,"cap_growth_pct":5.0,"rent_growth_pct":4.0,"vacancy_pct":5.0,"agent_fee_pct":12.0,"maint_pct":1.0,"hold_years":7,"exit_fee_pct":2.0}
+};
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:14px}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#07101e;color:#e2e8f0;min-height:100vh;line-height:1.5}
+:root{--bg:#07101e;--surf:#0c1828;--card:#111f35;--card2:#162540;--bdr:#1d3053;--bdr2:#243d6a;--acc:#4f8ef7;--acc2:#3b78e8;--g:#22c55e;--a:#f59e0b;--r:#ef4444;--pu:#a78bfa;--tx:#e2e8f0;--mu:#94a3b8;--di:#64748b}
+.hdr{background:var(--surf);border-bottom:1px solid var(--bdr);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:100;gap:12px}
+.hdr-logo{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700;white-space:nowrap}
+.hdr-icon{width:32px;height:32px;background:linear-gradient(135deg,#3b78e8,#6366f1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.hdr-pills{display:flex;gap:8px;flex-wrap:wrap}
+.pill{background:var(--card);border:1px solid var(--bdr);padding:3px 11px;border-radius:20px;font-size:11px;display:flex;align-items:center;gap:5px;white-space:nowrap}
+.pill .lb{color:var(--di)}.pill .vl{font-weight:700}.pill .vl.g{color:var(--g)}.pill .vl.a{color:var(--a)}
+.nav{background:var(--surf);border-bottom:1px solid var(--bdr);padding:0 24px;display:flex}
+.nb{padding:13px 18px;background:none;border:none;border-bottom:2px solid transparent;color:var(--mu);cursor:pointer;font-size:13px;font-weight:500;transition:all .2s}
+.nb:hover{color:var(--tx)}.nb.on{color:var(--acc);border-bottom-color:var(--acc)}
+.main{padding:24px;max-width:1440px;margin:0 auto}
+.tab{display:none}.tab.on{display:block}
+.btn{padding:8px 16px;border-radius:8px;border:none;cursor:pointer;font-size:13px;font-weight:500;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.bp{background:var(--acc);color:#fff}.bp:hover{background:var(--acc2)}
+.bo{background:transparent;border:1px solid var(--bdr2);color:var(--mu)}.bo:hover{border-color:var(--acc);color:var(--acc)}
+.bs{padding:5px 12px;font-size:12px}
+.alert{background:#1a2d14;border:1px solid #2d5a1e;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:13px;color:#86efac;display:flex;align-items:flex-start;gap:10px}
+.alert.warn{background:#2a1e0a;border-color:#5a3a0a;color:#fcd34d}
+.alert.info{background:#0f1e35;border-color:var(--bdr2);color:var(--mu)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px;margin-bottom:22px}
+.kpi{background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:15px}
+.kpi-lb{font-size:11px;color:var(--di);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
+.kpi-vl{font-size:23px;font-weight:800}
+.kpi-sub{font-size:11px;color:var(--mu);margin-top:2px}
+.sbar{background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:16px 20px;margin-bottom:20px}
+.sbar-hdr{display:flex;align-items:center;justify-content:space-between;cursor:pointer;margin-bottom:14px}
+.sbar-title{font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px}
+.sbar-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:10px}
+.sf{display:flex;flex-direction:column;gap:4px}
+.sf label{font-size:11px;color:var(--di)}
+.sf input,.sf select{background:var(--card2);border:1px solid var(--bdr);border-radius:7px;padding:6px 10px;color:var(--tx);font-size:13px;font-weight:500;width:100%;outline:none}
+.sf input:focus,.sf select:focus{border-color:var(--acc)}
+.sf .hint{font-size:10px;color:var(--di);margin-top:2px}
+.ql-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.ql{background:var(--card);border:1px solid var(--bdr);border-radius:8px;padding:8px 14px;text-decoration:none;color:var(--mu);font-size:12px;display:flex;align-items:center;gap:7px;transition:all .2s}
+.ql:hover{border-color:var(--acc);color:var(--acc)}
+.ql-dot{width:7px;height:7px;border-radius:50%}
+.shdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.stitle{font-size:15px;font-weight:700}
+.scnt{color:var(--di);font-size:12px;font-weight:400;margin-left:8px}
+.top5{background:var(--card);border:1px solid var(--acc);border-radius:12px;padding:18px 20px;margin-bottom:24px}
+.top5-title{font-size:13px;font-weight:700;color:var(--acc);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.lb-row{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--bdr);cursor:pointer;transition:background .15s;border-radius:8px;padding:10px 8px;margin:0 -8px}
+.lb-row:hover{background:var(--card2)}.lb-row:last-child{border-bottom:none}
+.lb-rank{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0}
+.rank-1{background:rgba(245,158,11,.2);color:var(--a);border:1px solid rgba(245,158,11,.4)}
+.rank-2{background:rgba(156,163,175,.15);color:#9ca3af;border:1px solid rgba(156,163,175,.3)}
+.rank-3{background:rgba(180,83,9,.15);color:#c2773a;border:1px solid rgba(180,83,9,.3)}
+.rank-n{background:var(--card2);color:var(--di);border:1px solid var(--bdr)}
+.lb-info{flex:1;min-width:0}
+.lb-name{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lb-sub{font-size:11px;color:var(--mu);margin-top:2px}
+.lb-metrics{display:flex;gap:16px;flex-shrink:0}
+.lb-m{text-align:right}
+.lb-m-val{font-size:14px;font-weight:700}
+.lb-m-lbl{font-size:10px;color:var(--di);text-transform:uppercase}
+.fbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
+.fchip{padding:5px 13px;border-radius:20px;border:1px solid var(--bdr);background:var(--card);color:var(--mu);cursor:pointer;font-size:12px;transition:all .2s}
+.fchip.on{border-color:var(--acc);color:var(--acc);background:rgba(79,142,247,.1)}
+.fsep{width:1px;height:18px;background:var(--bdr)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;margin-bottom:28px}
+.pc{background:var(--card);border:1px solid var(--bdr);border-radius:12px;overflow:hidden;transition:all .2s;cursor:pointer;position:relative}
+.pc:hover{border-color:var(--acc);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.5)}
+.pc.top-pick{border-color:rgba(245,158,11,.5)}
+.top-pick-badge{position:absolute;top:8px;left:8px;z-index:2;background:rgba(245,158,11,.9);color:#000;font-size:10px;font-weight:800;padding:2px 8px;border-radius:10px;letter-spacing:.3px}
+.pc-img{height:125px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.pc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85}
+.pc-img-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:36px}
+.pc-tags{position:absolute;bottom:8px;right:8px;display:flex;gap:5px;z-index:1}
+.tag{padding:2px 9px;border-radius:12px;font-size:10px;font-weight:700;backdrop-filter:blur(6px)}
+.tag-type{background:rgba(0,0,0,.65);color:var(--mu);border:1px solid rgba(255,255,255,.1)}
+.yb-hi{background:rgba(34,197,94,.25);color:var(--g);border:1px solid rgba(34,197,94,.4)}
+.yb-md{background:rgba(245,158,11,.25);color:var(--a);border:1px solid rgba(245,158,11,.4)}
+.yb-lo{background:rgba(239,68,68,.25);color:var(--r);border:1px solid rgba(239,68,68,.4)}
+.pc-body{padding:14px}
+.pc-price{font-size:19px;font-weight:800;margin-bottom:2px}
+.pc-name{font-size:12px;color:var(--mu);margin-bottom:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pc-specs{display:flex;gap:10px;margin-bottom:10px;font-size:11px;color:var(--di)}
+.pc-metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px}
+.met{background:var(--surf);border-radius:7px;padding:7px;text-align:center}
+.met-lb{font-size:9px;color:var(--di);text-transform:uppercase;letter-spacing:.4px;margin-bottom:2px}
+.met-vl{font-size:13px;font-weight:700}
+.pc-foot{display:flex;gap:7px;align-items:center}
+.g{color:var(--g)}.a{color:var(--a)}.r{color:var(--r)}.ac{color:var(--acc)}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(5px);z-index:200;display:none;align-items:center;justify-content:center;padding:18px}
+.ov.open{display:flex}
+.modal{background:var(--surf);border:1px solid var(--bdr2);border-radius:16px;width:100%;max-width:920px;max-height:93vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.85)}
+.mhdr{padding:18px 22px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--surf);z-index:5;gap:10px}
+.mtitle{font-size:15px;font-weight:700;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mclose{background:none;border:none;color:var(--mu);cursor:pointer;font-size:22px;padding:2px 8px;border-radius:6px;line-height:1;flex-shrink:0}
+.mclose:hover{background:var(--card);color:var(--tx)}
+.mbody{padding:22px}
+.mtabs{display:flex;border-bottom:1px solid var(--bdr);margin-bottom:18px}
+.mtb{padding:8px 16px;background:none;border:none;border-bottom:2px solid transparent;color:var(--mu);cursor:pointer;font-size:13px;transition:all .2s}
+.mtb.on{color:var(--acc);border-bottom-color:var(--acc)}
+.mpane{display:none}.mpane.on{display:block}
+.irr-meter{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:14px 18px;margin-bottom:18px}
+.irr-big{font-size:40px;font-weight:900;min-width:100px}
+.irr-meta{flex:1}
+.irr-bar-bg{background:var(--surf);height:9px;border-radius:5px;overflow:hidden;margin-bottom:5px}
+.irr-bar{height:100%;border-radius:5px;transition:width .6s}
+.irr-leg{display:flex;font-size:10px;color:var(--di)}
+.dcfg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.dbox{background:var(--card);border:1px solid var(--bdr);border-radius:9px;padding:14px}
+.dbox-t{font-size:10px;color:var(--di);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;font-weight:600}
+.dr{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--bdr);font-size:13px}
+.dr:last-child{border-bottom:none}
+.dr .lb{color:var(--mu)}.dr .vl{font-weight:600}
+.dr.tot{border-top:1px solid var(--bdr2);padding-top:9px;font-size:14px}
+.dr.tot .vl{font-size:15px;color:var(--acc)}
+.tw{overflow-x:auto;margin-bottom:16px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{background:var(--card);padding:8px 11px;text-align:right;color:var(--di);font-weight:600;border-bottom:1px solid var(--bdr2);white-space:nowrap}
+th:first-child{text-align:left}
+td{padding:7px 11px;text-align:right;border-bottom:1px solid var(--bdr);white-space:nowrap}
+td:first-child{text-align:left;color:var(--mu)}
+tr:hover td{background:rgba(255,255,255,.02)}
+.neg{color:var(--r)}.pos{color:var(--g)}.bld{font-weight:700}
+.sens-t{font-size:11px;color:var(--di);text-transform:uppercase;letter-spacing:.5px;font-weight:600;margin-bottom:8px}
+.lcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:10px;margin-bottom:16px}
+.lcard{background:var(--card);border:1px solid var(--bdr);border-radius:9px;padding:14px}
+.lcard.hi{border-color:var(--acc);background:rgba(79,142,247,.06)}
+.lc-bank{font-size:11px;color:var(--mu);margin-bottom:3px}
+.lc-rate{font-size:20px;font-weight:800;margin-bottom:6px}
+.lc-rate span{font-size:13px;color:var(--di);font-weight:400}
+.lc-mo{font-size:13px;font-weight:600;color:var(--acc);margin-bottom:3px}
+.lc-tot{font-size:10px;color:var(--di)}
+.mktg{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.mkc{background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:18px}
+.mkc h3{font-size:13px;font-weight:700;margin-bottom:12px}
+.ar{display:flex;align-items:center;padding:7px 0;border-bottom:1px solid var(--bdr);font-size:12px;gap:8px}
+.ar:last-child{border-bottom:none}
+.ar-nm{color:var(--mu);width:160px;flex-shrink:0}
+.ar-bg{flex:1;height:5px;background:var(--surf);border-radius:3px;overflow:hidden}
+.ar-fill{height:100%;border-radius:3px}
+.ar-vl{font-weight:700;width:70px;text-align:right;flex-shrink:0}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:13px;margin-bottom:18px}
+.ff{display:flex;flex-direction:column;gap:4px}
+.ff label{font-size:11px;color:var(--di)}
+.ff input,.ff select{background:var(--card);border:1px solid var(--bdr2);border-radius:8px;padding:8px 11px;color:var(--tx);font-size:13px;outline:none;transition:border-color .2s}
+.ff input:focus,.ff select:focus{border-color:var(--acc)}
+.ff-full{grid-column:1/-1}
+.cbar-wrap{background:var(--card);border:1px solid var(--bdr);border-radius:9px;padding:14px;margin-bottom:14px}
+.cbar-title{font-size:10px;color:var(--di);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.cbars{display:flex;align-items:flex-end;gap:4px;height:70px}
+.cbar{flex:1;border-radius:3px 3px 0 0;min-width:8px;position:relative;cursor:default}
+.clabels{display:flex;gap:4px;margin-top:5px}
+.clabel{flex:1;text-align:center;font-size:9px;color:var(--di)}
+.empty{text-align:center;padding:50px 20px;color:var(--di)}
+.empty .ico{font-size:44px;margin-bottom:10px}
+.toast{position:fixed;bottom:22px;right:22px;background:var(--card);border:1px solid var(--g);border-radius:10px;padding:11px 18px;font-size:13px;font-weight:500;z-index:999;display:none;align-items:center;gap:8px;animation:su .3s ease}
+.toast.on{display:flex}
+@keyframes su{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--surf)}
+::-webkit-scrollbar-thumb{background:var(--bdr2);border-radius:3px}
+@media(max-width:680px){.dcfg{grid-template-columns:1fr}.pgrid{grid-template-columns:1fr}.mktg{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.hdr-pills{display:none}}
+.deriv-pop{position:fixed;z-index:9999;background:#0c1828;border:1px solid #4f8ef7;border-radius:10px;padding:14px 16px;min-width:280px;max-width:360px;box-shadow:0 8px 32px rgba(0,0,0,.7);font-size:12px;display:none}
+.deriv-pop.show{display:block}
+.deriv-pop-title{font-size:13px;font-weight:700;color:#e2e8f0;margin-bottom:10px;border-bottom:1px solid #1d3053;padding-bottom:6px}
+.deriv-row{display:flex;justify-content:space-between;align-items:flex-start;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.deriv-row:last-child{border-bottom:none;font-weight:700;padding-top:7px;margin-top:3px;border-top:1px solid #1d3053}
+.deriv-lbl{color:#94a3b8;flex:1;padding-right:10px;line-height:1.4}
+.deriv-note{color:#64748b;font-size:10px;margin-top:2px}
+.deriv-val{color:#e2e8f0;white-space:nowrap;font-weight:600;text-align:right}
+.deriv-val.pos{color:#22c55e}.deriv-val.neg{color:#ef4444}.deriv-val.neu{color:#f59e0b}
+.clickable-num{cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
+.clickable-num:hover{opacity:.8}
+.tenure-tag{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:10px;font-size:10px;font-weight:600;white-space:nowrap}
+.tenure-fh{background:rgba(34,197,94,.15);color:var(--g);border:1px solid rgba(34,197,94,.3)}
+.tenure-lh{background:rgba(79,142,247,.12);color:var(--acc);border:1px solid rgba(79,142,247,.25)}
+.tenure-lh.warn{background:rgba(245,158,11,.15);color:var(--a);border-color:rgba(245,158,11,.35)}
+.tenure-lh.danger{background:rgba(239,68,68,.15);color:var(--r);border-color:rgba(239,68,68,.35)}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-logo">
+    <div class="hdr-icon">🏠</div>
+    <span>London Property Intelligence</span>
+  </div>
+  <div class="hdr-pills">
+    <div class="pill"><span class="lb">BoE Base</span><span class="vl a" id="hp-rate">4.25%</span></div>
+    <div class="pill"><span class="lb">Listings</span><span class="vl g" id="hp-count">—</span></div>
+    <div class="pill"><span class="lb">Best IRR</span><span class="vl g" id="hp-irr">—</span></div>
+    <div class="pill"><span class="lb">Updated</span><span class="vl" id="hp-date">—</span></div>
+    <div class="pill"><span id="data-source-pill" style="color:var(--di);font-size:11px">📌 Sample data</span></div>
+  </div>
+  <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
+    <span style="font-size:11px;color:var(--di)" id="last-ref"></span>
+    <button class="btn bp bs" onclick="rerankAndRender()">⟳ Re-rank</button>
+  </div>
+</header>
+
+<nav class="nav">
+  <button class="nb on" onclick="showTab('dash',this)">📊 Live Listings</button>
+  <button class="nb" onclick="showTab('watchlist',this)">⭐ My Watchlist</button>
+  <button class="nb" onclick="showTab('bond',this)">🏦 Mortgage Calc</button>
+  <button class="nb" onclick="showTab('market',this)">📈 Market Data</button>
+</nav>
+
+<div class="main">
+
+<!-- LIVE LISTINGS TAB -->
+<div id="tab-dash" class="tab on">
+
+  <div id="data-loaded-alert" class="alert" style="display:none">
+    ✓ &nbsp;<span id="dla-msg"></span>
+  </div>
+
+  <div class="sbar">
+    <div class="sbar-hdr" onclick="toggleSbar()">
+      <div class="sbar-title">⚙️ DCF Assumptions <span id="sb-tog" style="font-size:11px;color:var(--di);font-weight:400">(click to collapse)</span></div>
+      <button class="btn bp bs" onclick="event.stopPropagation();applySettings()">Apply &amp; Re-rank</button>
+    </div>
+    <div id="sbar-body" class="sbar-grid">
+      <div class="sf"><label>Mortgage Rate (%)</label><input id="s-rate" type="number" value="5.0" step="0.25"><div class="hint">BoE Base: 4.25% · Typical BTL 5yr fix: 4.5%</div></div>
+      <div class="sf"><label>Deposit (%)</label><input id="s-dep" type="number" value="25" step="5"><div class="hint">Min 25% for BTL mortgages</div></div>
+      <div class="sf"><label>Loan Term (yrs)</label><input id="s-term" type="number" value="25"></div>
+      <div class="sf"><label>Capital Growth p.a. (%)</label><input id="s-cgrow" type="number" value="5.0" step="0.5"><div class="hint">London avg: 4–6%</div></div>
+      <div class="sf"><label>Rental Growth p.a. (%)</label><input id="s-rgrow" type="number" value="4" step="0.5"></div>
+      <div class="sf"><label>Vacancy (%)</label><input id="s-vac" type="number" value="5"></div>
+      <div class="sf"><label>Management Fee (%)</label><input id="s-agent" type="number" value="12"><div class="hint">Lettings agent: 10–15%</div></div>
+      <div class="sf"><label>Maintenance (% of val p.a.)</label><input id="s-maint" type="number" value="1.0" step="0.1"></div>
+      <div class="sf"><label>Hold Period (yrs)</label><input id="s-hold" type="number" value="7"></div>
+      <div class="sf"><label>Exit Agent Fee (%)</label><input id="s-efee" type="number" value="2.0" step="0.5"></div>
+      <div class="sf"><label>Hurdle Rate (%)</label><input id="s-hurdle" type="number" value="8"></div>
+    </div>
+  </div>
+
+  <div class="ql-row">
+    <a class="ql" href="https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION%5E87490&maxPrice=600000&minPrice=250000&propertyTypes=flat" target="_blank"><div class="ql-dot" style="background:var(--g)"></div>Rightmove · London Flats</a>
+    <a class="ql" href="https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION%5E1036&maxPrice=500000&minPrice=250000" target="_blank"><div class="ql-dot" style="background:var(--g)"></div>Rightmove · Commuter Belt</a>
+    <a class="ql" href="https://www.zoopla.co.uk/for-sale/flats/london/?price_max=600000&price_min=250000" target="_blank"><div class="ql-dot" style="background:var(--pu)"></div>Zoopla · London</a>
+    <a class="ql" href="https://www.onthemarket.com/for-sale/property/london/" target="_blank"><div class="ql-dot" style="background:var(--a)"></div>OnTheMarket · London</a>
+    <a class="ql" href="https://www.rightmove.co.uk/property-to-rent/find.html?locationIdentifier=REGION%5E87490" target="_blank"><div class="ql-dot" style="background:var(--di)"></div>Rental Comps · Rightmove</a>
+    <a class="ql" href="https://www.zoopla.co.uk/to-rent/flats/london/" target="_blank"><div class="ql-dot" style="background:var(--di)"></div>Rental Comps · Zoopla</a>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="kpi-lb">Live Listings</div><div class="kpi-vl g" id="k-total">—</div><div class="kpi-sub">£250K–£600K · London &amp; Commuter Belt</div></div>
+    <div class="kpi"><div class="kpi-lb">Best IRR (7yr hold)</div><div class="kpi-vl g" id="k-irr">—</div><div class="kpi-sub">@ 5.0% capital growth</div></div>
+    <div class="kpi"><div class="kpi-lb">Avg Gross Yield</div><div class="kpi-vl g" id="k-yield">—</div><div class="kpi-sub">across ranked listings</div></div>
+    <div class="kpi"><div class="kpi-lb">Avg Monthly Shortfall</div><div class="kpi-vl r" id="k-cf">—</div><div class="kpi-sub">negatively geared (typical London BTL)</div></div>
+    <div class="kpi"><div class="kpi-lb">BoE Base Rate</div><div class="kpi-vl a">4.25%</div><div class="kpi-sub">Down 100bp since Aug 2024</div></div>
+    <div class="kpi"><div class="kpi-lb">London Price Growth</div><div class="kpi-vl g">+3.1%</div><div class="kpi-sub">YoY — Nationwide Q1 2026</div></div>
+  </div>
+
+  <div class="top5" id="top5-section" style="display:none">
+    <div class="top5-title">🏆 Top 5 Picks — Ranked by IRR</div>
+    <div id="top5-list"></div>
+  </div>
+
+  <div class="fbar">
+    <div class="fchip on" onclick="setFilter('all',this)">All Areas</div>
+    <div class="fchip" onclick="setFilter('east london',this)">East London</div>
+    <div class="fchip" onclick="setFilter('south london',this)">South London</div>
+    <div class="fchip" onclick="setFilter('north london',this)">North London</div>
+    <div class="fchip" onclick="setFilter('outer london',this)">Outer London</div>
+    <div class="fchip" onclick="setFilter('commuter belt',this)">Commuter Belt</div>
+    <div class="fsep"></div>
+    <div class="fchip" onclick="sortBy('irr')">↓ IRR</div>
+    <div class="fchip" onclick="sortBy('yield')">↓ Yield</div>
+    <div class="fchip" onclick="sortBy('price')">↓ Price</div>
+    <div class="fchip" onclick="sortBy('cf')">↓ Cash Flow</div>
+  </div>
+
+  <div class="shdr">
+    <div class="stitle">All Listings <span class="scnt" id="grid-count"></span></div>
+  </div>
+  <div class="pgrid" id="pgrid"></div>
+  <div id="empty-state" class="empty" style="display:none">
+    <div class="ico">📡</div><p>No listings found for this filter.</p>
+  </div>
+
+</div><!-- /dash -->
+
+<!-- WATCHLIST TAB -->
+<div id="tab-watchlist" class="tab">
+  <div style="max-width:820px">
+    <div class="shdr"><div class="stitle">Manual Watchlist</div></div>
+    <div class="alert info" style="margin-bottom:20px">
+      📌 &nbsp;Track off-market deals or properties you've viewed. DCF uses your entered rent — not an estimate.
+    </div>
+    <div style="background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:22px;margin-bottom:18px">
+      <div class="fgrid">
+        <div class="ff ff-full"><label>Address / Name</label><input id="f-name" placeholder="12 Mare St, Hackney, E8"></div>
+        <div class="ff"><label>Area</label>
+          <select id="f-area">
+            <option value="east london">East London</option>
+            <option value="south london">South London</option>
+            <option value="north london">North London</option>
+            <option value="west london">West London</option>
+            <option value="outer london">Outer London</option>
+            <option value="commuter belt">Commuter Belt</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="ff"><label>Purchase Price (£)</label><input id="f-price" type="number" placeholder="400000"></div>
+        <div class="ff"><label>Expected Monthly Rent (£)</label><input id="f-rent" type="number" placeholder="1800"></div>
+        <div class="ff"><label>Monthly Service Charge (£)</label><input id="f-levy" type="number" placeholder="200"></div>
+        <div class="ff"><label>Bedrooms</label>
+          <select id="f-beds"><option>Studio</option><option>1 bed</option><option selected>2 bed</option><option>3 bed</option><option>4 bed</option></select>
+        </div>
+        <div class="ff"><label>Bathrooms</label>
+          <select id="f-baths"><option>1</option><option selected>2</option><option>2.5</option><option>3</option></select>
+        </div>
+        <div class="ff"><label>Floor Area (m²)</label><input id="f-sqm" type="number" placeholder="65"></div>
+        <div class="ff"><label>Property Type</label>
+          <select id="f-type"><option>Apartment</option><option>Flat</option><option>House</option><option>Terraced</option></select>
+        </div>
+        <div class="ff ff-full"><label>Rightmove / Zoopla URL (optional)</label><input id="f-url" type="url" placeholder="https://www.rightmove.co.uk/properties/..."></div>
+        <div class="ff ff-full"><label>Notes</label><input id="f-notes" placeholder="New build, ground floor, good transport links..."></div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="btn bp" onclick="addManual()">＋ Add to Watchlist</button>
+        <button class="btn bo" onclick="clearForm()">Clear</button>
+      </div>
+    </div>
+    <div class="shdr"><div class="stitle">Saved Properties <span class="scnt" id="wl-count"></span></div></div>
+    <div class="pgrid" id="wl-grid"></div>
+    <div id="wl-empty" class="empty" style="display:none"><div class="ico">⭐</div><p>No saved properties yet. Add one above.</p></div>
+  </div>
+</div>
+
+<!-- MORTGAGE CALCULATOR TAB -->
+<div id="tab-bond" class="tab">
+  <div style="max-width:900px">
+    <div class="shdr"><div class="stitle">Mortgage Repayment Calculator</div></div>
+    <div style="background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:22px;margin-bottom:18px">
+      <div class="fgrid" style="grid-template-columns:repeat(auto-fill,minmax(175px,1fr))">
+        <div class="ff"><label>Purchase Price (£)</label><input id="bc-price" type="number" value="400000" oninput="calcBond()"></div>
+        <div class="ff"><label>Deposit (%)</label><input id="bc-dep" type="number" value="25" oninput="calcBond()"></div>
+        <div class="ff"><label>Loan Term (yrs)</label><input id="bc-term" type="number" value="25" oninput="calcBond()"></div>
+      </div>
+      <div style="font-size:11px;color:var(--di);text-transform:uppercase;letter-spacing:.5px;font-weight:600;margin-bottom:10px">Rate Comparison — Current BTL Products</div>
+      <div class="lcards" id="bc-cards"></div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:18px;margin-bottom:18px">
+      <div style="font-size:13px;font-weight:600;margin-bottom:12px">💰 Upfront Costs Breakdown</div>
+      <div id="bc-costs"></div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:18px">
+      <div style="font-size:13px;font-weight:600;margin-bottom:4px">📅 Amortisation Schedule — First 5 Years</div>
+      <p style="font-size:12px;color:var(--mu);margin-bottom:12px">Interest vs principal at 5.0% (typical BTL rate)</p>
+      <div class="tw" id="bc-amort"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MARKET DATA TAB -->
+<div id="tab-market" class="tab">
+  <div class="shdr"><div class="stitle">London &amp; UK Property Market — 2026</div></div>
+  <div class="mktg">
+    <div class="mkc">
+      <h3>📍 Gross Rental Yields by Area</h3>
+      <div id="yield-tbl"></div>
+      <p style="font-size:11px;color:var(--di);margin-top:10px">Source: Rightmove, Zoopla, Hamptons Research (2026)</p>
+    </div>
+    <div class="mkc">
+      <h3>📈 BoE Base Rate History</h3>
+      <div class="ar"><span class="ar-nm">Current Base Rate</span><div class="ar-bg"></div><span class="ar-vl a">4.25%</span></div>
+      <div class="ar"><span class="ar-nm">Typical BTL Rate</span><div class="ar-bg"></div><span class="ar-vl a">5.0–5.5%</span></div>
+      <div class="ar"><span class="ar-nm">2023 Peak</span><div class="ar-bg"></div><span class="ar-vl r">5.25%</span></div>
+      <div class="ar"><span class="ar-nm">Cuts since Aug '24</span><div class="ar-bg"></div><span class="ar-vl g">−100bp</span></div>
+      <div class="ar"><span class="ar-nm">2026 Forecast</span><div class="ar-bg"></div><span class="ar-vl g">3.75–4.25%</span></div>
+      <div class="ar"><span class="ar-nm">Next MPC decision</span><div class="ar-bg"></div><span class="ar-vl ac">Aug 2026</span></div>
+    </div>
+    <div class="mkc">
+      <h3>💰 Avg Rents by Type — London (2026)</h3>
+      <div class="ar"><span class="ar-nm">Studio</span><div class="ar-bg"><div class="ar-fill" style="width:38%;background:var(--acc)"></div></div><span class="ar-vl ac">£1,200/mo</span></div>
+      <div class="ar"><span class="ar-nm">1 Bedroom</span><div class="ar-bg"><div class="ar-fill" style="width:52%;background:var(--acc)"></div></div><span class="ar-vl ac">£1,700/mo</span></div>
+      <div class="ar"><span class="ar-nm">2 Bedroom</span><div class="ar-bg"><div class="ar-fill" style="width:67%;background:var(--g)"></div></div><span class="ar-vl g">£2,100/mo</span></div>
+      <div class="ar"><span class="ar-nm">3 Bedroom</span><div class="ar-bg"><div class="ar-fill" style="width:85%;background:var(--g)"></div></div><span class="ar-vl g">£2,800/mo</span></div>
+      <div class="ar"><span class="ar-nm">Commuter Belt 2-bed</span><div class="ar-bg"><div class="ar-fill" style="width:50%;background:var(--a)"></div></div><span class="ar-vl a">£1,500/mo</span></div>
+      <p style="font-size:11px;color:var(--di);margin-top:10px">London avg rent hit record £2,121/mo in 2025. Demand outstrips supply. Source: Rightmove, HomeLet 2026.</p>
+    </div>
+    <div class="mkc">
+      <h3>🏗️ Key Buy Metrics — UK BTL (2026)</h3>
+      <div class="ar"><span class="ar-nm">SDLT on £350K (BTL)</span><div class="ar-bg"></div><span class="ar-vl a">~£18,000</span></div>
+      <div class="ar"><span class="ar-nm">SDLT on £450K (BTL)</span><div class="ar-bg"></div><span class="ar-vl a">~£26,000</span></div>
+      <div class="ar"><span class="ar-nm">Mortgage Arrangement</span><div class="ar-bg"></div><span class="ar-vl a">~£2,000</span></div>
+      <div class="ar"><span class="ar-nm">Legal + Survey Fees</span><div class="ar-bg"></div><span class="ar-vl a">~£3,000</span></div>
+      <div class="ar"><span class="ar-nm">Total buy costs (est.)</span><div class="ar-bg"></div><span class="ar-vl r">8–12%</span></div>
+      <div class="ar"><span class="ar-nm">London price growth YoY</span><div class="ar-bg"></div><span class="ar-vl g">+3.1%</span></div>
+      <div class="ar"><span class="ar-nm">5-yr cumulative forecast</span><div class="ar-bg"></div><span class="ar-vl g">+18–28%</span></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main -->
+
+<!-- DCF MODAL -->
+<div class="ov" id="dcf-ov">
+  <div class="modal">
+    <div class="mhdr">
+      <div class="mtitle" id="m-title">—</div>
+      <div style="display:flex;gap:8px;flex-shrink:0;align-items:center">
+        <a id="m-link" href="#" target="_blank" class="btn bo bs" style="display:none">🔗 Listing</a>
+        <button class="mclose" onclick="closeModal()">×</button>
+      </div>
+    </div>
+    <div class="mbody">
+      <div class="mtabs">
+        <button class="mtb on" onclick="mTab('sum',this)">Summary</button>
+        <button class="mtb" onclick="mTab('cfs',this)">Cash Flows</button>
+        <button class="mtb" onclick="mTab('sens',this)">Sensitivity</button>
+        <button class="mtb" onclick="mTab('fund',this)">Funding</button>
+      </div>
+      <div id="mp-sum" class="mpane on">
+        <div class="irr-meter">
+          <div><div style="font-size:10px;color:var(--di);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">Levered IRR</div><div class="irr-big" id="m-irr">—</div></div>
+          <div class="irr-meta">
+            <div style="font-size:11px;color:var(--di);margin-bottom:5px">vs hurdle rate (<span id="m-hurdle">8%</span>)</div>
+            <div class="irr-bar-bg"><div class="irr-bar" id="m-ibar"></div></div>
+            <div class="irr-leg"><span style="color:var(--r)">0%</span><span style="margin-left:auto;color:var(--a)">Hurdle</span><span style="margin-left:auto;color:var(--g)">20%</span></div>
+          </div>
+          <div style="text-align:center;min-width:85px"><div style="font-size:10px;color:var(--di);margin-bottom:4px">Equity Multiple</div><div style="font-size:22px;font-weight:800" id="m-moic">—</div><div style="font-size:10px;color:var(--di)" id="m-holdlbl">over 7 years</div></div>
+        </div>
+        <div class="alert info" id="m-rent-note" style="margin-bottom:16px;display:none">
+          ℹ️ &nbsp;Rent is estimated from local area averages. Verify with a local letting agent before proceeding.
+        </div>
+        <div class="alert warn" id="m-lease-warn" style="margin-bottom:16px;display:none">
+          <span></span>
+        </div>
+        <div class="dcfg">
+          <div class="dbox">
+            <div class="dbox-t">Upfront Cash Required</div>
+            <div class="dr"><span class="lb">Purchase Price</span><span class="vl" id="s-price">—</span></div>
+            <div class="dr"><span class="lb">Deposit</span><span class="vl" id="s-dep">—</span></div>
+            <div class="dr"><span class="lb">Stamp Duty (SDLT BTL)</span><span class="vl r" id="s-duty">—</span></div>
+            <div class="dr"><span class="lb">Mortgage &amp; Legal Fees</span><span class="vl r" id="s-breg">—</span></div>
+            <div class="dr tot"><span class="lb">Total Cash Day 1</span><span class="vl" id="s-total">—</span></div>
+          </div>
+          <div class="dbox">
+            <div class="dbox-t">Monthly P&amp;L — Year 1</div>
+            <div class="dr"><span class="lb">Gross Rent (est.)</span><span class="vl g" id="s-rent">—</span></div>
+            <div class="dr"><span class="lb">Vacancy (5%)</span><span class="vl r" id="s-vac">—</span></div>
+            <div class="dr"><span class="lb">Mgmt Fee (12%)</span><span class="vl r" id="s-agt">—</span></div>
+            <div class="dr"><span class="lb">Service Charge</span><span class="vl r" id="s-levy">—</span></div>
+            <div class="dr"><span class="lb">Maintenance + Ins.</span><span class="vl r" id="s-maint">—</span></div>
+            <div class="dr"><span class="lb">Net Rental Income</span><span class="vl g" id="s-nri">—</span></div>
+            <div class="dr"><span class="lb">Mortgage Payment</span><span class="vl r" id="s-bond">—</span></div>
+            <div class="dr tot"><span class="lb">Monthly Cash Flow</span><span class="vl" id="s-cf">—</span></div>
+          </div>
+          <div class="dbox">
+            <div class="dbox-t">Yield Analysis</div>
+            <div class="dr"><span class="lb">Gross Yield</span><span class="vl" id="s-gy">—</span></div>
+            <div class="dr"><span class="lb">Net Yield</span><span class="vl" id="s-ny">—</span></div>
+            <div class="dr"><span class="lb">Mortgage Rate</span><span class="vl a" id="s-brate">—</span></div>
+            <div class="dr"><span class="lb">Yield Gap</span><span class="vl" id="s-yg">—</span></div>
+            <div class="dr"><span class="lb">Price per m²</span><span class="vl" id="s-ppm">—</span></div>
+            <div class="dr"><span class="lb">Tenure</span><span id="s-tenure">—</span></div>
+          </div>
+          <div class="dbox">
+            <div class="dbox-t">Exit Analysis (<span id="s-holdyr">7</span>yr)</div>
+            <div class="dr"><span class="lb">Projected Exit Value</span><span class="vl g" id="s-ev">—</span></div>
+            <div class="dr"><span class="lb">Outstanding Mortgage</span><span class="vl r" id="s-ob">—</span></div>
+            <div class="dr"><span class="lb">Agent Fee</span><span class="vl r" id="s-eaf">—</span></div>
+            <div class="dr"><span class="lb">Net Exit Proceeds</span><span class="vl g" id="s-nep">—</span></div>
+            <div class="dr tot"><span class="lb">NPV @ hurdle</span><span class="vl" id="s-npv">—</span></div>
+          </div>
+        </div>
+        <div style="font-size:11px;color:var(--di);background:var(--card);border-radius:8px;padding:11px;line-height:1.7">
+          ⚠️ <strong style="color:var(--mu)">Negative gearing:</strong> London BTL at these prices is typically negatively geared — mortgage exceeds net rent. IRR is driven by leveraged capital appreciation. Ensure you can fund the monthly shortfall from other income for the full hold period.
+        </div>
+      </div>
+      <div id="mp-cfs" class="mpane">
+        <div class="tw" id="cf-tbl"></div>
+        <div class="cbar-wrap">
+          <div class="cbar-title">Annual Net Cash Flow (exit proceeds included in final year)</div>
+          <div class="cbars" id="cf-bars"></div>
+          <div class="clabels" id="cf-lbls"></div>
+        </div>
+      </div>
+      <div id="mp-sens" class="mpane">
+        <div class="sens-t" style="margin-bottom:10px">IRR (%) — Hold Period vs Capital Growth Rate</div>
+        <div class="tw" id="s-irr-tbl"></div>
+        <div class="sens-t" style="margin-top:16px;margin-bottom:10px">Monthly Cash Flow — Mortgage Rate vs Gross Rent</div>
+        <div class="tw" id="s-cf-tbl"></div>
+      </div>
+      <div id="mp-fund" class="mpane">
+        <div style="font-size:13px;font-weight:600;margin-bottom:12px">Mortgage options for <span id="f-pprice">—</span></div>
+        <div class="lcards" id="m-lcards"></div>
+        <div style="background:var(--card);border:1px solid var(--bdr);border-radius:9px;padding:14px;margin-bottom:14px">
+          <div style="font-size:12px;font-weight:600;margin-bottom:10px">Deposit Scenario Comparison</div>
+          <div class="tw" id="f-dep-tbl"></div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--bdr);border-radius:9px;padding:14px">
+          <div style="font-size:12px;font-weight:700;margin-bottom:10px">🏦 UK Mortgage Brokers &amp; Lenders</div>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px">
+            <a href="https://www.l-and-c.co.uk" target="_blank" class="btn bo bs">L&amp;C Mortgages</a>
+            <a href="https://www.trussle.com" target="_blank" class="btn bo bs">Trussle</a>
+            <a href="https://www.habito.com" target="_blank" class="btn bo bs">Habito</a>
+            <a href="https://www.nationwide.co.uk/mortgages/buy-to-let/" target="_blank" class="btn bo bs">Nationwide BTL</a>
+            <a href="https://www.barclays.co.uk/mortgages/buy-to-let-mortgages/" target="_blank" class="btn bo bs">Barclays</a>
+            <a href="https://www.hsbc.co.uk/mortgages/buy-to-let/" target="_blank" class="btn bo bs">HSBC</a>
+          </div>
+          <p style="font-size:11px;color:var(--di)">Use a whole-of-market broker (L&amp;C, Trussle, Habito) to compare BTL products. Stress test at 5.5% typically required by lenders. Rental income must cover 125–145% of mortgage payment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"><span id="toast-msg">Done</span></div>
+<div class="deriv-pop" id="deriv-pop" onclick="event.stopPropagation()">
+  <div class="deriv-pop-title" id="deriv-pop-title">Calculation Detail</div>
+  <div id="deriv-pop-body"></div>
+  <div style="margin-top:10px;font-size:10px;color:#475569;text-align:right">Click anywhere to close</div>
+</div>
+
+<script>
+// ── STATE ──
+let liveListings = [];
+let watchlist = JSON.parse(localStorage.getItem('lon_wl') || '[]');
+let activeFilter = 'all';
+let currentProp = null;
+let currentSource = null;
+
+// ── LIVE DATA LOADER ──
+// Tries to load live_listings.json generated by scraper.py.
+// Falls back to the hardcoded window.LIVE_LISTINGS if file not found.
+async function loadData() {
+  try {
+    const r = await fetch('live_listings.json?t=' + Date.now());
+    if (r.ok) {
+      const data = await r.json();
+      if (data && data.listings && data.listings.length) {
+        window.LIVE_LISTINGS = data;
+        document.getElementById('data-source-pill').textContent = '🟢 Live data';
+        document.getElementById('data-source-pill').style.color = 'var(--g)';
+      }
+    }
+  } catch (_) {
+    // file not found or served from file:// — use hardcoded data
+  }
+  init();
+}
+
+// ── SETTINGS ──
+function S() {
+  return {
+    rate:   +document.getElementById('s-rate').value   || 5.0,
+    dep:    +document.getElementById('s-dep').value    || 25,
+    term:   +document.getElementById('s-term').value   || 25,
+    cg:     +document.getElementById('s-cgrow').value  || 5.0,
+    rg:     +document.getElementById('s-rgrow').value  || 4,
+    vac:    +document.getElementById('s-vac').value    || 5,
+    agent:  +document.getElementById('s-agent').value  || 12,
+    maint:  +document.getElementById('s-maint').value  || 1.0,
+    hold:   +document.getElementById('s-hold').value   || 7,
+    efee:   +document.getElementById('s-efee').value   || 2.0,
+    hurdle: +document.getElementById('s-hurdle').value || 8,
+  };
+}
+
+// ── UK FINANCIAL MATH ──
+function bondPmt(price, depPct, rate, yrs) {
+  const loan = price*(1-depPct/100), r = rate/100/12, n = yrs*12;
+  if (r === 0) return loan/n;
+  return loan * r * Math.pow(1+r,n) / (Math.pow(1+r,n)-1);
+}
+
+function stampDuty(price) {
+  // UK Buy-to-let SDLT (additional property surcharge, 2025/26 rates)
+  let duty = Math.min(price,125000)*0.03;
+  if (price>125000) duty += (Math.min(price,250000)-125000)*0.05;
+  if (price>250000) duty += (Math.min(price,925000)-250000)*0.08;
+  if (price>925000) duty += (Math.min(price,1500000)-925000)*0.13;
+  if (price>1500000) duty += (price-1500000)*0.15;
+  return Math.round(duty);
+}
+
+function mortgageFees() { return 5000; } // ~£2K arrangement + £3K legal/survey
+
+function outBal(loan, r, mp, mo) {
+  if (r === 0) return loan - mp*mo;
+  return loan*Math.pow(1+r,mo) - mp*(Math.pow(1+r,mo)-1)/r;
+}
+
+function calcIRR(cfs) {
+  let lo=-0.9999, hi=50;
+  for (let i=0;i<600;i++) {
+    const mid=(lo+hi)/2;
+    const npv=cfs.reduce((s,cf,t)=>s+cf/Math.pow(1+mid,t),0);
+    if (Math.abs(npv)<0.5) return mid;
+    npv>0 ? lo=mid : hi=mid;
+  }
+  return (lo+hi)/2;
+}
+
+function runDCF(price, rent, levy, s) {
+  const loan=price*(1-s.dep/100), dep=price*s.dep/100;
+  const duty=stampDuty(price), breg=mortgageFees();
+  const init=dep+duty+breg;
+  const mp=bondPmt(price,s.dep,s.rate,s.term);
+  const r=s.rate/100/12;
+  const cfs=[-init]; let bal=loan;
+  for (let yr=1;yr<=s.hold;yr++) {
+    const ar=rent*Math.pow(1+s.rg/100,yr-1)*12;
+    const eff=ar*(1-s.vac/100);
+    const netOp=eff*(1-s.agent/100)-price*s.maint/100-levy*12-1200;
+    const acf=netOp-mp*12;
+    bal=Math.max(0,outBal(loan,r,mp,yr*12));
+    if (yr<s.hold) cfs.push(acf);
+    else { const ev=price*Math.pow(1+s.cg/100,s.hold); cfs.push(acf+ev-bal-ev*s.efee/100); }
+  }
+  const irr=calcIRR(cfs);
+  const vac=rent*s.vac/100, agt=rent*s.agent/100, mnt=price*s.maint/100/12;
+  const nr=rent-vac-agt-levy-100-mnt;
+  const ev=price*Math.pow(1+s.cg/100,s.hold);
+  const npv=cfs.reduce((sum,cf,t)=>sum+cf/Math.pow(1+s.hurdle/100,t),0);
+  return {
+    init,dep,duty,breg,mp,bal,ev,
+    nr,mcf:nr-mp,
+    gy:rent*12/price*100, ny:nr*12/price*100,
+    irr:irr?irr*100:null, npv,
+    cfs, vac, agt, mnt,
+    moic: (cfs.slice(1).reduce((s,x)=>s+x,0)+init)/init
+  };
+}
+
+// ── FORMATTERS ──
+function tenureTag(p) {
+  if (!p.tenure) return '';
+  if (p.tenure === 'Freehold') return '<span class="tenure-tag tenure-fh">🏠 Freehold</span>';
+  const yrs = p.lease_years;
+  if (!yrs) return '<span class="tenure-tag tenure-lh">Leasehold</span>';
+  const cls = yrs < 70 ? 'danger' : yrs < 85 ? 'warn' : '';
+  const warn = yrs < 70 ? ' ⚠️' : yrs < 85 ? ' ⚠' : '';
+  return `<span class="tenure-tag tenure-lh ${cls}">Leasehold · ${yrs}yr${warn}</span>`;
+}
+
+function fR(n) {
+  if (n===null||n===undefined||isNaN(n)) return '—';
+  const a=Math.abs(n);
+  let s = a>=1e6?'£'+(a/1e6).toFixed(2)+'M':a>=1000?'£'+Math.round(a/1000)+'K':'£'+Math.round(a);
+  return n<0?'−'+s:s;
+}
+function fP(n,d=1) { return n===null||isNaN(n)?'—':n.toFixed(d)+'%'; }
+
+// ── INIT ──
+function init() {
+  if (window.LIVE_LISTINGS && window.LIVE_LISTINGS.listings && window.LIVE_LISTINGS.listings.length) {
+    const ld=window.LIVE_LISTINGS;
+    liveListings=ld.listings;
+    const s=S();
+    liveListings.forEach(p=>{
+      const rent=(p.dcf||{}).est_monthly_rent||0;
+      const levy=(p.dcf||{}).est_levy||200;
+      if (rent) p._dcf_live=runDCF(p.price,rent,levy,s);
+    });
+    liveListings.sort((a,b)=>((b._dcf_live||{}).irr||0)-((a._dcf_live||{}).irr||0));
+    const d=new Date(ld.scraped_at);
+    document.getElementById('data-loaded-alert').style.display='flex';
+    document.getElementById('dla-msg').innerHTML=
+      `<strong>${liveListings.length} listings</strong> loaded across London &amp; Commuter Belt — ranked by IRR. Data updated ${d.toLocaleDateString('en-GB')}.`;
+    document.getElementById('hp-date').textContent=d.toLocaleDateString('en-GB');
+    document.getElementById('hp-count').textContent=liveListings.length;
+  }
+  renderLive();
+  renderWatchlist();
+  calcBond();
+  renderMarket();
+}
+
+// ── LIVE LISTINGS ──
+function rerankAndRender() {
+  if (!liveListings.length) { renderLive(); return; }
+  const s=S();
+  liveListings.forEach(p=>{
+    const rent=(p.dcf||{}).est_monthly_rent||0;
+    const levy=(p.dcf||{}).est_levy||200;
+    if (rent) p._dcf_live=runDCF(p.price,rent,levy,s);
+  });
+  liveListings.sort((a,b)=>((b._dcf_live||{}).irr||0)-((a._dcf_live||{}).irr||0));
+  renderLive();
+  toast('Re-ranked with updated assumptions');
+}
+
+function applySettings() {
+  document.getElementById('hp-rate').textContent=(S().rate||'5.0')+'%';
+  rerankAndRender();
+}
+
+function renderLive() {
+  const s=S();
+  const grid=document.getElementById('pgrid');
+  const empty=document.getElementById('empty-state');
+  let visible=activeFilter==='all'?[...liveListings]
+    :liveListings.filter(p=>(p.search_area||'').toLowerCase().includes(activeFilter)||(p.suburb||'').toLowerCase().includes(activeFilter));
+  document.getElementById('grid-count').textContent=visible.length+' propert'+(visible.length===1?'y':'ies');
+  const bestIrr=liveListings.length?((liveListings[0]._dcf_live||{}).irr||0):0;
+  document.getElementById('hp-irr').textContent=bestIrr?fP(bestIrr):'—';
+  if (!visible.length) { grid.innerHTML=''; empty.style.display='block'; updateKPIs([]); renderTop5([]); return; }
+  empty.style.display='none';
+  updateKPIs(visible);
+  renderTop5(visible.slice(0,5));
+  grid.innerHTML=visible.map((p,i)=>{
+    const dcf=p._dcf_live||{};
+    const irr=dcf.irr??null, gy=dcf.gy??0, mcf=dcf.mcf??0;
+    const ybC=gy>=6.5?'yb-hi':gy>=5?'yb-md':'yb-lo';
+    const cfC=mcf>=0?'g':mcf>-600?'a':'r';
+    const irrC=irr>=10?'g':irr>=7?'a':'r';
+    const isTop=i<5&&activeFilter==='all';
+    const grad=p.search_area==='East London'?'linear-gradient(135deg,#0d1a2d,#08101e)':p.search_area==='South London'?'linear-gradient(135deg,#0d1a1a,#08100e)':p.search_area==='North London'?'linear-gradient(135deg,#1a0d2d,#0e0818)':p.search_area==='Commuter Belt'?'linear-gradient(135deg,#1a1a0d,#0e0e08)':'linear-gradient(135deg,#1a0d1a,#0e080e)';
+    const emo=p.search_area==='East London'?'🏙️':p.search_area==='South London'?'🌉':p.search_area==='North London'?'🏘️':p.search_area==='Commuter Belt'?'🚂':'🏠';
+    const idx=liveListings.indexOf(p);
+    return `<div class="pc${isTop?' top-pick':''}" onclick="openModal(${idx},'live')">
+      ${isTop?`<div class="top-pick-badge">#${i+1} TOP PICK</div>`:''}
+      <div class="pc-img" style="background:${grad}">
+        ${p.image&&p.image!=='/blank.gif'?`<img src="${p.image}" onerror="this.style.display='none'">`:''}
+        <div class="pc-img-fallback">${emo}</div>
+        <div class="pc-tags">
+          <span class="tag tag-type">${p.type||'Flat'}</span>
+          <span class="${ybC} tag">${gy.toFixed(1)}% yield</span>
+        </div>
+        <div style="position:absolute;bottom:8px;left:8px;z-index:1">${tenureTag(p)}</div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-price">${fR(p.price)}</div>
+        <div class="pc-name">${p.suburb||p.search_area}${p.postcode?' ('+p.postcode+')':''} · ${(p.title||'').slice(0,45)}</div>
+        <div class="pc-specs">
+          ${p.beds?`<span>🛏 ${p.beds}</span>`:''}
+          ${p.baths?`<span>🚿 ${p.baths}</span>`:''}
+          ${p.size_m2?`<span>📐 ${p.size_m2}m²</span>`:''}
+          <span style="margin-left:auto;color:var(--di);font-size:10px">${p.search_area}</span>
+        </div>
+        <div style="margin-bottom:10px">${tenureTag(p)}</div>
+        <div class="pc-metrics">
+          <div class="met"><div class="met-lb">Gross Yield</div><div class="met-vl ${gy>=6.5?'g':gy>=5?'a':'r'}">${fP(gy)}</div></div>
+          <div class="met"><div class="met-lb">Mo. Cash Flow</div><div class="met-vl ${cfC}">${fR(mcf)}</div></div>
+          <div class="met"><div class="met-lb">IRR (${s.hold}yr)</div><div class="met-vl ${irrC}">${irr?fP(irr):'—'}</div></div>
+        </div>
+        <div class="pc-foot">
+          <button class="btn bp bs" onclick="event.stopPropagation();openModal(${idx},'live')">📊 DCF</button>
+          ${p.url?`<a href="${p.url}" target="_blank" class="btn bo bs" onclick="event.stopPropagation()">🔗 Listing</a>`:''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function updateKPIs(list) {
+  if (!list.length) { ['k-total','k-irr','k-yield','k-cf'].forEach(id=>{document.getElementById(id).textContent='—';}); return; }
+  const irrs=list.map(p=>(p._dcf_live||{}).irr||0).filter(x=>x);
+  const avgY=list.reduce((s,p)=>s+((p._dcf_live||{}).gy||0),0)/list.length;
+  const avgCF=list.reduce((s,p)=>s+((p._dcf_live||{}).mcf||0),0)/list.length;
+  document.getElementById('k-total').textContent=(window.LIVE_LISTINGS||{}).total_found||list.length;
+  document.getElementById('k-irr').textContent=irrs.length?fP(Math.max(...irrs)):'—';
+  document.getElementById('k-yield').textContent=fP(avgY);
+  document.getElementById('k-cf').textContent=fR(avgCF)+'/mo';
+}
+
+function renderTop5(list) {
+  const sec=document.getElementById('top5-section');
+  if (!list.length) { sec.style.display='none'; return; }
+  sec.style.display='block';
+  const rankCls=['rank-1','rank-2','rank-3','rank-n','rank-n'];
+  document.getElementById('top5-list').innerHTML=list.map((p,i)=>{
+    const dcf=p._dcf_live||{}, irr=dcf.irr??null, gy=dcf.gy??0, mcf=dcf.mcf??0;
+    const idx=liveListings.indexOf(p);
+    return `<div class="lb-row" onclick="openModal(${idx},'live')">
+      <div class="lb-rank ${rankCls[i]||'rank-n'}">${i+1}</div>
+      <div class="lb-info">
+        <div class="lb-name">${p.suburb||p.search_area}${p.postcode?' ('+p.postcode+')':''} — ${fR(p.price)}</div>
+        <div class="lb-sub">${(p.title||'').slice(0,65)} · ${p.beds||'?'}bed${p.size_m2?' · '+p.size_m2+'m²':''}</div>
+      </div>
+      <div class="lb-metrics">
+        <div class="lb-m"><div class="lb-m-val ${irr>=10?'g':irr>=7?'a':'r'}">${irr?fP(irr):'—'}</div><div class="lb-m-lbl">IRR</div></div>
+        <div class="lb-m"><div class="lb-m-val ${gy>=6.5?'g':gy>=5?'a':'r'}">${fP(gy)}</div><div class="lb-m-lbl">Yield</div></div>
+        <div class="lb-m"><div class="lb-m-val ${mcf>=0?'g':mcf>-600?'a':'r'}">${fR(mcf)}</div><div class="lb-m-lbl">Mo. CF</div></div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── MODAL ──
+function openModal(idx, source) {
+  const p=source==='live'?liveListings[idx]:watchlist[idx];
+  currentProp=p; currentSource=source;
+  const s=S();
+  const rent=source==='live'?(p.dcf||{}).est_monthly_rent||0:p.rent||0;
+  const levy=source==='live'?(p.dcf||{}).est_levy||200:p.levy||200;
+  const dcf=runDCF(p.price,rent,levy,s);
+  document.getElementById('m-title').textContent=(p.suburb||p.search_area||'')+(p.postcode?' ('+p.postcode+')':'')+(p.title?' — '+p.title.slice(0,45):'')+' · '+fR(p.price);
+  const lnk=document.getElementById('m-link');
+  if (p.url){lnk.href=p.url;lnk.style.display='inline-flex';}else{lnk.style.display='none';}
+  const irrPct=dcf.irr||0;
+  document.getElementById('m-hurdle').textContent=s.hurdle+'%';
+  document.getElementById('m-holdlbl').textContent='over '+s.hold+' years';
+  document.getElementById('m-irr').textContent=irrPct?fP(irrPct):'N/A';
+  document.getElementById('m-irr').style.color=irrPct>=s.hurdle?'var(--g)':irrPct>=5?'var(--a)':'var(--r)';
+  const barW=Math.min(100,Math.max(0,irrPct/20*100));
+  const bar=document.getElementById('m-ibar');
+  bar.style.width=barW+'%'; bar.style.background=irrPct>=s.hurdle?'var(--g)':irrPct>=5?'var(--a)':'var(--r)';
+  document.getElementById('m-moic').textContent=dcf.moic>0?dcf.moic.toFixed(2)+'x':'—';
+  document.getElementById('m-rent-note').style.display=source==='live'?'flex':'none';
+  const $=(id,v,c)=>{const e=document.getElementById(id);if(e){e.textContent=v;if(c)e.className='vl '+c;}};
+  $('s-price',fR(p.price)); $('s-dep',fR(dcf.dep));
+  $('s-duty','−'+fR(dcf.duty),'r'); $('s-breg','−'+fR(dcf.breg),'r');
+  $('s-total',fR(dcf.init));
+  $('s-rent',fR(rent)+'/mo','g'); $('s-vac','−'+fR(dcf.vac)+'/mo','r');
+  $('s-agt','−'+fR(dcf.agt)+'/mo','r'); $('s-levy','−'+fR(levy)+'/mo','r');
+  $('s-maint','−'+fR(dcf.mnt+100)+'/mo','r');
+  $('s-nri',fR(dcf.nr)+'/mo','g'); $('s-bond','−'+fR(dcf.mp)+'/mo','r');
+  const cfEl=document.getElementById('s-cf');
+  if(cfEl){cfEl.textContent=fR(dcf.mcf)+'/mo';cfEl.className='vl '+(dcf.mcf>=0?'g':'r');}
+  $('s-gy',fP(dcf.gy),''); $('s-ny',fP(dcf.ny),dcf.ny>0?'g':'r');
+  $('s-brate',s.rate+'%','a');
+  const yg=dcf.ny-s.rate;
+  const ygEl=document.getElementById('s-yg');
+  if(ygEl){ygEl.textContent=fP(yg);ygEl.className='vl '+(yg>=0?'g':'r');}
+  $('s-ppm',p.size_m2?fR(p.price/p.size_m2)+'/m²':'—');
+  const tenureEl=document.getElementById('s-tenure');
+  if(tenureEl) tenureEl.innerHTML=tenureTag(p)||'—';
+  const leaseWarn=document.getElementById('m-lease-warn');
+  if(leaseWarn){
+    const yrs=p.lease_years;
+    if(p.tenure==='Leasehold'&&yrs&&yrs<85){
+      leaseWarn.style.display='flex';
+      leaseWarn.querySelector('span').textContent=yrs<70
+        ?`⚠️ Short lease (${yrs} yrs): many lenders won't mortgage under 70yrs. Extension via Leasehold Reform Act will be costly — factor in £10,000–£30,000+ for extension.`
+        :`⚠ Lease has ${yrs} years remaining. Lenders typically require 85+ years on completion — extension may be needed before or shortly after purchase (~£8,000–£15,000).`;
+    } else { leaseWarn.style.display='none'; }
+  }
+  document.getElementById('s-holdyr').textContent=s.hold;
+  $('s-ev',fR(dcf.ev),'g'); $('s-ob','−'+fR(dcf.bal),'r');
+  const eafAmt=dcf.ev*s.efee/100;
+  $('s-eaf','−'+fR(eafAmt),'r'); $('s-nep',fR(dcf.ev-dcf.bal-eafAmt),'g');
+  const npvEl=document.getElementById('s-npv');
+  if(npvEl){npvEl.textContent=fR(dcf.npv);npvEl.className='vl '+(dcf.npv>=0?'g':'r');}
+  renderCFTable(p,s,dcf);
+  renderSens(p,s);
+  renderFunding(p,s,dcf);
+  document.getElementById('dcf-ov').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function showDerivation(ev,rows,title) {
+  ev.stopPropagation();
+  const pop=document.getElementById('deriv-pop');
+  document.getElementById('deriv-pop-title').textContent=title||'Calculation Detail';
+  document.getElementById('deriv-pop-body').innerHTML=rows.map(r=>{
+    const vc=r.cls||(r.value>=0?'pos':'neg');
+    return '<div class="deriv-row"><div class="deriv-lbl">'+r.label+(r.note?'<div class="deriv-note">'+r.note+'</div>':'')+'</div><div class="deriv-val '+vc+'">'+r.display+'</div></div>';
+  }).join('');
+  let x=ev.clientX+12, y=ev.clientY+8;
+  if(x+380>window.innerWidth) x=ev.clientX-385;
+  if(y+320>window.innerHeight) y=ev.clientY-325;
+  pop.style.left=Math.max(8,x)+'px'; pop.style.top=Math.max(8,y)+'px';
+  pop.classList.add('show');
+}
+document.addEventListener('click',()=>{const p=document.getElementById('deriv-pop');if(p)p.classList.remove('show');});
+
+function renderCFTable(p,s,dcf0) {
+  const loan=p.price*(1-s.dep/100), r=s.rate/100/12;
+  const baseRent=(p.dcf||{}).est_monthly_rent||p.rent||0;
+  const levy=(p.dcf||{}).est_levy||p.levy||200;
+  const mp=dcf0.mp;
+  let html='<table><thead><tr><th>Year</th><th>Gross Rent</th><th>Net Op. Income</th><th>Mortgage</th><th>Annual CF</th><th>Exit Proceeds</th><th>Total CF</th><th>Cum. CF</th></tr></thead><tbody>';
+  let cum=-dcf0.init, bal=loan;
+  for (let yr=1;yr<=s.hold;yr++) {
+    const gf=Math.pow(1+s.rg/100,yr-1);
+    const mRent=baseRent*gf, ar=mRent*12;
+    const vacAmt=ar*s.vac/100, eff=ar*(1-s.vac/100);
+    const agentFee=eff*s.agent/100, maint=p.price*s.maint/100, ins=1200;
+    const no=eff-agentFee-maint-levy*12-ins;
+    const acf=no-mp*12;
+    bal=Math.max(0,outBal(loan,r,mp,yr*12));
+    const ev=yr===s.hold?p.price*Math.pow(1+s.cg/100,s.hold):0;
+    const ep=yr===s.hold?ev-bal-ev*s.efee/100:0;
+    const tot=acf+ep; cum+=tot;
+    const rentRows=[
+      {label:'Base monthly rent (Yr 1)',display:fR(baseRent),value:baseRent,cls:'pos',note:'Area average for '+p.suburb+' · '+( (baseRent*12/p.price*100).toFixed(1))+'% gross yield'},
+      {label:'Growth factor ('+s.rg+'% × '+(yr-1)+'yr)',display:yr===1?'×1.000':'×'+gf.toFixed(3),value:1,cls:'neu'},
+      {label:'Monthly rent Year '+yr,display:fR(mRent)+'/mo',value:mRent,cls:'pos'},
+      {label:'× 12 months',display:fR(ar),value:ar,cls:'pos'},
+    ];
+    const noiRows=[
+      {label:'Gross annual rent',display:fR(ar),value:ar,cls:'pos'},
+      {label:'Less: vacancy ('+s.vac+'%)',display:'−'+fR(vacAmt),value:-vacAmt,cls:'neg',note:s.vac+'% of gross rent'},
+      {label:'Less: mgmt fee ('+s.agent+'%)',display:'−'+fR(agentFee),value:-agentFee,cls:'neg',note:s.agent+'% of effective rent'},
+      {label:'Less: maintenance ('+s.maint+'% p.a.)',display:'−'+fR(maint),value:-maint,cls:'neg',note:s.maint+'% × '+fR(p.price)},
+      {label:'Less: service charge',display:'−'+fR(levy*12),value:-levy*12,cls:'neg',note:fR(levy)+'/mo'},
+      {label:'Less: landlord insurance',display:'−'+fR(ins),value:-ins,cls:'neg',note:'£100/mo buildings insurance'},
+      {label:'= Net Operating Income',display:fR(no),value:no,cls:no>=0?'pos':'neg'},
+    ];
+    const bondRows=[
+      {label:'Loan amount',display:fR(loan),value:loan,cls:'neu',note:s.dep+'% deposit on '+fR(p.price)},
+      {label:'Mortgage rate',display:s.rate+'% p.a.',value:s.rate,cls:'neu',note:'BoE Base: 4.25%. Typical BTL: 5.0%'},
+      {label:'Term',display:s.term+' years',value:s.term,cls:'neu'},
+      {label:'Monthly repayment',display:fR(mp)+'/mo',value:mp,cls:'neg'},
+      {label:'× 12 months',display:'−'+fR(mp*12),value:-mp*12,cls:'neg'},
+      {label:'Outstanding balance (Yr '+yr+')',display:fR(bal),value:bal,cls:'neg',note:'Principal repaid: '+fR(loan-bal)},
+    ];
+    const cfRows=[
+      {label:'Net Operating Income',display:fR(no),value:no,cls:no>=0?'pos':'neg'},
+      {label:'Less: annual mortgage',display:'−'+fR(mp*12),value:-mp*12,cls:'neg'},
+      {label:'= Annual Cash Flow',display:fR(acf),value:acf,cls:acf>=0?'pos':'neg'},
+      {label:'Monthly shortfall/surplus',display:fR(acf/12)+'/mo',value:acf/12,cls:acf>=0?'pos':'neg'},
+    ];
+    const exitRows=ep?[
+      {label:'Projected exit value',display:fR(ev),value:ev,cls:'pos',note:fR(p.price)+' × (1+'+s.cg+'%)^'+s.hold+' = '+fR(ev)},
+      {label:'Less: outstanding mortgage',display:'−'+fR(bal),value:-bal,cls:'neg'},
+      {label:'Less: agent fee ('+s.efee+'%)',display:'−'+fR(ev*s.efee/100),value:-ev*s.efee/100,cls:'neg'},
+      {label:'= Net exit proceeds',display:fR(ep),value:ep,cls:'pos'},
+    ]:[{label:'No exit in year '+yr,display:'—',value:0,cls:'neu'}];
+    function cell(val,rows,title,cls) {
+      const vc=cls||(val>=0?'pos':'neg');
+      const colr=vc==='pos'?'var(--g)':vc==='neg'?'var(--r)':'var(--a)';
+      const enc=encodeURIComponent(JSON.stringify({rows,title}));
+      return '<td style="color:'+colr+'"><span class="clickable-num" onclick="var d=JSON.parse(decodeURIComponent(\''+enc+'\'));showDerivation(event,d.rows,d.title)">'+fR(val)+'</span></td>';
+    }
+    html+='<tr>'+'<td>Year '+yr+'</td>'+cell(ar,rentRows,'Gross Rent — Yr '+yr,'pos')+cell(no,noiRows,'Net Op. Income — Yr '+yr,no>=0?'pos':'neg')+cell(-mp*12,bondRows,'Mortgage — Yr '+yr,'neg')+cell(acf,cfRows,'Annual CF — Yr '+yr,acf>=0?'pos':'neg')+cell(ep||0,exitRows,'Exit — Yr '+yr,ep>0?'pos':'neu')+cell(tot,cfRows.concat(exitRows),'Total Yr '+yr,tot>=0?'pos':'neg')+cell(cum,[{label:'Cumulative to Yr '+yr,display:fR(cum),value:cum,note:'Includes initial equity of '+fR(-dcf0.init)}],'Cumulative CF',cum>=0?'pos':'neg')+'</tr>';
+  }
+  html+='</tbody></table>';
+  document.getElementById('cf-tbl').innerHTML=html;
+  const cfs=dcf0.cfs.slice(1), maxA=Math.max(...cfs.map(Math.abs))||1;
+  document.getElementById('cf-bars').innerHTML=cfs.map(cf=>'<div class="cbar" style="height:'+Math.max(4,Math.abs(cf)/maxA*65)+'px;background:'+(cf>=0?'var(--g)':cf>-10000?'var(--a)':'var(--r)')+'" title="'+fR(cf)+'"></div>').join('');
+  document.getElementById('cf-lbls').innerHTML=cfs.map((_,i)=>'<div class="clabel">Y'+(i+1)+'</div>').join('');
+}
+
+function renderSens(p,s) {
+  const holds=[3,5,7,10,15], growths=[2,3.5,5,6.5,8];
+  const rent=(p.dcf||{}).est_monthly_rent||p.rent||0;
+  const levy=(p.dcf||{}).est_levy||p.levy||200;
+  let h='<table><thead><tr><th>Hold →</th>';
+  holds.forEach(yr=>{h+='<th style="text-align:center">'+yr+'yr</th>';});
+  h+='</tr></thead><tbody>';
+  growths.forEach(cg=>{
+    h+='<tr><td style="font-weight:600">'+cg+'% CG</td>';
+    holds.forEach(yr=>{
+      const ss=Object.assign({},s,{hold:yr,cg});
+      const res=runDCF(p.price,rent,levy,ss), irr=res.irr||0;
+      const c=irr>=10?'var(--g)':irr>=7?'var(--a)':'var(--r)';
+      const bg=irr>=s.hurdle?'rgba(34,197,94,.1)':irr>=7?'rgba(245,158,11,.07)':'rgba(239,68,68,.07)';
+      const bold=(yr===s.hold&&cg===s.cg)?'font-weight:800;':'';
+      h+='<td style="text-align:center;color:'+c+';background:'+bg+';'+bold+'">'+fP(irr)+'</td>';
+    });
+    h+='</tr>';
+  });
+  h+='</tbody></table>';
+  document.getElementById('s-irr-tbl').innerHTML=h;
+  const rates=[3.5,4.5,5.0,5.5,6.5];
+  const rents=[0.8,0.9,1.0,1.1,1.2].map(m=>Math.round(rent*m/100)*100);
+  let h2='<table><thead><tr><th>Rate →</th>';
+  rates.forEach(r=>{h2+='<th style="text-align:center">'+r+'%</th>';});
+  h2+='</tr></thead><tbody>';
+  rents.forEach(rnt=>{
+    h2+='<tr><td style="font-weight:600">'+fR(rnt)+'/mo</td>';
+    rates.forEach(rt=>{
+      const ss=Object.assign({},s,{rate:rt});
+      const res=runDCF(p.price,rnt,levy,ss), cf=res.mcf;
+      const c=cf>=0?'var(--g)':cf>-500?'var(--a)':'var(--r)';
+      const bg=cf>=0?'rgba(34,197,94,.1)':cf>-500?'rgba(245,158,11,.07)':'rgba(239,68,68,.07)';
+      const bold=(rt===s.rate&&rnt===rent)?'font-weight:800;':'';
+      h2+='<td style="text-align:center;color:'+c+';background:'+bg+';'+bold+'">'+fR(cf)+'</td>';
+    });
+    h2+='</tr>';
+  });
+  h2+='</tbody></table>';
+  document.getElementById('s-cf-tbl').innerHTML=h2;
+}
+
+function renderFunding(p,s,dcf) {
+  document.getElementById('f-pprice').textContent=fR(p.price);
+  const deposits=[25,30,35,40];
+  const rent=(p.dcf||{}).est_monthly_rent||p.rent||0;
+  const levy=(p.dcf||{}).est_levy||p.levy||200;
+  document.getElementById('m-lcards').innerHTML=deposits.map(dep=>{
+    const dcfD=runDCF(p.price,rent,levy,Object.assign({},s,{dep}));
+    const isSel=dep===s.dep;
+    const cash=p.price*dep/100+dcfD.duty+dcfD.breg;
+    return '<div class="lcard'+(isSel?' hi':'')+'">'
+      +'<div class="lc-bank">'+dep+'% Deposit'+(isSel?' ✓':'')+'</div>'
+      +'<div class="lc-rate">'+fR(cash)+'<span> needed</span></div>'
+      +'<div class="lc-mo">'+fR(dcfD.mp)+'/mo</div>'
+      +'<div class="lc-tot">IRR: '+(dcfD.irr?fP(dcfD.irr):'—')+'</div>'
+      +'</div>';
+  }).join('');
+  let tbl='<table><thead><tr><th>Deposit</th><th>Cash In</th><th>Mo. Mortgage</th><th>Mo. CF</th><th>IRR</th></tr></thead><tbody>';
+  deposits.forEach(dep=>{
+    const dcfD=runDCF(p.price,rent,levy,Object.assign({},s,{dep}));
+    const cash=p.price*dep/100+dcfD.duty+dcfD.breg;
+    const isSel=dep===s.dep;
+    const cfC=dcfD.mcf>=0?'var(--g)':dcfD.mcf>-500?'var(--a)':'var(--r)';
+    const irrC=(dcfD.irr||0)>=s.hurdle?'var(--g)':'var(--a)';
+    tbl+='<tr style="'+(isSel?'background:rgba(79,142,247,.08);font-weight:600':'')+'"><td>'+dep+'%</td><td style="text-align:right;color:var(--a)">'+fR(cash)+'</td><td style="text-align:right;color:var(--r)">'+fR(dcfD.mp)+'</td><td style="text-align:right;color:'+cfC+'">'+fR(dcfD.mcf)+'</td><td style="text-align:right;color:'+irrC+'">'+(dcfD.irr?fP(dcfD.irr):'—')+'</td></tr>';
+  });
+  tbl+='</tbody></table>';
+  document.getElementById('f-dep-tbl').innerHTML=tbl;
+}
+
+// ── WATCHLIST ──
+function addManual() {
+  const name=document.getElementById('f-name').value.trim();
+  const price=+document.getElementById('f-price').value;
+  const rent=+document.getElementById('f-rent').value;
+  if (!name||!price||!rent) { toast('Please fill in Address, Price and Rent'); return; }
+  const levy=+document.getElementById('f-levy').value||200;
+  watchlist.push({
+    id:'manual_'+Date.now(),
+    title:name,
+    suburb:document.getElementById('f-area').value,
+    search_area:document.getElementById('f-area').value,
+    price,rent,levy,
+    beds:document.getElementById('f-beds').value,
+    baths:document.getElementById('f-baths').value,
+    size_m2:+document.getElementById('f-sqm').value||null,
+    type:document.getElementById('f-type').value,
+    url:document.getElementById('f-url').value||null,
+    notes:document.getElementById('f-notes').value,
+    addedAt:Date.now(),
+    dcf:{est_monthly_rent:rent,est_levy:levy}
+  });
+  localStorage.setItem('lon_wl',JSON.stringify(watchlist));
+  renderWatchlist();
+  clearForm();
+  toast('Added to Watchlist');
+}
+
+function clearForm() {
+  ['f-name','f-price','f-rent','f-levy','f-sqm','f-url','f-notes'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.value='';
+  });
+}
+
+function removeFromWatchlist(idx) {
+  watchlist.splice(idx,1);
+  localStorage.setItem('lon_wl',JSON.stringify(watchlist));
+  renderWatchlist();
+  toast('Removed from Watchlist');
+}
+
+function renderWatchlist() {
+  const grid=document.getElementById('wl-grid');
+  const empty=document.getElementById('wl-empty');
+  const cnt=document.getElementById('wl-count');
+  if (!grid) return;
+  if (cnt) cnt.textContent=watchlist.length?'('+watchlist.length+')':'';
+  if (!watchlist.length) { grid.innerHTML=''; if(empty)empty.style.display='block'; return; }
+  if (empty) empty.style.display='none';
+  const s=S();
+  grid.innerHTML=watchlist.map((p,i)=>{
+    const rent=p.rent||(p.dcf||{}).est_monthly_rent||0;
+    const levy=p.levy||(p.dcf||{}).est_levy||200;
+    const dcf=runDCF(p.price,rent,levy,s);
+    const gy=dcf.gy, mcf=dcf.mcf, irr=dcf.irr||0;
+    return '<div class="pc" onclick="openModal('+i+',\'wl\')">'
+      +'<div class="pc-img" style="background:linear-gradient(135deg,#0d1a2d,#08100d)">'
+      +'<div class="pc-img-fallback">⭐</div>'
+      +'<div class="pc-tags"><span class="tag">'+(p.type||'Property')+'</span></div>'
+      +'</div><div class="pc-body">'
+      +'<div class="pc-price">'+fR(p.price)+'</div>'
+      +'<div class="pc-name">'+(p.suburb||p.search_area||p.title||'')+'</div>'
+      +'<div class="pc-specs">'+(p.beds?'<span>🛏 '+p.beds+'</span> ':'')+''+(p.baths?'<span>🚿 '+p.baths+'</span> ':'')+''+(p.size_m2?'<span>📐 '+p.size_m2+'m²</span>':'')+'</div>'
+      +'<div class="pc-metrics">'
+      +'<div class="met"><div class="met-lb">Yield</div><div class="met-vl '+(gy>=6.5?'g':gy>=5?'a':'r')+'">'+fP(gy)+'</div></div>'
+      +'<div class="met"><div class="met-lb">Mo. CF</div><div class="met-vl '+(mcf>=0?'g':mcf>-500?'a':'r')+'">'+fR(mcf)+'</div></div>'
+      +'<div class="met"><div class="met-lb">IRR</div><div class="met-vl '+(irr>=10?'g':irr>=7?'a':'r')+'">'+(irr?fP(irr):'—')+'</div></div>'
+      +'</div><div class="pc-foot">'
+      +'<button class="btn bp bs" onclick="event.stopPropagation();openModal('+i+',\'wl\')">📊 DCF</button>'
+      +'<button class="btn bo bs" onclick="event.stopPropagation();removeFromWatchlist('+i+')">Remove</button>'
+      +'</div></div></div>';
+  }).join('');
+}
+
+// ── MORTGAGE CALCULATOR ──
+function calcBond() {
+  const price=+(document.getElementById('bc-price')||{}).value||400000;
+  const dep=+(document.getElementById('bc-dep')||{}).value||25;
+  const term=+(document.getElementById('bc-term')||{}).value||25;
+  const loan=price*(1-dep/100);
+  const duty=stampDuty(price), fees=mortgageFees();
+  const totalCash=price*dep/100+duty+fees;
+  const rateScenarios=[
+    {label:'2-yr Fixed',rate:4.2,note:'Best current deals'},
+    {label:'5-yr Fixed',rate:4.5,note:'Stability & certainty'},
+    {label:'Tracker (Base+0.75%)',rate:5.0,note:'Variable — tracks BoE'},
+    {label:'BTL Standard',rate:5.5,note:'Typical BTL product'},
+    {label:'SVR (avoid)',rate:7.5,note:'Revert rate on expiry'},
+  ];
+  const cards=document.getElementById('bc-cards');
+  if(cards) cards.innerHTML=rateScenarios.map(r=>{
+    const mp=bondPmt(price,dep,r.rate,term);
+    const isBest=r.rate===4.2;
+    return '<div class="lcard'+(isBest?' hi':'')+'">'
+      +'<div class="lc-bank">'+r.label+'</div>'
+      +'<div class="lc-rate">'+r.rate+'<span>% p.a.</span></div>'
+      +'<div class="lc-mo">'+fR(mp)+'/mo</div>'
+      +'<div class="lc-tot">Total interest: '+fR(mp*term*12-loan)+'<br>'+r.note+'</div>'
+      +'</div>';
+  }).join('');
+  const costs=document.getElementById('bc-costs');
+  if(costs) costs.innerHTML='<div class="dr"><span class="lb">Purchase Price</span><span class="vl">'+fR(price)+'</span></div>'
+    +'<div class="dr"><span class="lb">Deposit ('+dep+'%)</span><span class="vl a">'+fR(price*dep/100)+'</span></div>'
+    +'<div class="dr"><span class="lb">Stamp Duty Land Tax (BTL)</span><span class="vl r">'+fR(duty)+'</span></div>'
+    +'<div class="dr"><span class="lb">Mortgage Arrangement Fee</span><span class="vl r">~£2,000</span></div>'
+    +'<div class="dr"><span class="lb">Legal + Survey Fees</span><span class="vl r">~£3,000</span></div>'
+    +'<div class="dr tot"><span class="lb">Total Cash Required Day 1</span><span class="vl">'+fR(totalCash)+'</span></div>'
+    +'<div class="dr"><span class="lb">Mortgage Amount</span><span class="vl">'+fR(loan)+'</span></div>';
+  const amort=document.getElementById('bc-amort');
+  if(amort) {
+    const r5=5.0/100/12, mp5=bondPmt(price,dep,5.0,term);
+    let bal=loan;
+    let h='<table><thead><tr><th>Year</th><th>Opening Balance</th><th>Interest Paid</th><th>Principal Repaid</th><th>Closing Balance</th></tr></thead><tbody>';
+    for(let yr=1;yr<=5;yr++) {
+      const ob=bal; let annInt=0,annPrin=0;
+      for(let mo=0;mo<12;mo++){const i=bal*r5,pr=mp5-i;annInt+=i;annPrin+=pr;bal-=pr;}
+      h+='<tr><td>Year '+yr+'</td><td>'+fR(ob)+'</td><td class="neg">'+fR(annInt)+'</td><td class="pos">'+fR(annPrin)+'</td><td>'+fR(bal)+'</td></tr>';
+    }
+    h+='</tbody></table>';
+    amort.innerHTML=h;
+  }
+}
+
+// ── MARKET DATA ──
+function renderMarket() {
+  const areas=[
+    {name:'East London (E1–E8)',yield:5.9,growth:5.5,med:'£425K',vol:'High'},
+    {name:'South London (SE)',yield:5.8,growth:5.0,med:'£390K',vol:'High'},
+    {name:'North London (N/E17)',yield:5.7,growth:5.0,med:'£415K',vol:'High'},
+    {name:'Outer East (Ilford/Barking)',yield:6.3,growth:4.5,med:'£315K',vol:'High'},
+    {name:'South Outer (Croydon/Bromley)',yield:6.0,growth:4.0,med:'£325K',vol:'Med'},
+    {name:'Watford/Hertfordshire',yield:5.8,growth:4.5,med:'£355K',vol:'Med'},
+    {name:'Reading/Berkshire',yield:6.0,growth:4.5,med:'£320K',vol:'Med'},
+    {name:'Slough/Windsor',yield:6.0,growth:5.0,med:'£280K',vol:'High'},
+    {name:'Luton/Bedfordshire',yield:6.2,growth:4.0,med:'£250K',vol:'High'},
+  ];
+  const tbl=document.getElementById('yield-tbl');
+  if(!tbl) return;
+  let h='<table><thead><tr><th>Area</th><th style="text-align:center">Gross Yield</th><th style="text-align:center">Cap Growth</th><th style="text-align:center">Median Price</th><th style="text-align:center">Demand</th></tr></thead><tbody>';
+  areas.forEach((a,i)=>{
+    const yc=a.yield>=6.2?'var(--g)':a.yield>=5.5?'var(--a)':'var(--r)';
+    const vc=a.vol==='High'?'var(--g)':a.vol==='Med'?'var(--a)':'var(--di)';
+    h+='<tr style="'+(i%2?'':'background:rgba(255,255,255,.02)')+'"><td style="font-weight:600">'+a.name+'</td><td style="text-align:center;color:'+yc+'">'+a.yield+'%</td><td style="text-align:center;color:var(--acc)">'+a.growth+'% p.a.</td><td style="text-align:center;color:var(--mu)">'+a.med+'</td><td style="text-align:center;color:'+vc+'">'+a.vol+'</td></tr>';
+  });
+  h+='</tbody></table>';
+  tbl.innerHTML=h;
+}
+
+// ── UI HELPERS ──
+function showTab(id,el) {
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
+  const t=document.getElementById('tab-'+id); if(t) t.classList.add('on');
+  if(el) el.classList.add('on');
+}
+
+function setFilter(val,el) {
+  activeFilter=val;
+  document.querySelectorAll('.fchip').forEach(c=>c.classList.remove('on'));
+  if(el) el.classList.add('on');
+  renderLive();
+}
+
+function sortBy(val) {
+  if(!liveListings.length) return;
+  liveListings.sort((a,b)=>{
+    const ad=a._dcf_live||{}, bd=b._dcf_live||{};
+    if(val==='irr') return (bd.irr||0)-(ad.irr||0);
+    if(val==='yield') return (bd.gy||0)-(ad.gy||0);
+    if(val==='price') return a.price-b.price;
+    if(val==='cf') return (bd.mcf||0)-(ad.mcf||0);
+    return 0;
+  });
+  renderLive();
+}
+
+function toggleSbar() {
+  const body=document.getElementById('sbar-body');
+  const tog=document.getElementById('sb-tog');
+  if(!body) return;
+  const collapsed=body.style.display==='none';
+  body.style.display=collapsed?'':'none';
+  if(tog) tog.textContent=collapsed?'(click to collapse)':'(click to expand)';
+}
+
+function closeModal() {
+  const ov=document.getElementById('dcf-ov'); if(ov) ov.classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function mTab(id,el) {
+  document.querySelectorAll('.mpane').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.mtb').forEach(b=>b.classList.remove('on'));
+  const pane=document.getElementById('mp-'+id); if(pane) pane.classList.add('on');
+  if(el) el.classList.add('on');
+}
+
+let _toastTimer;
+function toast(msg) {
+  const t=document.getElementById('toast'), m=document.getElementById('toast-msg');
+  if(!t||!m) return;
+  m.textContent=msg; t.classList.add('show');
+  clearTimeout(_toastTimer);
+  _toastTimer=setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+document.addEventListener('DOMContentLoaded', loadData);
+</script>
+</body>
+</html>

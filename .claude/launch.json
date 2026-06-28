@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "property-dashboard",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "3939"],
+      "port": 3939
+    }
+  ]
+}
