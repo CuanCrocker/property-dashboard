@@ -293,6 +293,17 @@ tr:hover td{background:rgba(255,255,255,.02)}
     <div id="top5-list"></div>
   </div>
 
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;align-items:center">
+    <input id="search-box" type="search" placeholder="🔍 Search area, postcode or keyword — e.g. Hackney, SE15, garden…"
+      oninput="searchTerm=this.value.trim().toLowerCase();renderLive()"
+      style="flex:1;min-width:260px;background:var(--card);border:1px solid var(--bdr2);border-radius:9px;padding:9px 14px;color:var(--tx);font-size:13px;outline:none">
+    <input id="flt-maxprice" type="number" placeholder="Max £" title="Max price"
+      oninput="renderLive()" style="width:110px;background:var(--card);border:1px solid var(--bdr);border-radius:9px;padding:9px 10px;color:var(--tx);font-size:12px;outline:none">
+    <input id="flt-minyield" type="number" placeholder="Min yield %" title="Min gross yield" step="0.5"
+      oninput="renderLive()" style="width:110px;background:var(--card);border:1px solid var(--bdr);border-radius:9px;padding:9px 10px;color:var(--tx);font-size:12px;outline:none">
+    <input id="flt-mincf" type="number" placeholder="Min CF £/mo" title="Minimum monthly cash flow (e.g. -500)"
+      oninput="renderLive()" style="width:120px;background:var(--card);border:1px solid var(--bdr);border-radius:9px;padding:9px 10px;color:var(--tx);font-size:12px;outline:none">
+  </div>
   <div class="fbar">
     <div class="fchip on" onclick="setFilter('all',this)">All Areas</div>
     <div class="fchip" onclick="setFilter('east london',this)">East London</div>
@@ -301,11 +312,13 @@ tr:hover td{background:rgba(255,255,255,.02)}
     <div class="fchip" onclick="setFilter('outer london',this)">Outer London</div>
     <div class="fchip" onclick="setFilter('commuter belt',this)">Commuter Belt</div>
     <div class="fsep"></div>
+    <div class="fchip" onclick="sortBy('score')">↓ Score</div>
     <div class="fchip" onclick="sortBy('irr')">↓ IRR</div>
     <div class="fchip" onclick="sortBy('yield')">↓ Yield</div>
     <div class="fchip" onclick="sortBy('price')">↓ Price</div>
     <div class="fchip" onclick="sortBy('cf')">↓ Cash Flow</div>
   </div>
+  <div class="fbar" id="sub-fbar" style="display:none;margin-top:-8px"></div>
 
   <div class="shdr">
     <div class="stitle">All Listings <span class="scnt" id="grid-count"></span></div>
@@ -457,6 +470,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
             <div class="irr-bar-bg"><div class="irr-bar" id="m-ibar"></div></div>
             <div class="irr-leg"><span style="color:var(--r)">0%</span><span style="margin-left:auto;color:var(--a)">Hurdle</span><span style="margin-left:auto;color:var(--g)">20%</span></div>
           </div>
+          <div style="text-align:center;min-width:85px"><div style="font-size:10px;color:var(--di);margin-bottom:4px">Deal Score</div><div id="m-score">—</div><div style="font-size:10px;color:var(--di);margin-top:4px">of 100</div></div>
           <div style="text-align:center;min-width:85px"><div style="font-size:10px;color:var(--di);margin-bottom:4px">Equity Multiple</div><div style="font-size:22px;font-weight:800" id="m-moic">—</div><div style="font-size:10px;color:var(--di)" id="m-holdlbl">over 7 years</div></div>
         </div>
         <div class="alert info" id="m-rent-note" style="margin-bottom:16px;display:none">
@@ -557,6 +571,8 @@ tr:hover td{background:rgba(255,255,255,.02)}
 let liveListings = [];
 let watchlist = JSON.parse(localStorage.getItem('lon_wl') || '[]');
 let activeFilter = 'all';
+let activeSub = null;      // suburb-level tag filter (e.g. 'Hackney')
+let searchTerm = '';       // free-text search
 let currentProp = null;
 let currentSource = null;
 
@@ -663,6 +679,31 @@ function runDCF(price, rent, levy, s) {
   };
 }
 
+// ── DEAL SCORE ──
+// 0–100 composite: IRR 40% + gross yield 20% + monthly cash flow 20% + lease security 20%
+function dealScore(p, dcf) {
+  if (!dcf) return null;
+  const clamp=(x)=>Math.max(0,Math.min(1,x));
+  const irrS  = clamp(((dcf.irr||0)   - 4)  / (14 - 4));      // 4%→0, 14%+→1
+  const gyS   = clamp(((dcf.gy||0)    - 4)  / (7.5 - 4));     // 4%→0, 7.5%+→1
+  const cfS   = clamp(((dcf.mcf||-1500) + 1200) / 1200);      // −£1200→0, £0+→1
+  let leaseS  = 1;
+  if (p.tenure === 'Leasehold') {
+    const yrs = p.lease_years;
+    leaseS = yrs==null ? 0.6 : clamp((yrs - 60) / (125 - 60));  // 60yr→0, 125yr+→1
+  }
+  return Math.round((irrS*0.4 + gyS*0.2 + cfS*0.2 + leaseS*0.2) * 100);
+}
+
+function scoreBadge(score, size) {
+  if (score==null) return '';
+  const c = score>=70?'var(--g)':score>=50?'var(--a)':'var(--r)';
+  const bg = score>=70?'rgba(34,197,94,.15)':score>=50?'rgba(245,158,11,.15)':'rgba(239,68,68,.15)';
+  const fs = size==='lg'?'14px':'11px';
+  const pad = size==='lg'?'4px 10px':'2px 8px';
+  return `<span title="Deal Score: IRR 40% + yield 20% + cash flow 20% + lease security 20%" style="display:inline-flex;align-items:center;gap:3px;padding:${pad};border-radius:12px;font-size:${fs};font-weight:800;color:${c};background:${bg};border:1px solid ${c}">◈ ${score}</span>`;
+}
+
 // ── FORMATTERS ──
 function tenureTag(p) {
   if (!p.tenure) return '';
@@ -732,6 +773,16 @@ function renderLive() {
   const empty=document.getElementById('empty-state');
   let visible=activeFilter==='all'?[...liveListings]
     :liveListings.filter(p=>(p.search_area||'').toLowerCase().includes(activeFilter)||(p.suburb||'').toLowerCase().includes(activeFilter));
+  if (activeSub) visible=visible.filter(p=>(p.suburb||'')===activeSub);
+  if (searchTerm) visible=visible.filter(p=>
+    ((p.suburb||'')+' '+(p.postcode||'')+' '+(p.title||'')+' '+(p.search_area||'')+' '+(p.type||'')).toLowerCase().includes(searchTerm));
+  const maxP=+(document.getElementById('flt-maxprice')||{}).value||0;
+  const minY=+(document.getElementById('flt-minyield')||{}).value||0;
+  const minCFEl=document.getElementById('flt-mincf');
+  const minCF=minCFEl&&minCFEl.value!==''?+minCFEl.value:null;
+  if (maxP) visible=visible.filter(p=>p.price<=maxP);
+  if (minY) visible=visible.filter(p=>((p._dcf_live||{}).gy||0)>=minY);
+  if (minCF!==null) visible=visible.filter(p=>((p._dcf_live||{}).mcf||-1e9)>=minCF);
   document.getElementById('grid-count').textContent=visible.length+' propert'+(visible.length===1?'y':'ies');
   const bestIrr=liveListings.length?((liveListings[0]._dcf_live||{}).irr||0):0;
   document.getElementById('hp-irr').textContent=bestIrr?fP(bestIrr):'—';
@@ -761,7 +812,7 @@ function renderLive() {
         <div style="position:absolute;bottom:8px;left:8px;z-index:1">${tenureTag(p)}</div>
       </div>
       <div class="pc-body">
-        <div class="pc-price">${fR(p.price)}</div>
+        <div class="pc-price" style="display:flex;align-items:center;justify-content:space-between">${fR(p.price)} ${scoreBadge(dealScore(p,dcf))}</div>
         <div class="pc-name">${p.suburb||p.search_area}${p.postcode?' ('+p.postcode+')':''} · ${(p.title||'').slice(0,45)}</div>
         <div class="pc-specs">
           ${p.beds?`<span>🛏 ${p.beds}</span>`:''}
@@ -810,6 +861,7 @@ function renderTop5(list) {
         <div class="lb-sub">${(p.title||'').slice(0,65)} · ${p.beds||'?'}bed${p.size_m2?' · '+p.size_m2+'m²':''}</div>
       </div>
       <div class="lb-metrics">
+        <div class="lb-m" style="align-self:center">${scoreBadge(dealScore(p,dcf))}</div>
         <div class="lb-m"><div class="lb-m-val ${irr>=10?'g':irr>=7?'a':'r'}">${irr?fP(irr):'—'}</div><div class="lb-m-lbl">IRR</div></div>
         <div class="lb-m"><div class="lb-m-val ${gy>=6.5?'g':gy>=5?'a':'r'}">${fP(gy)}</div><div class="lb-m-lbl">Yield</div></div>
         <div class="lb-m"><div class="lb-m-val ${mcf>=0?'g':mcf>-600?'a':'r'}">${fR(mcf)}</div><div class="lb-m-lbl">Mo. CF</div></div>
@@ -838,6 +890,8 @@ function openModal(idx, source) {
   const bar=document.getElementById('m-ibar');
   bar.style.width=barW+'%'; bar.style.background=irrPct>=s.hurdle?'var(--g)':irrPct>=5?'var(--a)':'var(--r)';
   document.getElementById('m-moic').textContent=dcf.moic>0?dcf.moic.toFixed(2)+'x':'—';
+  const mScoreEl=document.getElementById('m-score');
+  if(mScoreEl) mScoreEl.innerHTML=scoreBadge(dealScore(p,dcf),'lg')||'—';
   document.getElementById('m-rent-note').style.display=source==='live'?'flex':'none';
   const $=(id,v,c)=>{const e=document.getElementById(id);if(e){e.textContent=v;if(c)e.className='vl '+c;}};
   $('s-price',fR(p.price)); $('s-dep',fR(dcf.dep));
@@ -1193,15 +1247,44 @@ function showTab(id,el) {
 
 function setFilter(val,el) {
   activeFilter=val;
-  document.querySelectorAll('.fchip').forEach(c=>c.classList.remove('on'));
+  activeSub=null;
+  document.querySelectorAll('.fbar:not(#sub-fbar) .fchip').forEach(c=>c.classList.remove('on'));
   if(el) el.classList.add('on');
+  renderSubChips();
   renderLive();
+}
+
+function setSubFilter(suburb,el) {
+  activeSub=activeSub===suburb?null:suburb;   // click again to clear
+  document.querySelectorAll('#sub-fbar .fchip').forEach(c=>c.classList.remove('on'));
+  if(activeSub&&el) el.classList.add('on');
+  renderLive();
+}
+
+function renderSubChips() {
+  const bar=document.getElementById('sub-fbar');
+  if(!bar) return;
+  if(activeFilter==='all'){ bar.style.display='none'; bar.innerHTML=''; return; }
+  // Collect unique suburb+postcode pairs within the selected region
+  const subs={};
+  liveListings.forEach(p=>{
+    if((p.search_area||'').toLowerCase().includes(activeFilter)){
+      const key=p.suburb||'';
+      if(key&&!subs[key]) subs[key]=p.postcode||'';
+    }
+  });
+  const names=Object.keys(subs).sort();
+  if(names.length<2){ bar.style.display='none'; bar.innerHTML=''; return; }
+  bar.style.display='flex';
+  bar.innerHTML='<span style="font-size:11px;color:var(--di);align-self:center">Narrow down:</span>'
+    +names.map(n=>`<div class="fchip" onclick="setSubFilter('${n.replace(/'/g,"\\'")}',this)">${n}${subs[n]?' · '+subs[n]:''}</div>`).join('');
 }
 
 function sortBy(val) {
   if(!liveListings.length) return;
   liveListings.sort((a,b)=>{
     const ad=a._dcf_live||{}, bd=b._dcf_live||{};
+    if(val==='score') return (dealScore(b,bd)||0)-(dealScore(a,ad)||0);
     if(val==='irr') return (bd.irr||0)-(ad.irr||0);
     if(val==='yield') return (bd.gy||0)-(ad.gy||0);
     if(val==='price') return a.price-b.price;

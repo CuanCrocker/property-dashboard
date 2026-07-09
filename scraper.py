@@ -37,7 +37,7 @@ log = logging.getLogger(__name__)
 OUTPUT_FILE   = Path(__file__).parent / 'live_listings.json'
 PRICE_MIN     = 200_000
 PRICE_MAX     = 600_000
-MAX_PER_AREA  = 2          # listings per area (increase to 3-4 for more results)
+MAX_PER_AREA  = 10         # listings per area (OTM returns ~30 per page; 10×20 areas ≈ 200 listings)
 REQUEST_DELAY = (3, 6)     # polite pause between requests (seconds)
 
 # ── SEARCH AREAS ──────────────────────────────────────────────────────────────
