@@ -695,13 +695,40 @@ function dealScore(p, dcf) {
   return Math.round((irrS*0.4 + gyS*0.2 + cfS*0.2 + leaseS*0.2) * 100);
 }
 
-function scoreBadge(score, size) {
+function scoreBadge(score, size, clickAttr) {
   if (score==null) return '';
   const c = score>=70?'var(--g)':score>=50?'var(--a)':'var(--r)';
   const bg = score>=70?'rgba(34,197,94,.15)':score>=50?'rgba(245,158,11,.15)':'rgba(239,68,68,.15)';
   const fs = size==='lg'?'14px':'11px';
   const pad = size==='lg'?'4px 10px':'2px 8px';
-  return `<span title="Deal Score: IRR 40% + yield 20% + cash flow 20% + lease security 20%" style="display:inline-flex;align-items:center;gap:3px;padding:${pad};border-radius:12px;font-size:${fs};font-weight:800;color:${c};background:${bg};border:1px solid ${c}">◈ ${score}</span>`;
+  const cur = clickAttr?'cursor:pointer;':'';
+  return `<span ${clickAttr||''} title="Click for score breakdown" style="${cur}display:inline-flex;align-items:center;gap:3px;padding:${pad};border-radius:12px;font-size:${fs};font-weight:800;color:${c};background:${bg};border:1px solid ${c}">◈ ${score}</span>`;
+}
+
+// Clickable breakdown — shows how each component contributed to the Deal Score
+function showScoreDeriv(ev, idx, source) {
+  ev.stopPropagation();
+  const p = source==='modal' ? currentProp : liveListings[idx];
+  if (!p) return;
+  const dcf = p._dcf_live || runDCF(p.price, (p.dcf||{}).est_monthly_rent||p.rent||0, (p.dcf||{}).est_levy||p.levy||200, S());
+  const clamp=(x)=>Math.max(0,Math.min(1,x));
+  const irrS  = clamp(((dcf.irr||0) - 4) / 10);
+  const gyS   = clamp(((dcf.gy||0)  - 4) / 3.5);
+  const cfS   = clamp(((dcf.mcf||-1500) + 1200) / 1200);
+  let leaseS = 1, leaseNote = 'Freehold — full marks';
+  if (p.tenure === 'Leasehold') {
+    const yrs = p.lease_years;
+    if (yrs == null) { leaseS = 0.6; leaseNote = 'Leasehold, length unknown — assumed mid-range'; }
+    else { leaseS = clamp((yrs - 60) / 65); leaseNote = yrs + ' yrs remaining (60yr = 0pts, 125yr+ = full)'; }
+  }
+  const rows = [
+    {label:'IRR — weight 40%', note:fP(dcf.irr)+' levered IRR (4% = 0pts, 14%+ = full)', display:(irrS*40).toFixed(0)+' / 40', value:irrS, cls:irrS>=0.6?'pos':irrS>=0.3?'neu':'neg'},
+    {label:'Gross Yield — weight 20%', note:fP(dcf.gy)+' (4% = 0pts, 7.5%+ = full)', display:(gyS*20).toFixed(0)+' / 20', value:gyS, cls:gyS>=0.6?'pos':gyS>=0.3?'neu':'neg'},
+    {label:'Cash Flow — weight 20%', note:fR(dcf.mcf)+'/mo (−£1,200 = 0pts, breakeven+ = full)', display:(cfS*20).toFixed(0)+' / 20', value:cfS, cls:cfS>=0.6?'pos':cfS>=0.3?'neu':'neg'},
+    {label:'Lease Security — weight 20%', note:leaseNote, display:(leaseS*20).toFixed(0)+' / 20', value:leaseS, cls:leaseS>=0.6?'pos':leaseS>=0.3?'neu':'neg'},
+    {label:'Deal Score', note:'Higher = better all-round investment', display:dealScore(p,dcf)+' / 100', value:1, cls:'pos'},
+  ];
+  showDerivation(ev, rows, '◈ Deal Score — '+(p.suburb||'')+(p.postcode?' ('+p.postcode+')':''));
 }
 
 // ── FORMATTERS ──
@@ -812,7 +839,7 @@ function renderLive() {
         <div style="position:absolute;bottom:8px;left:8px;z-index:1">${tenureTag(p)}</div>
       </div>
       <div class="pc-body">
-        <div class="pc-price" style="display:flex;align-items:center;justify-content:space-between">${fR(p.price)} ${scoreBadge(dealScore(p,dcf))}</div>
+        <div class="pc-price" style="display:flex;align-items:center;justify-content:space-between">${fR(p.price)} ${scoreBadge(dealScore(p,dcf),'',`onclick="showScoreDeriv(event,${idx},'live')"`)}</div>
         <div class="pc-name">${p.suburb||p.search_area}${p.postcode?' ('+p.postcode+')':''} · ${(p.title||'').slice(0,45)}</div>
         <div class="pc-specs">
           ${p.beds?`<span>🛏 ${p.beds}</span>`:''}
@@ -861,7 +888,7 @@ function renderTop5(list) {
         <div class="lb-sub">${(p.title||'').slice(0,65)} · ${p.beds||'?'}bed${p.size_m2?' · '+p.size_m2+'m²':''}</div>
       </div>
       <div class="lb-metrics">
-        <div class="lb-m" style="align-self:center">${scoreBadge(dealScore(p,dcf))}</div>
+        <div class="lb-m" style="align-self:center">${scoreBadge(dealScore(p,dcf),'',`onclick="showScoreDeriv(event,${idx},'live')"`)}</div>
         <div class="lb-m"><div class="lb-m-val ${irr>=10?'g':irr>=7?'a':'r'}">${irr?fP(irr):'—'}</div><div class="lb-m-lbl">IRR</div></div>
         <div class="lb-m"><div class="lb-m-val ${gy>=6.5?'g':gy>=5?'a':'r'}">${fP(gy)}</div><div class="lb-m-lbl">Yield</div></div>
         <div class="lb-m"><div class="lb-m-val ${mcf>=0?'g':mcf>-600?'a':'r'}">${fR(mcf)}</div><div class="lb-m-lbl">Mo. CF</div></div>
@@ -891,7 +918,7 @@ function openModal(idx, source) {
   bar.style.width=barW+'%'; bar.style.background=irrPct>=s.hurdle?'var(--g)':irrPct>=5?'var(--a)':'var(--r)';
   document.getElementById('m-moic').textContent=dcf.moic>0?dcf.moic.toFixed(2)+'x':'—';
   const mScoreEl=document.getElementById('m-score');
-  if(mScoreEl) mScoreEl.innerHTML=scoreBadge(dealScore(p,dcf),'lg')||'—';
+  if(mScoreEl) mScoreEl.innerHTML=scoreBadge(dealScore(p,dcf),'lg',`onclick="showScoreDeriv(event,0,'modal')"`)||'—';
   document.getElementById('m-rent-note').style.display=source==='live'?'flex':'none';
   const $=(id,v,c)=>{const e=document.getElementById(id);if(e){e.textContent=v;if(c)e.className='vl '+c;}};
   $('s-price',fR(p.price)); $('s-dep',fR(dcf.dep));
