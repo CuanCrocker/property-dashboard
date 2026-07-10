@@ -37,7 +37,7 @@ log = logging.getLogger(__name__)
 OUTPUT_FILE   = Path(__file__).parent / 'live_listings.json'
 PRICE_MIN     = 200_000
 PRICE_MAX     = 600_000
-MAX_PER_AREA  = 10         # listings per area (OTM returns ~30 per page; 10×20 areas ≈ 200 listings)
+MAX_PER_AREA  = 20         # listings per area (OTM returns ~30 per page; 20×41 areas ≈ 800 max)
 REQUEST_DELAY = (3, 6)     # polite pause between requests (seconds)
 
 # ── SEARCH AREAS ──────────────────────────────────────────────────────────────
@@ -46,17 +46,38 @@ SEARCH_AREAS = [
     {'name': 'Hackney',       'postcode': 'e8',   'search_area': 'East London'},
     {'name': 'Stratford',     'postcode': 'e15',  'search_area': 'East London'},
     {'name': 'Bethnal Green', 'postcode': 'e2',   'search_area': 'East London'},
+    {'name': 'Leyton',        'postcode': 'e10',  'search_area': 'East London'},
+    {'name': 'East Ham',      'postcode': 'e6',   'search_area': 'East London'},
+    {'name': 'Canning Town',  'postcode': 'e16',  'search_area': 'East London'},
     {'name': 'Lewisham',      'postcode': 'se13', 'search_area': 'South London'},
     {'name': 'Peckham',       'postcode': 'se15', 'search_area': 'South London'},
     {'name': 'Greenwich',     'postcode': 'se10', 'search_area': 'South London'},
     {'name': 'Woolwich',      'postcode': 'se18', 'search_area': 'South London'},
     {'name': 'Croydon',       'postcode': 'cr0',  'search_area': 'South London'},
     {'name': 'Bromley',       'postcode': 'br1',  'search_area': 'South London'},
+    {'name': 'Catford',       'postcode': 'se6',  'search_area': 'South London'},
+    {'name': 'Abbey Wood',    'postcode': 'se2',  'search_area': 'South London'},
+    {'name': 'Clapham',       'postcode': 'sw4',  'search_area': 'South West London'},
+    {'name': 'Wimbledon',     'postcode': 'sw19', 'search_area': 'South West London'},
+    {'name': 'Balham',        'postcode': 'sw12', 'search_area': 'South West London'},
+    {'name': 'Tooting',       'postcode': 'sw17', 'search_area': 'South West London'},
+    {'name': 'Streatham',     'postcode': 'sw16', 'search_area': 'South West London'},
+    {'name': 'Battersea',     'postcode': 'sw11', 'search_area': 'South West London'},
+    {'name': 'Earlsfield',    'postcode': 'sw18', 'search_area': 'South West London'},
+    {'name': 'Kingston',      'postcode': 'kt1',  'search_area': 'South West London'},
+    {'name': 'Sutton',        'postcode': 'sm1',  'search_area': 'South West London'},
     {'name': 'Walthamstow',   'postcode': 'e17',  'search_area': 'North London'},
     {'name': 'Tottenham',     'postcode': 'n17',  'search_area': 'North London'},
     {'name': 'Enfield',       'postcode': 'en1',  'search_area': 'North London'},
+    {'name': 'Wood Green',    'postcode': 'n22',  'search_area': 'North London'},
+    {'name': 'Wembley',       'postcode': 'ha9',  'search_area': 'West London'},
+    {'name': 'Harrow',        'postcode': 'ha1',  'search_area': 'West London'},
+    {'name': 'Hounslow',      'postcode': 'tw3',  'search_area': 'West London'},
     {'name': 'Ilford',        'postcode': 'ig1',  'search_area': 'Outer London'},
     {'name': 'Barking',       'postcode': 'ig11', 'search_area': 'Outer London'},
+    {'name': 'Romford',       'postcode': 'rm1',  'search_area': 'Outer London'},
+    {'name': 'Dagenham',      'postcode': 'rm10', 'search_area': 'Outer London'},
+    {'name': 'Dartford',      'postcode': 'da1',  'search_area': 'Outer London'},
     {'name': 'Watford',       'postcode': 'wd17', 'search_area': 'Commuter Belt'},
     {'name': 'Reading',       'postcode': 'rg1',  'search_area': 'Commuter Belt'},
     {'name': 'Slough',        'postcode': 'sl1',  'search_area': 'Commuter Belt'},
@@ -69,6 +90,8 @@ SEARCH_AREAS = [
 RENT_FALLBACKS = {
     'East London':   {1: 1800, 2: 2100, 3: 2650},
     'South London':  {1: 1700, 2: 1950, 3: 2500},
+    'South West London': {1: 1850, 2: 2300, 3: 3000},
+    'West London':   {1: 1500, 2: 1800, 3: 2250},
     'North London':  {1: 1800, 2: 2050, 3: 2600},
     'Outer London':  {1: 1500, 2: 1700, 3: 2100},
     'Commuter Belt': {1: 1350, 2: 1600, 3: 2000},

@@ -5,7 +5,15 @@
       "mcp__Claude_Preview__preview_start",
       "Bash(where python *)",
       "Bash(where python3 *)",
-      "Bash(where node *)"
+      "Bash(where node *)",
+      "WebFetch(domain:cuancrocker.github.io)",
+      "Bash(python -c \"import json;d=json.load\\(open\\('live_listings.json'\\)\\);print\\('local file:',d['scraped_at'],d['total_found'],'listings'\\)\")",
+      "Bash(gh api *)",
+      "Bash(touch .nojekyll)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "WebFetch(domain:api.github.com)"
     ]
   }
 }

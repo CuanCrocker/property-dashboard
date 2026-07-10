@@ -308,6 +308,8 @@ tr:hover td{background:rgba(255,255,255,.02)}
     <div class="fchip on" onclick="setFilter('all',this)">All Areas</div>
     <div class="fchip" onclick="setFilter('east london',this)">East London</div>
     <div class="fchip" onclick="setFilter('south london',this)">South London</div>
+    <div class="fchip" onclick="setFilter('south west london',this)">South West London</div>
+    <div class="fchip" onclick="setFilter('west london',this)">West London</div>
     <div class="fchip" onclick="setFilter('north london',this)">North London</div>
     <div class="fchip" onclick="setFilter('outer london',this)">Outer London</div>
     <div class="fchip" onclick="setFilter('commuter belt',this)">Commuter Belt</div>
@@ -799,7 +801,7 @@ function renderLive() {
   const grid=document.getElementById('pgrid');
   const empty=document.getElementById('empty-state');
   let visible=activeFilter==='all'?[...liveListings]
-    :liveListings.filter(p=>(p.search_area||'').toLowerCase().includes(activeFilter)||(p.suburb||'').toLowerCase().includes(activeFilter));
+    :liveListings.filter(p=>(p.search_area||'').toLowerCase()===activeFilter||(p.suburb||'').toLowerCase().includes(activeFilter));
   if (activeSub) visible=visible.filter(p=>(p.suburb||'')===activeSub);
   if (searchTerm) visible=visible.filter(p=>
     ((p.suburb||'')+' '+(p.postcode||'')+' '+(p.title||'')+' '+(p.search_area||'')+' '+(p.type||'')).toLowerCase().includes(searchTerm));
@@ -1295,7 +1297,7 @@ function renderSubChips() {
   // Collect unique suburb+postcode pairs within the selected region
   const subs={};
   liveListings.forEach(p=>{
-    if((p.search_area||'').toLowerCase().includes(activeFilter)){
+    if((p.search_area||'').toLowerCase()===activeFilter){
       const key=p.suburb||'';
       if(key&&!subs[key]) subs[key]=p.postcode||'';
     }
