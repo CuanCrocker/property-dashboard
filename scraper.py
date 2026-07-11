@@ -35,8 +35,9 @@ log = logging.getLogger(__name__)
 
 # ── CONFIG ────────────────────────────────────────────────────────────────────
 OUTPUT_FILE   = Path(__file__).parent / 'live_listings.json'
-PRICE_MIN     = 200_000
-PRICE_MAX     = 600_000
+PRICE_MIN     = 300_000
+PRICE_MAX     = 800_000
+MIN_BEDS      = 2          # 2+ beds only; 3-bed needs 2+ baths, 4-bed needs 3+ baths, etc.
 MAX_PER_AREA  = 20         # listings per area (OTM returns ~30 per page; 20×41 areas ≈ 800 max)
 REQUEST_DELAY = (3, 6)     # polite pause between requests (seconds)
 
@@ -194,6 +195,12 @@ def parse_listing(p: dict, area: dict) -> dict | None:
         prop_id   = str(p.get('id', ''))
         beds      = int(p.get('bedrooms') or 0)
         baths     = int(p.get('bathrooms') or 1)
+
+        # Bedroom/bathroom rules: 2+ beds only; 3-bed needs 2+ baths, 4-bed 3+ baths...
+        if beds < MIN_BEDS:
+            return None
+        if beds >= 3 and baths < beds - 1:
+            return None
         address   = p.get('address', area['name'])
         prop_type = _normalise_type(p.get('humanised-property-type', ''))
         detail_url = p.get('details-url', '')
@@ -290,13 +297,13 @@ def _parse_service_charge(features: list) -> int | None:
 # ── FOR-SALE SEARCH ───────────────────────────────────────────────────────────
 def search_for_sale(postcode: str, max_results: int = MAX_PER_AREA) -> list[dict]:
     url = f'https://www.onthemarket.com/for-sale/property/{postcode}/'
-    r = get(url, params={'min-price': PRICE_MIN, 'max-price': PRICE_MAX})
+    r = get(url, params={'min-price': PRICE_MIN, 'max-price': PRICE_MAX, 'min-bedrooms': MIN_BEDS})
     if not r:
         return []
     listings = extract_otm_listings(r.text)
     if not listings:
         log.warning('  Could not extract listings from page')
-    return listings[:max_results]
+    return listings  # cap applied after bed/bath filtering in main()
 
 
 # ── RENTAL ESTIMATE ───────────────────────────────────────────────────────────
@@ -358,10 +365,14 @@ def main():
             continue
         log.info(f'  {len(raw)} listing(s) found')
 
+        area_count = 0
         for p in raw:
+            if area_count >= MAX_PER_AREA:
+                break
             parsed = parse_listing(p, area)
             if not parsed:
                 continue
+            area_count += 1
 
             beds = parsed['beds'] or 2
             est_rent = rents.get(beds) or rents.get(2, 1600)
