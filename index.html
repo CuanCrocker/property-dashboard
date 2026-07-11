@@ -303,6 +303,14 @@ tr:hover td{background:rgba(255,255,255,.02)}
       oninput="renderLive()" style="width:110px;background:var(--card);border:1px solid var(--bdr);border-radius:9px;padding:9px 10px;color:var(--tx);font-size:12px;outline:none">
     <input id="flt-mincf" type="number" placeholder="Min CF £/mo" title="Minimum monthly cash flow (e.g. -500)"
       oninput="renderLive()" style="width:120px;background:var(--card);border:1px solid var(--bdr);border-radius:9px;padding:9px 10px;color:var(--tx);font-size:12px;outline:none">
+    <select id="flt-tenure" title="Tenure" onchange="renderLive()"
+      style="width:130px;background:var(--card);border:1px solid var(--bdr);border-radius:9px;padding:9px 10px;color:var(--tx);font-size:12px;outline:none">
+      <option value="">All tenures</option>
+      <option value="Freehold">Freehold only</option>
+      <option value="Leasehold">Leasehold only</option>
+    </select>
+    <input id="flt-minlease" type="number" placeholder="Min lease yrs" title="Minimum lease years remaining (Freeholds always shown)"
+      oninput="renderLive()" style="width:110px;background:var(--card);border:1px solid var(--bdr);border-radius:9px;padding:9px 10px;color:var(--tx);font-size:12px;outline:none">
   </div>
   <div class="fbar">
     <div class="fchip on" onclick="setFilter('all',this)">All Areas</div>
@@ -812,6 +820,12 @@ function renderLive() {
   if (maxP) visible=visible.filter(p=>p.price<=maxP);
   if (minY) visible=visible.filter(p=>((p._dcf_live||{}).gy||0)>=minY);
   if (minCF!==null) visible=visible.filter(p=>((p._dcf_live||{}).mcf||-1e9)>=minCF);
+  const tenureF=(document.getElementById('flt-tenure')||{}).value||'';
+  if (tenureF) visible=visible.filter(p=>(p.tenure||'')===tenureF);
+  const minLease=+(document.getElementById('flt-minlease')||{}).value||0;
+  if (minLease) visible=visible.filter(p=>
+    p.tenure==='Freehold' ||                       // freeholds always pass
+    (p.lease_years!=null && p.lease_years>=minLease));
   document.getElementById('grid-count').textContent=visible.length+' propert'+(visible.length===1?'y':'ies');
   const bestIrr=liveListings.length?((liveListings[0]._dcf_live||{}).irr||0):0;
   document.getElementById('hp-irr').textContent=bestIrr?fP(bestIrr):'—';
