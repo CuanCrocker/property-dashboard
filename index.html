@@ -227,6 +227,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
     <div class="pill"><span class="lb">Best IRR</span><span class="vl g" id="hp-irr">—</span></div>
     <div class="pill"><span class="lb">Updated</span><span class="vl" id="hp-date">—</span></div>
     <div class="pill"><span id="data-source-pill" style="color:var(--di);font-size:11px">📌 Sample data</span></div>
+    <div class="pill" id="new-data-pill" style="display:none;cursor:pointer" onclick="applyNewData()" title="Fresh listings were scraped in the background — click to load them"><span style="color:var(--g);font-size:11px">🔄 New data — click to load</span></div>
   </div>
   <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
     <span style="font-size:11px;color:var(--di)" id="last-ref"></span>
@@ -605,6 +606,37 @@ async function loadData() {
   }
   init();
 }
+
+// ── BACKGROUND DATA POLLING ──
+// The scraper runs every 30 min via GitHub Actions and redeploys the site
+// with fresh data. Poll for a newer live_listings.json every 5 min and,
+// instead of disrupting the page, offer the update via a header pill.
+let pendingData = null;
+async function pollForNewData() {
+  try {
+    const r = await fetch('live_listings.json?t=' + Date.now());
+    if (!r.ok) return;
+    const data = await r.json();
+    if (data && data.listings && data.listings.length &&
+        window.LIVE_LISTINGS && window.LIVE_LISTINGS.scraped_at &&
+        new Date(data.scraped_at) > new Date(window.LIVE_LISTINGS.scraped_at)) {
+      pendingData = data;
+      document.getElementById('new-data-pill').style.display = '';
+    }
+  } catch (_) {
+    // offline / file:// — ignore, try again next interval
+  }
+}
+function applyNewData() {
+  if (!pendingData) return;
+  window.LIVE_LISTINGS = pendingData;
+  pendingData = null;
+  document.getElementById('new-data-pill').style.display = 'none';
+  document.getElementById('data-source-pill').textContent = '🟢 Live data';
+  document.getElementById('data-source-pill').style.color = 'var(--g)';
+  init();
+}
+setInterval(pollForNewData, 5 * 60 * 1000);
 
 // ── SETTINGS ──
 function S() {
