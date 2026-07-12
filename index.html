@@ -302,11 +302,11 @@ tr:hover td{background:rgba(255,255,255,.02)}
     <input id="search-box" type="search" placeholder="🔍 Search area, postcode or keyword — e.g. Hackney, SE15, garden…"
       oninput="searchTerm=this.value.trim().toLowerCase();renderLive()"
       style="flex:1;min-width:260px;background:var(--card);border:1px solid var(--bdr2);border-radius:9px;padding:9px 14px;color:var(--tx);font-size:13px;outline:none">
-    <input id="flt-maxprice" type="number" placeholder="Max £" title="Max price"
+    <input id="flt-maxprice" type="text" inputmode="numeric" class="amt" placeholder="Max £" title="Max price"
       oninput="renderLive()" style="width:110px;background:var(--card);border:1px solid var(--bdr);border-radius:9px;padding:9px 10px;color:var(--tx);font-size:12px;outline:none">
     <input id="flt-minyield" type="number" placeholder="Min yield %" title="Min gross yield" step="0.5"
       oninput="renderLive()" style="width:110px;background:var(--card);border:1px solid var(--bdr);border-radius:9px;padding:9px 10px;color:var(--tx);font-size:12px;outline:none">
-    <input id="flt-mincf" type="number" placeholder="Min CF £/mo" title="Minimum monthly cash flow (e.g. -500)"
+    <input id="flt-mincf" type="text" inputmode="numeric" class="amt" placeholder="Min CF £/mo" title="Minimum monthly cash flow (e.g. -500)"
       oninput="renderLive()" style="width:120px;background:var(--card);border:1px solid var(--bdr);border-radius:9px;padding:9px 10px;color:var(--tx);font-size:12px;outline:none">
     <select id="flt-tenure" title="Tenure" onchange="renderLive()"
       style="width:130px;background:var(--card);border:1px solid var(--bdr);border-radius:9px;padding:9px 10px;color:var(--tx);font-size:12px;outline:none">
@@ -377,9 +377,9 @@ tr:hover td{background:rgba(255,255,255,.02)}
             <option value="other">Other</option>
           </select>
         </div>
-        <div class="ff"><label>Purchase Price (£)</label><input id="f-price" type="number" placeholder="400000"></div>
-        <div class="ff"><label>Expected Monthly Rent (£)</label><input id="f-rent" type="number" placeholder="1800"></div>
-        <div class="ff"><label>Monthly Service Charge (£)</label><input id="f-levy" type="number" placeholder="200"></div>
+        <div class="ff"><label>Purchase Price (£)</label><input id="f-price" type="text" inputmode="numeric" class="amt" placeholder="400,000"></div>
+        <div class="ff"><label>Expected Monthly Rent (£)</label><input id="f-rent" type="text" inputmode="numeric" class="amt" placeholder="1,800"></div>
+        <div class="ff"><label>Monthly Service Charge (£)</label><input id="f-levy" type="text" inputmode="numeric" class="amt" placeholder="200"></div>
         <div class="ff"><label>Bedrooms</label>
           <select id="f-beds"><option>Studio</option><option>1 bed</option><option selected>2 bed</option><option>3 bed</option><option>4 bed</option></select>
         </div>
@@ -410,7 +410,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
     <div class="shdr"><div class="stitle">Mortgage Repayment Calculator</div></div>
     <div style="background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:22px;margin-bottom:18px">
       <div class="fgrid" style="grid-template-columns:repeat(auto-fill,minmax(175px,1fr))">
-        <div class="ff"><label>Purchase Price (£)</label><input id="bc-price" type="number" value="400000" oninput="calcBond()"></div>
+        <div class="ff"><label>Purchase Price (£)</label><input id="bc-price" type="text" inputmode="numeric" class="amt" value="400,000" oninput="calcBond()"></div>
         <div class="ff"><label>Deposit (%)</label><input id="bc-dep" type="number" value="25" oninput="calcBond()"></div>
         <div class="ff"><label>Loan Term (yrs)</label><input id="bc-term" type="number" value="25" oninput="calcBond()"></div>
       </div>
@@ -561,8 +561,8 @@ tr:hover td{background:rgba(255,255,255,.02)}
         <div style="background:var(--card);border:1px dashed var(--bdr2);border-radius:9px;padding:12px 14px;margin-bottom:16px">
           <div style="font-size:11px;color:var(--di);text-transform:uppercase;letter-spacing:.5px;font-weight:600;margin-bottom:8px">✎ Adjust this property's assumptions <span id="ovr-note" style="color:var(--a);text-transform:none;font-weight:400"></span></div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
-            <div class="sf" style="width:150px"><label>Monthly Rent (£)</label><input id="ovr-rent" type="number" step="50"></div>
-            <div class="sf" style="width:150px"><label>Service Charge (£/mo)</label><input id="ovr-levy" type="number" step="10"></div>
+            <div class="sf" style="width:150px"><label>Monthly Rent (£)</label><input id="ovr-rent" type="text" inputmode="numeric" class="amt"></div>
+            <div class="sf" style="width:150px"><label>Service Charge (£/mo)</label><input id="ovr-levy" type="text" inputmode="numeric" class="amt"></div>
             <button class="btn bp bs" onclick="applyOverride()">Apply</button>
             <button class="btn bo bs" onclick="resetOverride()">Reset to estimate</button>
           </div>
@@ -959,6 +959,21 @@ function showScoreDeriv(ev, idx, source) {
   showDerivation(ev, rows, '◈ Deal Score — '+(p.suburb||'')+(p.postcode?' ('+p.postcode+')':''));
 }
 
+// ── AMOUNT INPUTS (thousands separators) ──
+function parseAmt(v) {
+  const n=parseFloat(String(v==null?'':v).replace(/,/g,''));
+  return isNaN(n)?0:n;
+}
+function fmtAmtInput(el) {
+  const neg=/^\s*-/.test(el.value);
+  const digits=el.value.replace(/[^\d]/g,'');
+  el.value=digits?(neg?'-':'')+(+digits).toLocaleString('en-GB'):(neg?'-':'');
+}
+document.addEventListener('input',e=>{
+  const t=e.target;
+  if (t&&t.classList&&t.classList.contains('amt')) fmtAmtInput(t);
+});
+
 // ── FORMATTERS ──
 function tenureTag(p) {
   if (!p.tenure) return '';
@@ -1033,10 +1048,10 @@ function renderLive() {
   if (activeSub) visible=visible.filter(p=>(p.suburb||'')===activeSub);
   if (searchTerm) visible=visible.filter(p=>
     ((p.suburb||'')+' '+(p.postcode||'')+' '+(p.title||'')+' '+(p.search_area||'')+' '+(p.type||'')).toLowerCase().includes(searchTerm));
-  const maxP=+(document.getElementById('flt-maxprice')||{}).value||0;
+  const maxP=parseAmt((document.getElementById('flt-maxprice')||{}).value)||0;
   const minY=+(document.getElementById('flt-minyield')||{}).value||0;
   const minCFEl=document.getElementById('flt-mincf');
-  const minCF=minCFEl&&minCFEl.value!==''?+minCFEl.value:null;
+  const minCF=minCFEl&&minCFEl.value!==''&&minCFEl.value!=='-'?parseAmt(minCFEl.value):null;
   if (maxP) visible=visible.filter(p=>p.price<=maxP);
   if (minY) visible=visible.filter(p=>((p._dcf_live||{}).gy||0)>=minY);
   if (minCF!==null) visible=visible.filter(p=>((p._dcf_live||{}).mcf||-1e9)>=minCF);
@@ -1287,8 +1302,8 @@ function openModal(idx, source) {
       return `<div class="dr"><span class="lb">${o.name} (${o.share}% · ${TAX_LIB[o.jur].name})</span><span class="vl">${fR(dcf.init*sh)} day 1 · ${fR(dcf.mcf*sh)}/mo${s.tax==='on'?' pre-tax':''}</span></div>`;
     }).join('')+(s.tax==='on'?'<div style="font-size:10px;color:var(--di);margin-top:6px">IRR, cash-flow table and exit figures are post-tax (blended across owners). Per-owner monthly figures above are pre-tax shares.</div>':'');
   }
-  const ovrR=document.getElementById('ovr-rent'); if(ovrR) ovrR.value=rent;
-  const ovrL=document.getElementById('ovr-levy'); if(ovrL) ovrL.value=levy;
+  const ovrR=document.getElementById('ovr-rent'); if(ovrR) ovrR.value=(+rent||0).toLocaleString('en-GB');
+  const ovrL=document.getElementById('ovr-levy'); if(ovrL) ovrL.value=(+levy||0).toLocaleString('en-GB');
   const ovrN=document.getElementById('ovr-note');
   if(ovrN) ovrN.textContent=overrides[p.id]?'— custom values in use (not the area estimate)':'— defaults to area estimate';
   renderCFTable(p,s,dcf);
@@ -1354,11 +1369,11 @@ function renderFavs() {
 // ── PER-PROPERTY OVERRIDES ──
 function applyOverride() {
   if (!currentProp) return;
-  const r=+document.getElementById('ovr-rent').value||0;
+  const r=parseAmt(document.getElementById('ovr-rent').value);
   const lRaw=document.getElementById('ovr-levy').value;
   if (r<=0) { toast('Enter a valid monthly rent'); return; }
   const o={rent:r};
-  if (lRaw!=='') o.levy=+lRaw;
+  if (lRaw!=='') o.levy=parseAmt(lRaw);
   overrides[currentProp.id]=o;
   localStorage.setItem('lon_ovr',JSON.stringify(overrides));
   recalcAndRefresh();
@@ -1550,10 +1565,10 @@ function renderFunding(p,s,dcf) {
 // ── WATCHLIST ──
 function addManual() {
   const name=document.getElementById('f-name').value.trim();
-  const price=+document.getElementById('f-price').value;
-  const rent=+document.getElementById('f-rent').value;
+  const price=parseAmt(document.getElementById('f-price').value);
+  const rent=parseAmt(document.getElementById('f-rent').value);
   if (!name||!price||!rent) { toast('Please fill in Address, Price and Rent'); return; }
-  const levy=+document.getElementById('f-levy').value||200;
+  const levy=parseAmt(document.getElementById('f-levy').value)||200;
   watchlist.push({
     id:'manual_'+Date.now(),
     title:name,
@@ -1623,7 +1638,7 @@ function renderWatchlist() {
 
 // ── MORTGAGE CALCULATOR ──
 function calcBond() {
-  const price=+(document.getElementById('bc-price')||{}).value||400000;
+  const price=parseAmt((document.getElementById('bc-price')||{}).value)||400000;
   const dep=+(document.getElementById('bc-dep')||{}).value||25;
   const term=+(document.getElementById('bc-term')||{}).value||25;
   const loan=price*(1-dep/100);
@@ -1705,7 +1720,7 @@ function renderTaxTab() {
         <option value="ky"${o.jur==='ky'?' selected':''}>🇰🇾 Cayman Islands</option>
         <option value="sa"${o.jur==='sa'?' selected':''}>🇿🇦 South Africa</option>
       </select></div>
-      <div class="sf" style="width:170px"><label>Annual income (${TAX_LIB[o.jur].cur})</label><input id="o${i}-inc" type="number" value="${o.inc}"></div>
+      <div class="sf" style="width:170px"><label>Annual income (${TAX_LIB[o.jur].cur})</label><input id="o${i}-inc" type="text" inputmode="numeric" class="amt" value="${(+o.inc||0).toLocaleString('en-GB')}"></div>
       <div style="font-size:12px;padding-bottom:8px">Marginal: <strong style="color:${m>=.4?'var(--r)':m>0?'var(--a)':'var(--g)'}">${(m*100).toFixed(0)}%</strong>
         · CGT: <strong style="color:var(--mu)">${(TAX_LIB[o.jur].cgt(m)*100).toFixed(0)}%</strong></div>
     </div>`;
@@ -1730,7 +1745,7 @@ function saveTax() {
       name:  nameEl.value||('Owner '+(i+1)),
       share: +document.getElementById('o'+i+'-share').value||0,
       jur:   document.getElementById('o'+i+'-jur').value,
-      inc:   +document.getElementById('o'+i+'-inc').value||0,
+      inc:   parseAmt(document.getElementById('o'+i+'-inc').value)||0,
     });
   }
   const totShare=owners.reduce((s,o)=>s+o.share,0);
