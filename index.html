@@ -436,6 +436,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
     ⚠️ &nbsp;Simplified model for screening/comparison only. UK rental income is UK-taxable for <em>all</em> owners regardless of residency (Non-Resident Landlord Scheme); this model instead applies each owner's <em>home-jurisdiction</em> rates to their share, and does <strong>not</strong> model cross-border double-tax credits, personal allowances in full, or company structures. Get professional advice before purchase.
   </div>
   <div style="background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:20px;margin-bottom:18px">
+    <div id="tax-structure"></div>
     <div style="font-size:13px;font-weight:600;margin-bottom:4px">Owners &amp; shares</div>
     <p style="font-size:12px;color:var(--mu);margin-bottom:14px">Enter each owner's share, jurisdiction and annual taxable income (in local currency: £ for UK, KYD/USD for Cayman, ZAR for South Africa). The marginal band is looked up automatically.</p>
     <div id="tax-owners"></div>
@@ -683,13 +684,29 @@ function marginalRate(jur, income) {
   for (const [cap, rate] of lib.bands) if (income<=cap) return rate;
   return lib.bands[lib.bands.length-1][1];
 }
-let taxProfile = JSON.parse(localStorage.getItem('lon_tax') || 'null') || { owners:[
+let taxProfile = JSON.parse(localStorage.getItem('lon_tax') || 'null') || { structure:'personal', nr:false, div:false, owners:[
   {name:'Owner 1 (UK)',     share:33.33, jur:'uk', inc:60000},
   {name:'Owner 2 (Cayman)', share:33.33, jur:'ky', inc:0},
   {name:'Owner 3 (RSA)',    share:33.34, jur:'sa', inc:800000},
 ]};
-// Annual income tax across all owners on their share of net operating income
+// Annual income tax on net operating income — personal (per owner) or UK Ltd (corp tax + optional dividend extraction)
 function yearTax(noi, interest) {
+  if ((taxProfile.structure||'personal')==='ltd') {
+    const profit=Math.max(0, noi-interest);              // company deducts interest in full
+    const rate=profit<=50000?0.19:0.25;                  // small-profits vs main corp tax rate (simplified)
+    let t=profit*rate;
+    if (taxProfile.div) {                                // pay after-tax profit out as dividends
+      const net=profit-t;
+      (taxProfile.owners||[]).forEach(o=>{
+        const sh=(+o.share||0)/100; if(!sh) return;
+        const m=marginalRate(o.jur, +o.inc||0);
+        if (o.jur==='uk') t+=net*sh*(m>=.45?0.3935:m>=.40?0.3375:0.0875);   // UK dividend tax by band
+        else if (o.jur==='sa') t+=net*sh*0.20;                              // SA foreign dividend rate
+        // Cayman: no personal layer; UK generally doesn't tax non-residents' dividends
+      });
+    }
+    return t;
+  }
   let tot=0;
   (taxProfile.owners||[]).forEach(o=>{
     const sh=(+o.share||0)/100; if(!sh) return;
@@ -700,9 +717,12 @@ function yearTax(noi, interest) {
   });
   return tot;
 }
-// CGT at exit across all owners on their share of the gain
+// Tax on the gain at exit — personal CGT per owner, or corporation tax for a Ltd
 function exitCGT(ev, price, duty, breg, efee) {
   const gain=Math.max(0, ev*(1-efee/100) - price - duty - breg);
+  if ((taxProfile.structure||'personal')==='ltd') {
+    return gain*(gain<=50000?0.19:0.25);                 // corp tax on the gain (extraction on wind-up not modelled)
+  }
   let tot=0;
   (taxProfile.owners||[]).forEach(o=>{
     const sh=(+o.share||0)/100; if(!sh) return;
@@ -824,6 +844,7 @@ function stampDuty(price) {
   if (price>250000) duty += (Math.min(price,925000)-250000)*0.08;
   if (price>925000) duty += (Math.min(price,1500000)-925000)*0.13;
   if (price>1500000) duty += (price-1500000)*0.15;
+  if (taxProfile.nr) duty += price*0.02;   // non-resident SDLT surcharge (any non-UK-resident buyer / non-UK-controlled company)
   return Math.round(duty);
 }
 
@@ -1176,6 +1197,7 @@ function openModal(idx, source) {
     if(p.price>b[0]){const amt=(Math.min(p.price,b[1])-b[0])*b[2]/100;
       dutyRows.push({label:b[2]+'% band: '+fR(b[0])+' – '+fR(Math.min(p.price,b[1])),display:'−'+fR(amt),value:-amt,cls:'neg'});}
   });
+  if (taxProfile.nr) dutyRows.push({label:'Non-resident surcharge (2%)',display:'−'+fR(p.price*0.02),value:-p.price*0.02,cls:'neg',note:'Any non-UK-resident buyer or non-UK-controlled company — set in Tax Inputs'});
   dutyRows.push({label:'Total SDLT',display:'−'+fR(dcf.duty),value:-dcf.duty,cls:'neg',note:'UK additional-property (BTL) rates 2025/26'});
   clickify('s-duty',dutyRows,'Stamp Duty on '+fR(p.price));
   clickify('sm-dep',[
@@ -1259,7 +1281,8 @@ function openModal(idx, source) {
   // Ownership split box
   const ownersBody=document.getElementById('m-owners-body');
   if (ownersBody) {
-    ownersBody.innerHTML=(taxProfile.owners||[]).filter(o=>+o.share>0).map(o=>{
+    const structRow=(taxProfile.structure==='ltd')?'<div class="dr"><span class="lb">Structure</span><span class="vl ac">🏢 UK Ltd company (SPV)</span></div>':'';
+    ownersBody.innerHTML=structRow+(taxProfile.owners||[]).filter(o=>+o.share>0).map(o=>{
       const sh=(+o.share||0)/100;
       return `<div class="dr"><span class="lb">${o.name} (${o.share}% · ${TAX_LIB[o.jur].name})</span><span class="vl">${fR(dcf.init*sh)} day 1 · ${fR(dcf.mcf*sh)}/mo${s.tax==='on'?' pre-tax':''}</span></div>`;
     }).join('')+(s.tax==='on'?'<div style="font-size:10px;color:var(--di);margin-top:6px">IRR, cash-flow table and exit figures are post-tax (blended across owners). Per-owner monthly figures above are pre-tax shares.</div>':'');
@@ -1649,6 +1672,27 @@ function calcBond() {
 
 // ── TAX TAB ──
 function renderTaxTab() {
+  const sWrap=document.getElementById('tax-structure');
+  if (sWrap) {
+    const isLtd=(taxProfile.structure||'personal')==='ltd';
+    sWrap.innerHTML=`
+      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;margin-bottom:6px">
+        <div class="sf" style="width:250px"><label>Holding structure</label>
+          <select id="tx-structure" onchange="renderTaxTabHint()">
+            <option value="personal"${!isLtd?' selected':''}>Personal — tenants in common</option>
+            <option value="ltd"${isLtd?' selected':''}>UK Ltd company (SPV)</option>
+          </select>
+        </div>
+        <label style="font-size:12px;color:var(--mu);display:flex;align-items:center;gap:6px;padding-bottom:9px;cursor:pointer">
+          <input type="checkbox" id="tx-nr"${taxProfile.nr?' checked':''}> +2% non-resident SDLT surcharge
+        </label>
+        <label style="font-size:12px;color:var(--mu);display:flex;align-items:center;gap:6px;padding-bottom:9px;cursor:pointer">
+          <input type="checkbox" id="tx-div"${taxProfile.div?' checked':''}> Ltd: pay profits out as dividends yearly
+        </label>
+      </div>
+      <div id="tx-hint" style="font-size:11px;color:var(--di);margin-bottom:12px;line-height:1.6"></div>`;
+    renderTaxTabHint();
+  }
   const wrap=document.getElementById('tax-owners');
   if (!wrap) return;
   wrap.innerHTML=(taxProfile.owners||[]).map((o,i)=>{
@@ -1668,6 +1712,15 @@ function renderTaxTab() {
   }).join('');
 }
 
+function renderTaxTabHint() {
+  const hint=document.getElementById('tx-hint');
+  const sel=document.getElementById('tx-structure');
+  if (!hint||!sel) return;
+  hint.innerHTML=sel.value==='ltd'
+    ? '🏢 <strong style="color:var(--mu)">UK Ltd (SPV):</strong> mortgage interest fully deductible · corporation tax 19% (profits ≤ £50K) / 25% · gain at exit taxed as corp tax · dividends taxed per owner only if extraction is ticked (UK 8.75–39.35% by band, SA ~20%, Cayman & non-resident UK: nil). Expect SPV mortgage rates ~0.5–1% higher than personal BTL — adjust the rate in DCF Assumptions to compare fairly.'
+    : '👥 <strong style="color:var(--mu)">Personal:</strong> each owner taxed at their marginal rate on their share · UK owners get only a 20% credit on mortgage interest (Section 24) · CGT at exit per owner (UK 18/24%, SA ~max 18% effective, Cayman nil).';
+}
+
 function saveTax() {
   const owners=[];
   for (let i=0;i<3;i++) {
@@ -1682,10 +1735,16 @@ function saveTax() {
   }
   const totShare=owners.reduce((s,o)=>s+o.share,0);
   if (Math.abs(totShare-100)>0.5) { toast('Shares must total 100% (currently '+totShare.toFixed(1)+'%)'); return; }
-  taxProfile={owners};
+  taxProfile={
+    owners,
+    structure:(document.getElementById('tx-structure')||{}).value||'personal',
+    nr: !!(document.getElementById('tx-nr')||{}).checked,
+    div:!!(document.getElementById('tx-div')||{}).checked,
+  };
   localStorage.setItem('lon_tax',JSON.stringify(taxProfile));
   renderTaxTab();
-  if (S().tax==='on') rerankAndRender();
+  rerankAndRender();   // SDLT surcharge affects pre-tax numbers too
+  calcBond();
   toast('Tax profile saved');
 }
 
