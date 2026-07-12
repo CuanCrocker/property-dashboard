@@ -905,11 +905,6 @@ function renderLive() {
         ${p.image&&p.image!=='/blank.gif'
           ?`<img src="${p.image}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="pc-img-fallback" style="display:none">${emo}</div>`
           :`<div class="pc-img-fallback">${emo}</div>`}
-        <div class="pc-tags">
-          <span class="tag tag-type">${p.type||'Flat'}</span>
-          <span class="${ybC} tag">${gy.toFixed(1)}% yield</span>
-        </div>
-        <div style="position:absolute;bottom:8px;left:8px;z-index:1">${tenureTag(p)}</div>
       </div>
       <div class="pc-body">
         <div class="pc-price" style="display:flex;align-items:center;justify-content:space-between">${fR(p.price)} ${scoreBadge(dealScore(p,dcf),'',`onclick="showScoreDeriv(event,${idx},'live')"`)}</div>
@@ -920,7 +915,7 @@ function renderLive() {
           ${p.size_m2?`<span>📐 ${p.size_m2}m²</span>`:''}
           <span style="margin-left:auto;color:var(--di);font-size:10px">${p.search_area}</span>
         </div>
-        <div style="margin-bottom:10px">${tenureTag(p)}</div>
+        <div style="margin-bottom:10px;display:flex;gap:5px;flex-wrap:wrap;align-items:center">${tenureTag(p)}<span class="tag tag-type">${p.type||'Flat'}</span><span class="${ybC} tag">${gy.toFixed(1)}% yield</span></div>
         <div class="pc-metrics">
           <div class="met"><div class="met-lb">Gross Yield</div><div class="met-vl ${gy>=6.5?'g':gy>=5?'a':'r'}">${fP(gy)}</div></div>
           <div class="met"><div class="met-lb">Mo. Cash Flow</div><div class="met-vl ${cfC}">${fR(mcf)}</div></div>
