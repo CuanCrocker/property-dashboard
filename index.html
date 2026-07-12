@@ -237,7 +237,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
 
 <nav class="nav">
   <button class="nb on" onclick="showTab('dash',this)">📊 Live Listings</button>
-  <button class="nb" onclick="showTab('watchlist',this)">⭐ My Watchlist</button>
+  <button class="nb" onclick="showTab('watchlist',this)">⭐ Favourites &amp; Watchlist</button>
   <button class="nb" onclick="showTab('bond',this)">🏦 Mortgage Calc</button>
   <button class="nb" onclick="showTab('market',this)">📈 Market Data</button>
 </nav>
@@ -344,6 +344,15 @@ tr:hover td{background:rgba(255,255,255,.02)}
 
 <!-- WATCHLIST TAB -->
 <div id="tab-watchlist" class="tab">
+  <div>
+    <div class="shdr"><div class="stitle">⭐ Favourites <span class="scnt" id="fav-count"></span></div></div>
+    <div class="alert info" style="margin-bottom:16px">
+      ⭐ &nbsp;Star any listing on the Live Listings tab and it appears here, grouped by area. Click the star again to remove it.
+    </div>
+    <div id="fav-groups"></div>
+    <div id="fav-empty" class="empty" style="display:none"><div class="ico">☆</div><p>No favourites yet. Click the star on any listing to save it here.</p></div>
+    <div style="height:26px"></div>
+  </div>
   <div style="max-width:820px">
     <div class="shdr"><div class="stitle">Manual Watchlist</div></div>
     <div class="alert info" style="margin-bottom:20px">
@@ -595,6 +604,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
 let liveListings = [];
 let watchlist = JSON.parse(localStorage.getItem('lon_wl') || '[]');
 let overrides = JSON.parse(localStorage.getItem('lon_ovr') || '{}');  // per-property custom rent/levy
+let favourites = JSON.parse(localStorage.getItem('lon_favs') || '[]'); // starred property ids
 let currentIdx = null;
 
 // Per-property inputs: custom override wins, otherwise the scraped area estimate
@@ -840,6 +850,7 @@ function init() {
   }
   renderLive();
   renderWatchlist();
+  renderFavs();
   calcBond();
   renderMarket();
 }
@@ -908,6 +919,7 @@ function renderLive() {
         ${p.image&&p.image!=='/blank.gif'
           ?`<img src="${p.image}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="pc-img-fallback" style="display:none">${emo}</div>`
           :`<div class="pc-img-fallback">${emo}</div>`}
+        <div onclick="toggleFav('${p.id}',event)" title="${favourites.includes(p.id)?'Remove from':'Add to'} Favourites" style="position:absolute;top:8px;right:8px;z-index:2;cursor:pointer;font-size:18px;text-shadow:0 1px 4px rgba(0,0,0,.8)">${favourites.includes(p.id)?'⭐':'☆'}</div>
       </div>
       <div class="pc-body">
         <div class="pc-price" style="display:flex;align-items:center;justify-content:space-between">${fR(p.price)} ${scoreBadge(dealScore(p,dcf),'',`onclick="showScoreDeriv(event,${idx},'live')"`)}</div>
@@ -1123,6 +1135,59 @@ function openModal(idx, source) {
   renderFunding(p,s,dcf);
   document.getElementById('dcf-ov').classList.add('open');
   document.body.style.overflow='hidden';
+}
+
+// ── FAVOURITES ──
+function toggleFav(id, ev) {
+  if (ev) ev.stopPropagation();
+  const i = favourites.indexOf(id);
+  if (i >= 0) { favourites.splice(i, 1); toast('Removed from Favourites'); }
+  else { favourites.push(id); toast('⭐ Added to Favourites'); }
+  localStorage.setItem('lon_favs', JSON.stringify(favourites));
+  renderLive();
+  renderFavs();
+}
+
+function renderFavs() {
+  const wrap = document.getElementById('fav-groups');
+  const empty = document.getElementById('fav-empty');
+  const cnt = document.getElementById('fav-count');
+  if (!wrap) return;
+  const favProps = liveListings.filter(p => favourites.includes(p.id));
+  if (cnt) cnt.textContent = favProps.length ? '(' + favProps.length + ')' : '';
+  if (!favProps.length) { wrap.innerHTML = ''; if (empty) empty.style.display = 'block'; return; }
+  if (empty) empty.style.display = 'none';
+  // Group by area
+  const groups = {};
+  favProps.forEach(p => { const a = p.search_area || 'Other'; (groups[a] = groups[a] || []).push(p); });
+  wrap.innerHTML = Object.keys(groups).sort().map(area => {
+    const cards = groups[area].map(p => {
+      const dcf = p._dcf_live || {};
+      const gy = dcf.gy ?? 0, mcf = dcf.mcf ?? 0, irr = dcf.irr ?? null;
+      const idx = liveListings.indexOf(p);
+      return `<div class="pc" onclick="openModal(${idx},'live')">
+        <div class="pc-img" style="background:linear-gradient(135deg,#0d1a2d,#08101e)">
+          ${p.image && p.image !== '/blank.gif' ? `<img src="${p.image}" onerror="this.style.display='none'">` : ''}
+          <div onclick="toggleFav('${p.id}',event)" title="Remove from favourites" style="position:absolute;top:8px;right:8px;z-index:2;cursor:pointer;font-size:18px;text-shadow:0 1px 4px rgba(0,0,0,.8)">⭐</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-price" style="display:flex;align-items:center;justify-content:space-between">${fR(p.price)} ${scoreBadge(dealScore(p, dcf), '', `onclick="showScoreDeriv(event,${idx},'live')"`)}</div>
+          <div class="pc-name">${p.suburb || ''}${p.postcode ? ' (' + p.postcode + ')' : ''} · ${(p.title || '').slice(0, 45)}</div>
+          <div style="margin-bottom:10px;display:flex;gap:5px;flex-wrap:wrap;align-items:center">${tenureTag(p)}<span class="tag tag-type">${p.type || 'Flat'}</span></div>
+          <div class="pc-metrics">
+            <div class="met"><div class="met-lb">Gross Yield</div><div class="met-vl ${gy >= 6.5 ? 'g' : gy >= 5 ? 'a' : 'r'}">${fP(gy)}</div></div>
+            <div class="met"><div class="met-lb">Mo. Cash Flow</div><div class="met-vl ${mcf >= 0 ? 'g' : mcf > -600 ? 'a' : 'r'}">${fR(mcf)}</div></div>
+            <div class="met"><div class="met-lb">IRR</div><div class="met-vl ${irr >= 10 ? 'g' : irr >= 7 ? 'a' : 'r'}">${irr ? fP(irr) : '—'}</div></div>
+          </div>
+          <div class="pc-foot">
+            <button class="btn bp bs" onclick="event.stopPropagation();openModal(${idx},'live')">📊 DCF</button>
+            ${p.url ? `<a href="${p.url}" target="_blank" class="btn bo bs" onclick="event.stopPropagation()">🔗 Listing</a>` : ''}
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+    return `<div style="font-size:13px;font-weight:700;color:var(--acc);margin:16px 0 10px">📍 ${area} <span style="color:var(--di);font-weight:400">(${groups[area].length})</span></div><div class="pgrid">${cards}</div>`;
+  }).join('');
 }
 
 // ── PER-PROPERTY OVERRIDES ──
