@@ -1184,7 +1184,11 @@ function openModal(idx, source) {
   const yg=dcf.ny-s.rate;
   const ygEl=document.getElementById('s-yg');
   if(ygEl){ygEl.textContent=fP(yg);ygEl.className='vl '+(yg>=0?'g':'r');}
-  $('s-ppm',p.size_m2?fR(p.price/p.size_m2)+'/m²':'—');
+  const ppmEl=document.getElementById('s-ppm');
+  if(ppmEl){
+    if(p.size_m2){ ppmEl.textContent='£'+Math.round(p.price/p.size_m2).toLocaleString('en-GB')+'/m²'; ppmEl.style.cssText=''; ppmEl.className='vl'; }
+    else { ppmEl.textContent='not stated in listing'; ppmEl.style.cssText='font-size:11px;color:var(--di);font-weight:400'; }
+  }
   const tenureEl=document.getElementById('s-tenure');
   if(tenureEl) tenureEl.innerHTML=tenureTag(p)||'—';
   const leaseWarn=document.getElementById('m-lease-warn');
