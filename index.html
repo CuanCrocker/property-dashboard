@@ -258,6 +258,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
     </div>
     <div id="sbar-body" class="sbar-grid">
       <div class="sf"><label>Mortgage Rate (%)</label><input id="s-rate" type="number" value="5.0" step="0.25"><div class="hint">BoE Base: 4.25% · Typical BTL 5yr fix: 4.5%</div></div>
+      <div class="sf"><label>Mortgage Type</label><select id="s-mtype"><option value="repay">Repayment</option><option value="io">Interest-only</option></select><div class="hint">Most BTL landlords use interest-only</div></div>
       <div class="sf"><label>Deposit (%)</label><input id="s-dep" type="number" value="25" step="5"><div class="hint">Min 25% for BTL mortgages</div></div>
       <div class="sf"><label>Loan Term (yrs)</label><input id="s-term" type="number" value="25"></div>
       <div class="sf"><label>Capital Growth p.a. (%)</label><input id="s-cgrow" type="number" value="5.0" step="0.5"><div class="hint">London avg: 4–6%</div></div>
@@ -666,6 +667,7 @@ setInterval(pollForNewData, 5 * 60 * 1000);
 function S() {
   return {
     rate:   +document.getElementById('s-rate').value   || 5.0,
+    mtype:  (document.getElementById('s-mtype')||{}).value || 'repay',
     dep:    +document.getElementById('s-dep').value    || 25,
     term:   +document.getElementById('s-term').value   || 25,
     cg:     +document.getElementById('s-cgrow').value  || 5.0,
@@ -718,15 +720,16 @@ function runDCF(price, rent, levy, s) {
   const loan=price*(1-s.dep/100), dep=price*s.dep/100;
   const duty=stampDuty(price), breg=mortgageFees();
   const init=dep+duty+breg;
-  const mp=bondPmt(price,s.dep,s.rate,s.term);
   const r=s.rate/100/12;
+  const io=s.mtype==='io';
+  const mp=io?loan*r:bondPmt(price,s.dep,s.rate,s.term);
   const cfs=[-init]; let bal=loan;
   for (let yr=1;yr<=s.hold;yr++) {
     const ar=rent*Math.pow(1+s.rg/100,yr-1)*12;
     const eff=ar*(1-s.vac/100);
     const netOp=eff*(1-s.agent/100)-price*s.maint/100-levy*12-1200;
     const acf=netOp-mp*12;
-    bal=Math.max(0,outBal(loan,r,mp,yr*12));
+    bal=io?loan:Math.max(0,outBal(loan,r,mp,yr*12));
     if (yr<s.hold) cfs.push(acf);
     else { const ev=price*Math.pow(1+s.cg/100,s.hold); cfs.push(acf+ev-bal-ev*s.efee/100); }
   }
@@ -1073,8 +1076,8 @@ function openModal(idx, source) {
   clickify('s-bond',[
     {label:'Loan amount',display:fR(loanAmt),value:loanAmt,cls:'neu',note:fR(p.price)+' less '+s.dep+'% deposit'},
     {label:'Rate',display:s.rate+'% p.a.',value:s.rate,cls:'neu'},
-    {label:'Term',display:s.term+' years',value:s.term,cls:'neu'},
-    {label:'= Monthly repayment',display:'−'+fR(dcf.mp)+'/mo',value:-dcf.mp,cls:'neg',note:'Standard repayment mortgage formula'}],'Mortgage Payment');
+    {label:'Type',display:s.mtype==='io'?'Interest-only':'Repayment ('+s.term+'yr)',value:0,cls:'neu',note:s.mtype==='io'?'Principal never repaid — full loan due at sale':'Interest + principal, loan fully repaid over term'},
+    {label:'= Monthly payment',display:'−'+fR(dcf.mp)+'/mo',value:-dcf.mp,cls:'neg',note:s.mtype==='io'?'Loan × rate ÷ 12':'Standard annuity formula'}],'Mortgage Payment');
   clickify('s-cf',[
     {label:'Net rental income',display:fR(dcf.nr),value:dcf.nr,cls:dcf.nr>=0?'pos':'neg'},
     {label:'Less: mortgage payment',display:'−'+fR(dcf.mp),value:-dcf.mp,cls:'neg'},
@@ -1187,7 +1190,7 @@ function renderCFTable(p,s,dcf0) {
     const agentFee=eff*s.agent/100, maint=p.price*s.maint/100, ins=1200;
     const no=eff-agentFee-maint-levy*12-ins;
     const acf=no-mp*12;
-    bal=Math.max(0,outBal(loan,r,mp,yr*12));
+    bal=s.mtype==='io'?loan:Math.max(0,outBal(loan,r,mp,yr*12));
     const ev=yr===s.hold?p.price*Math.pow(1+s.cg/100,s.hold):0;
     const ep=yr===s.hold?ev-bal-ev*s.efee/100:0;
     const tot=acf+ep; cum+=tot;
