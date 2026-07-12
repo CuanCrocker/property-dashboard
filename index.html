@@ -259,7 +259,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
     </div>
     <div id="sbar-body" class="sbar-grid">
       <div class="sf"><label>Mortgage Rate (%)</label><input id="s-rate" type="number" value="5.0" step="0.25"><div class="hint">BoE Base: 4.25% · Typical BTL 5yr fix: 4.5%</div></div>
-      <div class="sf"><label>Mortgage Type</label><select id="s-mtype"><option value="repay">Repayment</option><option value="io">Interest-only</option></select><div class="hint">Most BTL landlords use interest-only</div></div>
+      <div class="sf"><label>Mortgage Type</label><select id="s-mtype"><option value="repay">Repayment</option><option value="io" selected>Interest-only</option></select><div class="hint">Most BTL landlords use interest-only</div></div>
       <div class="sf"><label>Deposit (%)</label><input id="s-dep" type="number" value="25" step="5"><div class="hint">Min 25% for BTL mortgages</div></div>
       <div class="sf"><label>Loan Term (yrs)</label><input id="s-term" type="number" value="25"></div>
       <div class="sf"><label>Capital Growth p.a. (%)</label><input id="s-cgrow" type="number" value="5.0" step="0.5"><div class="hint">London avg: 4–6%</div></div>
@@ -267,7 +267,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
       <div class="sf"><label>Vacancy (%)</label><input id="s-vac" type="number" value="5"></div>
       <div class="sf"><label>Management Fee (%)</label><input id="s-agent" type="number" value="12"><div class="hint">Lettings agent: 10–15%</div></div>
       <div class="sf"><label>Maintenance (% of val p.a.)</label><input id="s-maint" type="number" value="1.0" step="0.1"></div>
-      <div class="sf"><label>Hold Period (yrs)</label><input id="s-hold" type="number" value="7"></div>
+      <div class="sf"><label>Hold Period (yrs)</label><input id="s-hold" type="number" value="25"></div>
       <div class="sf"><label>Exit Agent Fee (%)</label><input id="s-efee" type="number" value="2.0" step="0.5"></div>
       <div class="sf"><label>Hurdle Rate (%)</label><input id="s-hurdle" type="number" value="8"></div>
       <div class="sf"><label>Remortgage every (yrs)</label><input id="s-refi" type="number" value="5"><div class="hint">~£2K product fee at each refinance</div></div>
@@ -286,7 +286,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
 
   <div class="kpis">
     <div class="kpi"><div class="kpi-lb">Live Listings</div><div class="kpi-vl g" id="k-total">—</div><div class="kpi-sub">£300K–£800K · 2+ beds · London &amp; Commuter Belt</div></div>
-    <div class="kpi"><div class="kpi-lb">Best IRR (7yr hold)</div><div class="kpi-vl g" id="k-irr">—</div><div class="kpi-sub">@ 5.0% capital growth</div></div>
+    <div class="kpi"><div class="kpi-lb">Best IRR (25yr hold)</div><div class="kpi-vl g" id="k-irr">—</div><div class="kpi-sub">@ 5.0% capital growth</div></div>
     <div class="kpi"><div class="kpi-lb">Avg Gross Yield</div><div class="kpi-vl g" id="k-yield">—</div><div class="kpi-sub">across ranked listings</div></div>
     <div class="kpi"><div class="kpi-lb">Avg Monthly Shortfall</div><div class="kpi-vl r" id="k-cf">—</div><div class="kpi-sub">negatively geared (typical London BTL)</div></div>
     <div class="kpi"><div class="kpi-lb">BoE Base Rate</div><div class="kpi-vl a">4.25%</div><div class="kpi-sub">Down 100bp since Aug 2024</div></div>
@@ -822,7 +822,7 @@ function S() {
     vac:    +document.getElementById('s-vac').value    || 5,
     agent:  +document.getElementById('s-agent').value  || 12,
     maint:  +document.getElementById('s-maint').value  || 1.0,
-    hold:   +document.getElementById('s-hold').value   || 7,
+    hold:   +document.getElementById('s-hold').value   || 25,
     efee:   +document.getElementById('s-efee').value   || 2.0,
     hurdle: +document.getElementById('s-hurdle').value || 8,
     refi:   +document.getElementById('s-refi').value   || 0,
