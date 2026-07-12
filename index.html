@@ -506,7 +506,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
           <div class="dbox">
             <div class="dbox-t">Upfront Cash Required</div>
             <div class="dr"><span class="lb">Purchase Price</span><span class="vl" id="s-price">—</span></div>
-            <div class="dr"><span class="lb">Deposit</span><span class="vl" id="s-dep">—</span></div>
+            <div class="dr"><span class="lb">Deposit</span><span class="vl" id="sm-dep">—</span></div>
             <div class="dr"><span class="lb">Stamp Duty (SDLT BTL)</span><span class="vl r" id="s-duty">—</span></div>
             <div class="dr"><span class="lb">Mortgage &amp; Legal Fees</span><span class="vl r" id="s-breg">—</span></div>
             <div class="dr tot"><span class="lb">Total Cash Day 1</span><span class="vl" id="s-total">—</span></div>
@@ -514,10 +514,10 @@ tr:hover td{background:rgba(255,255,255,.02)}
           <div class="dbox">
             <div class="dbox-t">Monthly P&amp;L — Year 1</div>
             <div class="dr"><span class="lb">Gross Rent (est.)</span><span class="vl g" id="s-rent">—</span></div>
-            <div class="dr"><span class="lb">Vacancy (5%)</span><span class="vl r" id="s-vac">—</span></div>
+            <div class="dr"><span class="lb">Vacancy (5%)</span><span class="vl r" id="sm-vac">—</span></div>
             <div class="dr"><span class="lb">Mgmt Fee (12%)</span><span class="vl r" id="s-agt">—</span></div>
             <div class="dr"><span class="lb">Service Charge</span><span class="vl r" id="s-levy">—</span></div>
-            <div class="dr"><span class="lb">Maintenance + Ins.</span><span class="vl r" id="s-maint">—</span></div>
+            <div class="dr"><span class="lb">Maintenance + Ins.</span><span class="vl r" id="sm-maint">—</span></div>
             <div class="dr"><span class="lb">Net Rental Income</span><span class="vl g" id="s-nri">—</span></div>
             <div class="dr"><span class="lb">Mortgage Payment</span><span class="vl r" id="s-bond">—</span></div>
             <div class="dr tot"><span class="lb">Monthly Cash Flow</span><span class="vl" id="s-cf">—</span></div>
@@ -989,12 +989,12 @@ function openModal(idx, source) {
   if(mScoreEl) mScoreEl.innerHTML=scoreBadge(dealScore(p,dcf),'lg',`onclick="showScoreDeriv(event,0,'modal')"`)||'—';
   document.getElementById('m-rent-note').style.display=source==='live'?'flex':'none';
   const $=(id,v,c)=>{const e=document.getElementById(id);if(e){e.textContent=v;if(c)e.className='vl '+c;}};
-  $('s-price',fR(p.price)); $('s-dep',fR(dcf.dep));
+  $('s-price',fR(p.price)); $('sm-dep',fR(dcf.dep));
   $('s-duty','−'+fR(dcf.duty),'r'); $('s-breg','−'+fR(dcf.breg),'r');
   $('s-total',fR(dcf.init));
-  $('s-rent',fR(rent)+'/mo','g'); $('s-vac','−'+fR(dcf.vac)+'/mo','r');
+  $('s-rent',fR(rent)+'/mo','g'); $('sm-vac','−'+fR(dcf.vac)+'/mo','r');
   $('s-agt','−'+fR(dcf.agt)+'/mo','r'); $('s-levy','−'+fR(levy)+'/mo','r');
-  $('s-maint','−'+fR(dcf.mnt+100)+'/mo','r');
+  $('sm-maint','−'+fR(dcf.mnt+100)+'/mo','r');
   $('s-nri',fR(dcf.nr)+'/mo','g'); $('s-bond','−'+fR(dcf.mp)+'/mo','r');
   const cfEl=document.getElementById('s-cf');
   if(cfEl){cfEl.textContent=fR(dcf.mcf)+'/mo';cfEl.className='vl '+(dcf.mcf>=0?'g':'r');}
@@ -1022,6 +1022,95 @@ function openModal(idx, source) {
   $('s-eaf','−'+fR(eafAmt),'r'); $('s-nep',fR(dcf.ev-dcf.bal-eafAmt),'g');
   const npvEl=document.getElementById('s-npv');
   if(npvEl){npvEl.textContent=fR(dcf.npv);npvEl.className='vl '+(dcf.npv>=0?'g':'r');}
+  // ── Clickable derivations on all Summary figures ──
+  const clickify=(id,rows,title)=>{const e=document.getElementById(id);if(!e)return;e.classList.add('clickable-num');e.onclick=(ev)=>showDerivation(ev,rows,title);};
+  const loanAmt=p.price*(1-s.dep/100);
+  // SDLT band-by-band breakdown
+  const dutyRows=[];
+  [[0,125000,3],[125000,250000,5],[250000,925000,8],[925000,1500000,13],[1500000,Infinity,15]].forEach(b=>{
+    if(p.price>b[0]){const amt=(Math.min(p.price,b[1])-b[0])*b[2]/100;
+      dutyRows.push({label:b[2]+'% band: '+fR(b[0])+' – '+fR(Math.min(p.price,b[1])),display:'−'+fR(amt),value:-amt,cls:'neg'});}
+  });
+  dutyRows.push({label:'Total SDLT',display:'−'+fR(dcf.duty),value:-dcf.duty,cls:'neg',note:'UK additional-property (BTL) rates 2025/26'});
+  clickify('s-duty',dutyRows,'Stamp Duty on '+fR(p.price));
+  clickify('sm-dep',[
+    {label:'Purchase price',display:fR(p.price),value:p.price,cls:'neu'},
+    {label:'× Deposit rate',display:s.dep+'%',value:s.dep,cls:'neu',note:'Set in DCF Assumptions at the top'},
+    {label:'= Deposit',display:fR(dcf.dep),value:dcf.dep,cls:'neg'}],'Deposit');
+  clickify('s-breg',[
+    {label:'Mortgage arrangement fee',display:'−£2K',value:-2000,cls:'neg',note:'Typical lender product fee'},
+    {label:'Legal, survey & valuation',display:'−£3K',value:-3000,cls:'neg',note:'Conveyancing ~£1.5K + survey ~£800 + searches'},
+    {label:'= Total fees',display:'−'+fR(dcf.breg),value:-dcf.breg,cls:'neg'}],'Mortgage & Legal Fees');
+  clickify('s-total',[
+    {label:'Deposit ('+s.dep+'%)',display:'−'+fR(dcf.dep),value:-dcf.dep,cls:'neg'},
+    {label:'Stamp duty (SDLT BTL)',display:'−'+fR(dcf.duty),value:-dcf.duty,cls:'neg'},
+    {label:'Mortgage & legal fees',display:'−'+fR(dcf.breg),value:-dcf.breg,cls:'neg'},
+    {label:'= Total cash required day 1',display:fR(dcf.init),value:-dcf.init,cls:'neg'}],'Upfront Cash Required');
+  clickify('s-rent',[
+    {label:'Estimated monthly rent',display:fR(rent)+'/mo',value:rent,cls:'pos',note:overrides[p.id]?'Your custom figure (✎ override active)':'Avg asking rent for '+(p.beds||'?')+'-beds in '+(p.postcode||p.suburb)+' — adjustable above'},
+    {label:'Annualised',display:fR(rent*12)+'/yr',value:rent*12,cls:'pos'}],'Gross Rent');
+  clickify('sm-vac',[
+    {label:'Gross rent',display:fR(rent)+'/mo',value:rent,cls:'pos'},
+    {label:'× Vacancy rate',display:s.vac+'%',value:s.vac,cls:'neu',note:'Allowance for empty periods between tenants'},
+    {label:'= Vacancy allowance',display:'−'+fR(dcf.vac)+'/mo',value:-dcf.vac,cls:'neg'}],'Vacancy');
+  clickify('s-agt',[
+    {label:'Gross rent',display:fR(rent)+'/mo',value:rent,cls:'pos'},
+    {label:'× Management fee',display:s.agent+'%',value:s.agent,cls:'neu',note:'Full lettings management — typical London range 10–15%'},
+    {label:'= Agent fee',display:'−'+fR(dcf.agt)+'/mo',value:-dcf.agt,cls:'neg'}],'Management Fee');
+  clickify('s-levy',[
+    {label:'Service charge',display:'−'+fR(levy)+'/mo',value:-levy,cls:'neg',note:overrides[p.id]&&overrides[p.id].levy!=null?'Your custom figure (✎ override active)':'From the listing where stated, otherwise £200/mo default'}],'Service Charge');
+  clickify('sm-maint',[
+    {label:'Maintenance ('+s.maint+'% of value p.a.)',display:'−'+fR(dcf.mnt)+'/mo',value:-dcf.mnt,cls:'neg',note:s.maint+'% × '+fR(p.price)+' ÷ 12'},
+    {label:'Landlord insurance',display:'−£100/mo',value:-100,cls:'neg',note:'Buildings insurance estimate'},
+    {label:'= Total',display:'−'+fR(dcf.mnt+100)+'/mo',value:-(dcf.mnt+100),cls:'neg'}],'Maintenance + Insurance');
+  clickify('s-nri',[
+    {label:'Gross rent',display:fR(rent),value:rent,cls:'pos'},
+    {label:'Less: vacancy',display:'−'+fR(dcf.vac),value:-dcf.vac,cls:'neg'},
+    {label:'Less: management fee',display:'−'+fR(dcf.agt),value:-dcf.agt,cls:'neg'},
+    {label:'Less: service charge',display:'−'+fR(levy),value:-levy,cls:'neg'},
+    {label:'Less: maintenance + insurance',display:'−'+fR(dcf.mnt+100),value:-(dcf.mnt+100),cls:'neg'},
+    {label:'= Net rental income',display:fR(dcf.nr)+'/mo',value:dcf.nr,cls:dcf.nr>=0?'pos':'neg'}],'Net Rental Income');
+  clickify('s-bond',[
+    {label:'Loan amount',display:fR(loanAmt),value:loanAmt,cls:'neu',note:fR(p.price)+' less '+s.dep+'% deposit'},
+    {label:'Rate',display:s.rate+'% p.a.',value:s.rate,cls:'neu'},
+    {label:'Term',display:s.term+' years',value:s.term,cls:'neu'},
+    {label:'= Monthly repayment',display:'−'+fR(dcf.mp)+'/mo',value:-dcf.mp,cls:'neg',note:'Standard repayment mortgage formula'}],'Mortgage Payment');
+  clickify('s-cf',[
+    {label:'Net rental income',display:fR(dcf.nr),value:dcf.nr,cls:dcf.nr>=0?'pos':'neg'},
+    {label:'Less: mortgage payment',display:'−'+fR(dcf.mp),value:-dcf.mp,cls:'neg'},
+    {label:'= Monthly cash flow',display:fR(dcf.mcf)+'/mo',value:dcf.mcf,cls:dcf.mcf>=0?'pos':'neg',note:dcf.mcf<0?'You fund this shortfall from other income each month':''}],'Monthly Cash Flow');
+  clickify('s-gy',[
+    {label:'Annual rent',display:fR(rent*12),value:rent*12,cls:'pos'},
+    {label:'÷ Purchase price',display:fR(p.price),value:p.price,cls:'neu'},
+    {label:'= Gross yield',display:fP(dcf.gy),value:dcf.gy,cls:'pos',note:'Before all costs — the standard comparison metric'}],'Gross Yield');
+  clickify('s-ny',[
+    {label:'Net rental income (annual)',display:fR(dcf.nr*12),value:dcf.nr*12,cls:dcf.nr>=0?'pos':'neg'},
+    {label:'÷ Purchase price',display:fR(p.price),value:p.price,cls:'neu'},
+    {label:'= Net yield',display:fP(dcf.ny),value:dcf.ny,cls:dcf.ny>=0?'pos':'neg',note:'After vacancy, management, service charge, maintenance & insurance'}],'Net Yield');
+  clickify('s-yg',[
+    {label:'Net yield',display:fP(dcf.ny),value:dcf.ny,cls:dcf.ny>=0?'pos':'neg'},
+    {label:'Less: mortgage rate',display:'−'+s.rate+'%',value:-s.rate,cls:'neg'},
+    {label:'= Yield gap',display:fP(dcf.ny-s.rate),value:dcf.ny-s.rate,cls:(dcf.ny-s.rate)>=0?'pos':'neg',note:'Negative = property earns less than the debt costs (typical in London — returns rely on capital growth)'}],'Yield Gap');
+  clickify('s-ev',[
+    {label:'Purchase price',display:fR(p.price),value:p.price,cls:'neu'},
+    {label:'× Capital growth',display:'(1 + '+s.cg+'%)^'+s.hold,value:s.cg,cls:'neu',note:'Compounded over the '+s.hold+'-year hold'},
+    {label:'= Projected exit value',display:fR(dcf.ev),value:dcf.ev,cls:'pos'}],'Exit Value');
+  clickify('s-ob',[
+    {label:'Original loan',display:fR(loanAmt),value:loanAmt,cls:'neu'},
+    {label:'Less: principal repaid over '+s.hold+' yrs',display:'−'+fR(loanAmt-dcf.bal),value:-(loanAmt-dcf.bal),cls:'pos',note:'Via monthly repayments'},
+    {label:'= Outstanding at exit',display:'−'+fR(dcf.bal),value:-dcf.bal,cls:'neg'}],'Outstanding Mortgage');
+  clickify('s-eaf',[
+    {label:'Exit value',display:fR(dcf.ev),value:dcf.ev,cls:'pos'},
+    {label:'× Agent fee',display:s.efee+'%',value:s.efee,cls:'neu',note:'Estate agent selling commission'},
+    {label:'= Fee',display:'−'+fR(dcf.ev*s.efee/100),value:-dcf.ev*s.efee/100,cls:'neg'}],'Exit Agent Fee');
+  clickify('s-nep',[
+    {label:'Exit value',display:fR(dcf.ev),value:dcf.ev,cls:'pos'},
+    {label:'Less: outstanding mortgage',display:'−'+fR(dcf.bal),value:-dcf.bal,cls:'neg'},
+    {label:'Less: agent fee',display:'−'+fR(dcf.ev*s.efee/100),value:-dcf.ev*s.efee/100,cls:'neg'},
+    {label:'= Net exit proceeds',display:fR(dcf.ev-dcf.bal-dcf.ev*s.efee/100),value:dcf.ev-dcf.bal-dcf.ev*s.efee/100,cls:'pos'}],'Net Exit Proceeds');
+  clickify('s-npv',[
+    {label:'All cash flows discounted at '+s.hurdle+'%',display:fR(dcf.npv),value:dcf.npv,cls:dcf.npv>=0?'pos':'neg',note:'Initial equity + '+s.hold+' years of cash flows + exit proceeds, each discounted back to today at your hurdle rate. Positive = beats your '+s.hurdle+'% required return.'}],'NPV @ Hurdle');
+
   const ovrR=document.getElementById('ovr-rent'); if(ovrR) ovrR.value=rent;
   const ovrL=document.getElementById('ovr-levy'); if(ovrL) ovrL.value=levy;
   const ovrN=document.getElementById('ovr-note');
