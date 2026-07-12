@@ -490,6 +490,18 @@ tr:hover td{background:rgba(255,255,255,.02)}
         <div class="alert warn" id="m-lease-warn" style="margin-bottom:16px;display:none">
           <span></span>
         </div>
+        <div style="background:var(--card);border:1px dashed var(--bdr2);border-radius:9px;padding:12px 14px;margin-bottom:16px">
+          <div style="font-size:11px;color:var(--di);text-transform:uppercase;letter-spacing:.5px;font-weight:600;margin-bottom:8px">✎ Adjust this property's assumptions <span id="ovr-note" style="color:var(--a);text-transform:none;font-weight:400"></span></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
+            <div class="sf" style="width:150px"><label>Monthly Rent (£)</label><input id="ovr-rent" type="number" step="50"></div>
+            <div class="sf" style="width:150px"><label>Service Charge (£/mo)</label><input id="ovr-levy" type="number" step="10"></div>
+            <button class="btn bp bs" onclick="applyOverride()">Apply</button>
+            <button class="btn bo bs" onclick="resetOverride()">Reset to estimate</button>
+          </div>
+          <div style="font-size:11px;color:var(--di);margin-top:8px;line-height:1.5">
+            ℹ️ The default rent estimate is the <strong style="color:var(--mu)">average asking rent of same-bedroom-count rental listings in this postcode</strong>, scraped from OnTheMarket at the same time as the sale listings (rounded to the nearest £50). Where no rental listings were found, a regional average is used. Service charge comes from the listing itself where stated, otherwise defaults to £200/mo. Always verify with a local letting agent before offering.
+          </div>
+        </div>
         <div class="dcfg">
           <div class="dbox">
             <div class="dbox-t">Upfront Cash Required</div>
@@ -581,6 +593,18 @@ tr:hover td{background:rgba(255,255,255,.02)}
 // ── STATE ──
 let liveListings = [];
 let watchlist = JSON.parse(localStorage.getItem('lon_wl') || '[]');
+let overrides = JSON.parse(localStorage.getItem('lon_ovr') || '{}');  // per-property custom rent/levy
+let currentIdx = null;
+
+// Per-property inputs: custom override wins, otherwise the scraped area estimate
+function propRent(p) {
+  const o = overrides[p.id] || {};
+  return o.rent != null ? o.rent : ((p.dcf||{}).est_monthly_rent || p.rent || 0);
+}
+function propLevy(p) {
+  const o = overrides[p.id] || {};
+  return o.levy != null ? o.levy : ((p.dcf||{}).est_levy || p.levy || 200);
+}
 let activeFilter = 'all';
 let activeSub = null;      // suburb-level tag filter (e.g. 'Hackney')
 let searchTerm = '';       // free-text search
@@ -752,7 +776,7 @@ function showScoreDeriv(ev, idx, source) {
   ev.stopPropagation();
   const p = source==='modal' ? currentProp : liveListings[idx];
   if (!p) return;
-  const dcf = p._dcf_live || runDCF(p.price, (p.dcf||{}).est_monthly_rent||p.rent||0, (p.dcf||{}).est_levy||p.levy||200, S());
+  const dcf = p._dcf_live || runDCF(p.price, propRent(p), propLevy(p), S());
   const clamp=(x)=>Math.max(0,Math.min(1,x));
   const irrS  = clamp(((dcf.irr||0) - 4) / 10);
   const gyS   = clamp(((dcf.gy||0)  - 4) / 3.5);
@@ -799,8 +823,8 @@ function init() {
     liveListings=ld.listings;
     const s=S();
     liveListings.forEach(p=>{
-      const rent=(p.dcf||{}).est_monthly_rent||0;
-      const levy=(p.dcf||{}).est_levy||200;
+      const rent=propRent(p);
+      const levy=propLevy(p);
       if (rent) p._dcf_live=runDCF(p.price,rent,levy,s);
     });
     liveListings.sort((a,b)=>((b._dcf_live||{}).irr||0)-((a._dcf_live||{}).irr||0));
@@ -822,8 +846,8 @@ function rerankAndRender() {
   if (!liveListings.length) { renderLive(); return; }
   const s=S();
   liveListings.forEach(p=>{
-    const rent=(p.dcf||{}).est_monthly_rent||0;
-    const levy=(p.dcf||{}).est_levy||200;
+    const rent=propRent(p);
+    const levy=propLevy(p);
     if (rent) p._dcf_live=runDCF(p.price,rent,levy,s);
   });
   liveListings.sort((a,b)=>((b._dcf_live||{}).irr||0)-((a._dcf_live||{}).irr||0));
@@ -878,8 +902,9 @@ function renderLive() {
     return `<div class="pc${isTop?' top-pick':''}" onclick="openModal(${idx},'live')">
       ${isTop?`<div class="top-pick-badge">#${i+1} TOP PICK</div>`:''}
       <div class="pc-img" style="background:${grad}">
-        ${p.image&&p.image!=='/blank.gif'?`<img src="${p.image}" onerror="this.style.display='none'">`:''}
-        <div class="pc-img-fallback">${emo}</div>
+        ${p.image&&p.image!=='/blank.gif'
+          ?`<img src="${p.image}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="pc-img-fallback" style="display:none">${emo}</div>`
+          :`<div class="pc-img-fallback">${emo}</div>`}
         <div class="pc-tags">
           <span class="tag tag-type">${p.type||'Flat'}</span>
           <span class="${ybC} tag">${gy.toFixed(1)}% yield</span>
@@ -948,10 +973,10 @@ function renderTop5(list) {
 // ── MODAL ──
 function openModal(idx, source) {
   const p=source==='live'?liveListings[idx]:watchlist[idx];
-  currentProp=p; currentSource=source;
+  currentProp=p; currentSource=source; currentIdx=idx;
   const s=S();
-  const rent=source==='live'?(p.dcf||{}).est_monthly_rent||0:p.rent||0;
-  const levy=source==='live'?(p.dcf||{}).est_levy||200:p.levy||200;
+  const rent=propRent(p);
+  const levy=propLevy(p);
   const dcf=runDCF(p.price,rent,levy,s);
   document.getElementById('m-title').textContent=(p.suburb||p.search_area||'')+(p.postcode?' ('+p.postcode+')':'')+(p.title?' — '+p.title.slice(0,45):'')+' · '+fR(p.price);
   const lnk=document.getElementById('m-link');
@@ -1002,11 +1027,50 @@ function openModal(idx, source) {
   $('s-eaf','−'+fR(eafAmt),'r'); $('s-nep',fR(dcf.ev-dcf.bal-eafAmt),'g');
   const npvEl=document.getElementById('s-npv');
   if(npvEl){npvEl.textContent=fR(dcf.npv);npvEl.className='vl '+(dcf.npv>=0?'g':'r');}
+  const ovrR=document.getElementById('ovr-rent'); if(ovrR) ovrR.value=rent;
+  const ovrL=document.getElementById('ovr-levy'); if(ovrL) ovrL.value=levy;
+  const ovrN=document.getElementById('ovr-note');
+  if(ovrN) ovrN.textContent=overrides[p.id]?'— custom values in use (not the area estimate)':'— defaults to area estimate';
   renderCFTable(p,s,dcf);
   renderSens(p,s);
   renderFunding(p,s,dcf);
   document.getElementById('dcf-ov').classList.add('open');
   document.body.style.overflow='hidden';
+}
+
+// ── PER-PROPERTY OVERRIDES ──
+function applyOverride() {
+  if (!currentProp) return;
+  const r=+document.getElementById('ovr-rent').value||0;
+  const lRaw=document.getElementById('ovr-levy').value;
+  if (r<=0) { toast('Enter a valid monthly rent'); return; }
+  const o={rent:r};
+  if (lRaw!=='') o.levy=+lRaw;
+  overrides[currentProp.id]=o;
+  localStorage.setItem('lon_ovr',JSON.stringify(overrides));
+  recalcAndRefresh();
+  toast('Custom assumptions applied to this property');
+}
+
+function resetOverride() {
+  if (!currentProp) return;
+  delete overrides[currentProp.id];
+  localStorage.setItem('lon_ovr',JSON.stringify(overrides));
+  recalcAndRefresh();
+  toast('Reverted to area estimate');
+}
+
+function recalcAndRefresh() {
+  const s=S();
+  if (currentSource==='live') {
+    currentProp._dcf_live=runDCF(currentProp.price,propRent(currentProp),propLevy(currentProp),s);
+    liveListings.sort((a,b)=>((b._dcf_live||{}).irr||0)-((a._dcf_live||{}).irr||0));
+    renderLive();
+    openModal(liveListings.indexOf(currentProp),'live');
+  } else {
+    renderWatchlist();
+    openModal(watchlist.indexOf(currentProp),'wl');
+  }
 }
 
 function showDerivation(ev,rows,title) {
@@ -1027,8 +1091,8 @@ document.addEventListener('click',()=>{const p=document.getElementById('deriv-po
 
 function renderCFTable(p,s,dcf0) {
   const loan=p.price*(1-s.dep/100), r=s.rate/100/12;
-  const baseRent=(p.dcf||{}).est_monthly_rent||p.rent||0;
-  const levy=(p.dcf||{}).est_levy||p.levy||200;
+  const baseRent=propRent(p);
+  const levy=propLevy(p);
   const mp=dcf0.mp;
   let html='<table><thead><tr><th>Year</th><th>Gross Rent</th><th>Net Op. Income</th><th>Mortgage</th><th>Annual CF</th><th>Exit Proceeds</th><th>Total CF</th><th>Cum. CF</th></tr></thead><tbody>';
   let cum=-dcf0.init, bal=loan;
@@ -1095,8 +1159,8 @@ function renderCFTable(p,s,dcf0) {
 
 function renderSens(p,s) {
   const holds=[3,5,7,10,15], growths=[2,3.5,5,6.5,8];
-  const rent=(p.dcf||{}).est_monthly_rent||p.rent||0;
-  const levy=(p.dcf||{}).est_levy||p.levy||200;
+  const rent=propRent(p);
+  const levy=propLevy(p);
   let h='<table><thead><tr><th>Hold →</th>';
   holds.forEach(yr=>{h+='<th style="text-align:center">'+yr+'yr</th>';});
   h+='</tr></thead><tbody>';
@@ -1138,8 +1202,8 @@ function renderSens(p,s) {
 function renderFunding(p,s,dcf) {
   document.getElementById('f-pprice').textContent=fR(p.price);
   const deposits=[25,30,35,40];
-  const rent=(p.dcf||{}).est_monthly_rent||p.rent||0;
-  const levy=(p.dcf||{}).est_levy||p.levy||200;
+  const rent=propRent(p);
+  const levy=propLevy(p);
   document.getElementById('m-lcards').innerHTML=deposits.map(dep=>{
     const dcfD=runDCF(p.price,rent,levy,Object.assign({},s,{dep}));
     const isSel=dep===s.dep;
@@ -1215,8 +1279,8 @@ function renderWatchlist() {
   if (empty) empty.style.display='none';
   const s=S();
   grid.innerHTML=watchlist.map((p,i)=>{
-    const rent=p.rent||(p.dcf||{}).est_monthly_rent||0;
-    const levy=p.levy||(p.dcf||{}).est_levy||200;
+    const rent=propRent(p);
+    const levy=propLevy(p);
     const dcf=runDCF(p.price,rent,levy,s);
     const gy=dcf.gy, mcf=dcf.mcf, irr=dcf.irr||0;
     return '<div class="pc" onclick="openModal('+i+',\'wl\')">'
