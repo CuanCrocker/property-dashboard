@@ -346,6 +346,16 @@ def main():
     log.info('London Property Dashboard — OnTheMarket scraper starting')
     log.info(f'Price range: £{PRICE_MIN:,} – £{PRICE_MAX:,} | Max {MAX_PER_AREA} per area\n')
 
+    # Carry first_seen dates over from the previous scrape so "new" detection works
+    prev_first_seen: dict = {}
+    if OUTPUT_FILE.exists():
+        try:
+            old = json.loads(OUTPUT_FILE.read_text(encoding='utf-8'))
+            prev_first_seen = {l['id']: l.get('first_seen') for l in old.get('listings', [])}
+        except Exception:
+            pass
+    now_iso = datetime.datetime.utcnow().isoformat()
+
     all_listings: list[dict] = []
     counter = 1
 
@@ -386,8 +396,10 @@ def main():
                 else:
                     tenure = 'Leasehold'
 
+            lid = f"OTM{parsed['prop_id'] or str(counter)}"   # stable across scrapes
             listing = {
-                'id':          f'OTM{str(counter).zfill(3)}',
+                'id':          lid,
+                'first_seen':  prev_first_seen.get(lid) or now_iso,
                 'title':       parsed['title'],
                 'suburb':      area['name'],
                 'postcode':    area['postcode'].upper(),

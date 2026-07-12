@@ -324,6 +324,8 @@ tr:hover td{background:rgba(255,255,255,.02)}
     <div class="fchip" onclick="setFilter('outer london',this)">Outer London</div>
     <div class="fchip" onclick="setFilter('commuter belt',this)">Commuter Belt</div>
     <div class="fsep"></div>
+    <div class="fchip" onclick="toggleNewFilter(this)">🆕 New this week</div>
+    <div class="fsep"></div>
     <div class="fchip" onclick="sortBy('score')">↓ Score</div>
     <div class="fchip" onclick="sortBy('irr')">↓ IRR</div>
     <div class="fchip" onclick="sortBy('yield')">↓ Yield</div>
@@ -619,6 +621,16 @@ function propLevy(p) {
 let activeFilter = 'all';
 let activeSub = null;      // suburb-level tag filter (e.g. 'Hackney')
 let searchTerm = '';       // free-text search
+let showNewOnly = false;   // 🆕 filter: only listings first seen in the last 7 days
+
+function isNewProp(p) {
+  return !!p.first_seen && (Date.now() - Date.parse(p.first_seen)) < 7*86400000;
+}
+function toggleNewFilter(el) {
+  showNewOnly = !showNewOnly;
+  if (el) el.classList.toggle('on', showNewOnly);
+  renderLive();
+}
 let currentProp = null;
 let currentSource = null;
 
@@ -890,6 +902,7 @@ function renderLive() {
   if (maxP) visible=visible.filter(p=>p.price<=maxP);
   if (minY) visible=visible.filter(p=>((p._dcf_live||{}).gy||0)>=minY);
   if (minCF!==null) visible=visible.filter(p=>((p._dcf_live||{}).mcf||-1e9)>=minCF);
+  if (showNewOnly) visible=visible.filter(isNewProp);
   const tenureF=(document.getElementById('flt-tenure')||{}).value||'';
   if (tenureF) visible=visible.filter(p=>(p.tenure||'')===tenureF);
   const minLease=+(document.getElementById('flt-minlease')||{}).value||0;
@@ -930,7 +943,7 @@ function renderLive() {
           ${p.size_m2?`<span>📐 ${p.size_m2}m²</span>`:''}
           <span style="margin-left:auto;color:var(--di);font-size:10px">${p.search_area}</span>
         </div>
-        <div style="margin-bottom:10px;display:flex;gap:5px;flex-wrap:wrap;align-items:center">${tenureTag(p)}<span class="tag tag-type">${p.type||'Flat'}</span><span class="${ybC} tag">${gy.toFixed(1)}% yield</span></div>
+        <div style="margin-bottom:10px;display:flex;gap:5px;flex-wrap:wrap;align-items:center">${isNewProp(p)?'<span class="tag" style="background:rgba(79,142,247,.2);color:var(--acc);border:1px solid rgba(79,142,247,.45);font-weight:800">🆕 NEW</span>':''}${tenureTag(p)}<span class="tag tag-type">${p.type||'Flat'}</span><span class="${ybC} tag">${gy.toFixed(1)}% yield</span></div>
         <div class="pc-metrics">
           <div class="met"><div class="met-lb">Gross Yield</div><div class="met-vl ${gy>=6.5?'g':gy>=5?'a':'r'}">${fP(gy)}</div></div>
           <div class="met"><div class="met-lb">Mo. Cash Flow</div><div class="met-vl ${cfC}">${fR(mcf)}</div></div>
