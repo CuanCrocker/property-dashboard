@@ -239,6 +239,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
   <button class="nb on" onclick="showTab('dash',this)">📊 Live Listings</button>
   <button class="nb" onclick="showTab('watchlist',this)">⭐ Favourites &amp; Watchlist</button>
   <button class="nb" onclick="showTab('bond',this)">🏦 Mortgage Calc</button>
+  <button class="nb" onclick="showTab('tax',this)">🧾 Tax Inputs</button>
   <button class="nb" onclick="showTab('market',this)">📈 Market Data</button>
 </nav>
 
@@ -269,6 +270,8 @@ tr:hover td{background:rgba(255,255,255,.02)}
       <div class="sf"><label>Hold Period (yrs)</label><input id="s-hold" type="number" value="7"></div>
       <div class="sf"><label>Exit Agent Fee (%)</label><input id="s-efee" type="number" value="2.0" step="0.5"></div>
       <div class="sf"><label>Hurdle Rate (%)</label><input id="s-hurdle" type="number" value="8"></div>
+      <div class="sf"><label>Remortgage every (yrs)</label><input id="s-refi" type="number" value="5"><div class="hint">~£2K product fee at each refinance</div></div>
+      <div class="sf"><label>Tax</label><select id="s-tax"><option value="off">Pre-tax (off)</option><option value="on">Post-tax</option></select><div class="hint">Uses owner profiles from the Tax Inputs tab</div></div>
     </div>
   </div>
 
@@ -426,6 +429,58 @@ tr:hover td{background:rgba(255,255,255,.02)}
   </div>
 </div>
 
+<!-- TAX INPUTS TAB -->
+<div id="tab-tax" class="tab">
+  <div class="shdr"><div class="stitle">🧾 Tax Inputs — Owners, Shares &amp; Jurisdictions</div></div>
+  <div class="alert warn" style="margin-bottom:18px">
+    ⚠️ &nbsp;Simplified model for screening/comparison only. UK rental income is UK-taxable for <em>all</em> owners regardless of residency (Non-Resident Landlord Scheme); this model instead applies each owner's <em>home-jurisdiction</em> rates to their share, and does <strong>not</strong> model cross-border double-tax credits, personal allowances in full, or company structures. Get professional advice before purchase.
+  </div>
+  <div style="background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:20px;margin-bottom:18px">
+    <div style="font-size:13px;font-weight:600;margin-bottom:4px">Owners &amp; shares</div>
+    <p style="font-size:12px;color:var(--mu);margin-bottom:14px">Enter each owner's share, jurisdiction and annual taxable income (in local currency: £ for UK, KYD/USD for Cayman, ZAR for South Africa). The marginal band is looked up automatically.</p>
+    <div id="tax-owners"></div>
+    <div style="display:flex;gap:10px;margin-top:14px;align-items:center;flex-wrap:wrap">
+      <button class="btn bp" onclick="saveTax()">Save Tax Profile</button>
+      <span style="font-size:11px;color:var(--di)">Then set <strong>Tax = Post-tax</strong> in DCF Assumptions and hit Apply &amp; Re-rank</span>
+    </div>
+  </div>
+  <div class="mktg">
+    <div class="mkc">
+      <h3>🇬🇧 United Kingdom (2025/26)</h3>
+      <div class="ar"><span class="ar-nm">Personal allowance</span><div class="ar-bg"></div><span class="ar-vl">£12,570 @ 0%</span></div>
+      <div class="ar"><span class="ar-nm">Basic rate</span><div class="ar-bg"></div><span class="ar-vl a">to £50,270 @ 20%</span></div>
+      <div class="ar"><span class="ar-nm">Higher rate</span><div class="ar-bg"></div><span class="ar-vl a">to £125,140 @ 40%</span></div>
+      <div class="ar"><span class="ar-nm">Additional rate</span><div class="ar-bg"></div><span class="ar-vl r">45%</span></div>
+      <div class="ar"><span class="ar-nm">Mortgage interest</span><div class="ar-bg"></div><span class="ar-vl ac">20% credit only (S24)</span></div>
+      <div class="ar"><span class="ar-nm">CGT on residential</span><div class="ar-bg"></div><span class="ar-vl r">18% / 24%</span></div>
+    </div>
+    <div class="mkc">
+      <h3>🇰🇾 Cayman Islands</h3>
+      <div class="ar"><span class="ar-nm">Income tax</span><div class="ar-bg"></div><span class="ar-vl g">None</span></div>
+      <div class="ar"><span class="ar-nm">Capital gains tax</span><div class="ar-bg"></div><span class="ar-vl g">None</span></div>
+      <div class="ar"><span class="ar-nm">⚠️ UK NRL Scheme</span><div class="ar-bg"></div><span class="ar-vl a">UK rental still UK-taxable</span></div>
+      <div class="ar"><span class="ar-nm">⚠️ UK NRCGT</span><div class="ar-bg"></div><span class="ar-vl a">UK CGT still applies at sale</span></div>
+    </div>
+    <div class="mkc">
+      <h3>🇿🇦 South Africa (2025/26)</h3>
+      <div class="ar"><span class="ar-nm">Threshold</span><div class="ar-bg"></div><span class="ar-vl">~R95,750 @ 0%</span></div>
+      <div class="ar"><span class="ar-nm">Marginal bands</span><div class="ar-bg"></div><span class="ar-vl a">18% → 45%</span></div>
+      <div class="ar"><span class="ar-nm">Worldwide income</span><div class="ar-bg"></div><span class="ar-vl a">SA residents taxed globally</span></div>
+      <div class="ar"><span class="ar-nm">Mortgage interest</span><div class="ar-bg"></div><span class="ar-vl g">Fully deductible</span></div>
+      <div class="ar"><span class="ar-nm">CGT (individuals)</span><div class="ar-bg"></div><span class="ar-vl a">40% inclusion × marginal (max ~18%)</span></div>
+      <div class="ar"><span class="ar-nm">UK tax credit</span><div class="ar-bg"></div><span class="ar-vl ac">DTA relief available (not modelled)</span></div>
+    </div>
+    <div class="mkc">
+      <h3>🤝 Joint-Purchase Checklist (3-way split)</h3>
+      <div class="ar"><span class="ar-nm">Ownership form</span><div class="ar-bg"></div><span class="ar-vl ac">Tenants in common + deed of trust</span></div>
+      <div class="ar"><span class="ar-nm">Mixed-residency lending</span><div class="ar-bg"></div><span class="ar-vl a">Expat/international lenders needed</span></div>
+      <div class="ar"><span class="ar-nm">Shortfall funding</span><div class="ar-bg"></div><span class="ar-vl a">Agree cash-call rules upfront</span></div>
+      <div class="ar"><span class="ar-nm">Exit rules</span><div class="ar-bg"></div><span class="ar-vl a">Pre-emption rights in deed</span></div>
+      <div class="ar"><span class="ar-nm">FX exposure</span><div class="ar-bg"></div><span class="ar-vl a">ZAR/KYD earners carry £ risk</span></div>
+    </div>
+  </div>
+</div>
+
 <!-- MARKET DATA TAB -->
 <div id="tab-market" class="tab">
   <div class="shdr"><div class="stitle">London &amp; UK Property Market — 2026</div></div>
@@ -551,6 +606,10 @@ tr:hover td{background:rgba(255,255,255,.02)}
             <div class="dr"><span class="lb">Net Exit Proceeds</span><span class="vl g" id="s-nep">—</span></div>
             <div class="dr tot"><span class="lb">NPV @ hurdle</span><span class="vl" id="s-npv">—</span></div>
           </div>
+          <div class="dbox" id="m-owners" style="grid-column:1/-1">
+            <div class="dbox-t">Ownership Split <span style="text-transform:none;font-weight:400">(edit in Tax Inputs tab)</span></div>
+            <div id="m-owners-body"></div>
+          </div>
         </div>
         <div style="font-size:11px;color:var(--di);background:var(--card);border-radius:8px;padding:11px;line-height:1.7">
           ⚠️ <strong style="color:var(--mu)">Negative gearing:</strong> London BTL at these prices is typically negatively geared — mortgage exceeds net rent. IRR is driven by leveraged capital appreciation. Ensure you can fund the monthly shortfall from other income for the full hold period.
@@ -607,6 +666,52 @@ let liveListings = [];
 let watchlist = JSON.parse(localStorage.getItem('lon_wl') || '[]');
 let overrides = JSON.parse(localStorage.getItem('lon_ovr') || '{}');  // per-property custom rent/levy
 let favourites = JSON.parse(localStorage.getItem('lon_favs') || '[]'); // starred property ids
+
+// ── TAX LIBRARY (simplified, 2025/26) ──
+const TAX_LIB = {
+  uk: { name:'United Kingdom', cur:'£',
+        bands:[[12570,0],[50270,.20],[125140,.40],[Infinity,.45]],
+        cgt:m=>m>=.40?.24:.18, interest:'credit20' },   // S24: 20% credit on interest
+  ky: { name:'Cayman Islands', cur:'$',
+        bands:[[Infinity,0]], cgt:()=>0, interest:'none' },
+  sa: { name:'South Africa', cur:'R',
+        bands:[[95750,0],[237100,.18],[370500,.26],[512800,.31],[673000,.36],[857900,.39],[1817000,.41],[Infinity,.45]],
+        cgt:m=>m*0.4, interest:'deduct' },              // 40% inclusion rate
+};
+function marginalRate(jur, income) {
+  const lib=TAX_LIB[jur]; if(!lib) return 0;
+  for (const [cap, rate] of lib.bands) if (income<=cap) return rate;
+  return lib.bands[lib.bands.length-1][1];
+}
+let taxProfile = JSON.parse(localStorage.getItem('lon_tax') || 'null') || { owners:[
+  {name:'Owner 1 (UK)',     share:33.33, jur:'uk', inc:60000},
+  {name:'Owner 2 (Cayman)', share:33.33, jur:'ky', inc:0},
+  {name:'Owner 3 (RSA)',    share:33.34, jur:'sa', inc:800000},
+]};
+// Annual income tax across all owners on their share of net operating income
+function yearTax(noi, interest) {
+  let tot=0;
+  (taxProfile.owners||[]).forEach(o=>{
+    const sh=(+o.share||0)/100; if(!sh) return;
+    const m=marginalRate(o.jur, +o.inc||0);
+    const lib=TAX_LIB[o.jur]; if(!lib||!m) return;
+    if (lib.interest==='credit20')      tot+=Math.max(0, m*noi*sh - 0.20*interest*sh);
+    else if (lib.interest==='deduct')   tot+=Math.max(0, m*(noi-interest)*sh);
+  });
+  return tot;
+}
+// CGT at exit across all owners on their share of the gain
+function exitCGT(ev, price, duty, breg, efee) {
+  const gain=Math.max(0, ev*(1-efee/100) - price - duty - breg);
+  let tot=0;
+  (taxProfile.owners||[]).forEach(o=>{
+    const sh=(+o.share||0)/100; if(!sh) return;
+    const m=marginalRate(o.jur, +o.inc||0);
+    const lib=TAX_LIB[o.jur]; if(!lib) return;
+    tot+=gain*sh*lib.cgt(m);
+  });
+  return tot;
+}
 let currentIdx = null;
 
 // Per-property inputs: custom override wins, otherwise the scraped area estimate
@@ -700,6 +805,8 @@ function S() {
     hold:   +document.getElementById('s-hold').value   || 7,
     efee:   +document.getElementById('s-efee').value   || 2.0,
     hurdle: +document.getElementById('s-hurdle').value || 8,
+    refi:   +document.getElementById('s-refi').value   || 0,
+    tax:    (document.getElementById('s-tax')||{}).value || 'off',
   };
 }
 
@@ -745,15 +852,24 @@ function runDCF(price, rent, levy, s) {
   const r=s.rate/100/12;
   const io=s.mtype==='io';
   const mp=io?loan*r:bondPmt(price,s.dep,s.rate,s.term);
-  const cfs=[-init]; let bal=loan;
+  const cfs=[-init]; let bal=loan; let openBal=loan;
+  const taxOn=s.tax==='on';
   for (let yr=1;yr<=s.hold;yr++) {
     const ar=rent*Math.pow(1+s.rg/100,yr-1)*12;
     const eff=ar*(1-s.vac/100);
     const netOp=eff*(1-s.agent/100)-price*s.maint/100-levy*12-1200;
-    const acf=netOp-mp*12;
+    let acf=netOp-mp*12;
+    if (s.refi>0 && yr%s.refi===0 && yr<s.hold) acf-=2000;              // remortgage product fee
+    if (taxOn) acf-=yearTax(netOp, (io?loan:openBal)*s.rate/100);       // owners' blended income tax
     bal=io?loan:Math.max(0,outBal(loan,r,mp,yr*12));
+    openBal=bal;
     if (yr<s.hold) cfs.push(acf);
-    else { const ev=price*Math.pow(1+s.cg/100,s.hold); cfs.push(acf+ev-bal-ev*s.efee/100); }
+    else {
+      const ev=price*Math.pow(1+s.cg/100,s.hold);
+      let exitCf=acf+ev-bal-ev*s.efee/100;
+      if (taxOn) exitCf-=exitCGT(ev,price,duty,breg,s.efee);            // owners' blended CGT
+      cfs.push(exitCf);
+    }
   }
   const irr=calcIRR(cfs);
   const vac=rent*s.vac/100, agt=rent*s.agent/100, mnt=price*s.maint/100/12;
@@ -865,6 +981,7 @@ function init() {
   renderFavs();
   calcBond();
   renderMarket();
+  renderTaxTab();
 }
 
 // ── LIVE LISTINGS ──
@@ -1139,6 +1256,14 @@ function openModal(idx, source) {
   clickify('s-npv',[
     {label:'All cash flows discounted at '+s.hurdle+'%',display:fR(dcf.npv),value:dcf.npv,cls:dcf.npv>=0?'pos':'neg',note:'Initial equity + '+s.hold+' years of cash flows + exit proceeds, each discounted back to today at your hurdle rate. Positive = beats your '+s.hurdle+'% required return.'}],'NPV @ Hurdle');
 
+  // Ownership split box
+  const ownersBody=document.getElementById('m-owners-body');
+  if (ownersBody) {
+    ownersBody.innerHTML=(taxProfile.owners||[]).filter(o=>+o.share>0).map(o=>{
+      const sh=(+o.share||0)/100;
+      return `<div class="dr"><span class="lb">${o.name} (${o.share}% · ${TAX_LIB[o.jur].name})</span><span class="vl">${fR(dcf.init*sh)} day 1 · ${fR(dcf.mcf*sh)}/mo${s.tax==='on'?' pre-tax':''}</span></div>`;
+    }).join('')+(s.tax==='on'?'<div style="font-size:10px;color:var(--di);margin-top:6px">IRR, cash-flow table and exit figures are post-tax (blended across owners). Per-owner monthly figures above are pre-tax shares.</div>':'');
+  }
   const ovrR=document.getElementById('ovr-rent'); if(ovrR) ovrR.value=rent;
   const ovrL=document.getElementById('ovr-levy'); if(ovrL) ovrL.value=levy;
   const ovrN=document.getElementById('ovr-note');
@@ -1267,10 +1392,13 @@ function renderCFTable(p,s,dcf0) {
     const vacAmt=ar*s.vac/100, eff=ar*(1-s.vac/100);
     const agentFee=eff*s.agent/100, maint=p.price*s.maint/100, ins=1200;
     const no=eff-agentFee-maint-levy*12-ins;
-    const acf=no-mp*12;
+    const refiFee=(s.refi>0&&yr%s.refi===0&&yr<s.hold)?2000:0;
+    const taxYr=s.tax==='on'?yearTax(no,(s.mtype==='io'?loan:bal)*s.rate/100):0;
+    const acf=no-mp*12-refiFee-taxYr;
     bal=s.mtype==='io'?loan:Math.max(0,outBal(loan,r,mp,yr*12));
     const ev=yr===s.hold?p.price*Math.pow(1+s.cg/100,s.hold):0;
-    const ep=yr===s.hold?ev-bal-ev*s.efee/100:0;
+    const cgtAmt=(yr===s.hold&&s.tax==='on')?exitCGT(ev,p.price,stampDuty(p.price),mortgageFees(),s.efee):0;
+    const ep=yr===s.hold?ev-bal-ev*s.efee/100-cgtAmt:0;
     const tot=acf+ep; cum+=tot;
     const rentRows=[
       {label:'Base monthly rent (Yr 1)',display:fR(baseRent),value:baseRent,cls:'pos',note:'Area average for '+p.suburb+' · '+( (baseRent*12/p.price*100).toFixed(1))+'% gross yield'},
@@ -1298,6 +1426,8 @@ function renderCFTable(p,s,dcf0) {
     const cfRows=[
       {label:'Net Operating Income',display:fR(no),value:no,cls:no>=0?'pos':'neg'},
       {label:'Less: annual mortgage',display:'−'+fR(mp*12),value:-mp*12,cls:'neg'},
+      ...(refiFee?[{label:'Less: remortgage product fee',display:'−'+fR(refiFee),value:-refiFee,cls:'neg',note:'Every '+s.refi+' yrs on refinancing the fix'}]:[]),
+      ...(taxYr?[{label:'Less: income tax (all owners)',display:'−'+fR(taxYr),value:-taxYr,cls:'neg',note:'Blended across owner shares & jurisdictions — see Tax Inputs tab'}]:[]),
       {label:'= Annual Cash Flow',display:fR(acf),value:acf,cls:acf>=0?'pos':'neg'},
       {label:'Monthly shortfall/surplus',display:fR(acf/12)+'/mo',value:acf/12,cls:acf>=0?'pos':'neg'},
     ];
@@ -1305,6 +1435,7 @@ function renderCFTable(p,s,dcf0) {
       {label:'Projected exit value',display:fR(ev),value:ev,cls:'pos',note:fR(p.price)+' × (1+'+s.cg+'%)^'+s.hold+' = '+fR(ev)},
       {label:'Less: outstanding mortgage',display:'−'+fR(bal),value:-bal,cls:'neg'},
       {label:'Less: agent fee ('+s.efee+'%)',display:'−'+fR(ev*s.efee/100),value:-ev*s.efee/100,cls:'neg'},
+      ...(cgtAmt?[{label:'Less: capital gains tax (all owners)',display:'−'+fR(cgtAmt),value:-cgtAmt,cls:'neg',note:'Blended across owner jurisdictions — see Tax Inputs tab'}]:[]),
       {label:'= Net exit proceeds',display:fR(ep),value:ep,cls:'pos'},
     ]:[{label:'No exit in year '+yr,display:'—',value:0,cls:'neu'}];
     function cell(val,rows,title,cls) {
@@ -1514,6 +1645,48 @@ function calcBond() {
     h+='</tbody></table>';
     amort.innerHTML=h;
   }
+}
+
+// ── TAX TAB ──
+function renderTaxTab() {
+  const wrap=document.getElementById('tax-owners');
+  if (!wrap) return;
+  wrap.innerHTML=(taxProfile.owners||[]).map((o,i)=>{
+    const m=marginalRate(o.jur,+o.inc||0);
+    return `<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;padding:10px 0;border-bottom:1px solid var(--bdr)">
+      <div class="sf" style="width:170px"><label>Owner ${i+1} name</label><input id="o${i}-name" value="${o.name||''}"></div>
+      <div class="sf" style="width:90px"><label>Share (%)</label><input id="o${i}-share" type="number" step="0.01" value="${o.share}"></div>
+      <div class="sf" style="width:160px"><label>Jurisdiction</label><select id="o${i}-jur">
+        <option value="uk"${o.jur==='uk'?' selected':''}>🇬🇧 United Kingdom</option>
+        <option value="ky"${o.jur==='ky'?' selected':''}>🇰🇾 Cayman Islands</option>
+        <option value="sa"${o.jur==='sa'?' selected':''}>🇿🇦 South Africa</option>
+      </select></div>
+      <div class="sf" style="width:170px"><label>Annual income (${TAX_LIB[o.jur].cur})</label><input id="o${i}-inc" type="number" value="${o.inc}"></div>
+      <div style="font-size:12px;padding-bottom:8px">Marginal: <strong style="color:${m>=.4?'var(--r)':m>0?'var(--a)':'var(--g)'}">${(m*100).toFixed(0)}%</strong>
+        · CGT: <strong style="color:var(--mu)">${(TAX_LIB[o.jur].cgt(m)*100).toFixed(0)}%</strong></div>
+    </div>`;
+  }).join('');
+}
+
+function saveTax() {
+  const owners=[];
+  for (let i=0;i<3;i++) {
+    const nameEl=document.getElementById('o'+i+'-name');
+    if (!nameEl) continue;
+    owners.push({
+      name:  nameEl.value||('Owner '+(i+1)),
+      share: +document.getElementById('o'+i+'-share').value||0,
+      jur:   document.getElementById('o'+i+'-jur').value,
+      inc:   +document.getElementById('o'+i+'-inc').value||0,
+    });
+  }
+  const totShare=owners.reduce((s,o)=>s+o.share,0);
+  if (Math.abs(totShare-100)>0.5) { toast('Shares must total 100% (currently '+totShare.toFixed(1)+'%)'); return; }
+  taxProfile={owners};
+  localStorage.setItem('lon_tax',JSON.stringify(taxProfile));
+  renderTaxTab();
+  if (S().tax==='on') rerankAndRender();
+  toast('Tax profile saved');
 }
 
 // ── MARKET DATA ──
