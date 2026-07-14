@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-07-14T20:11:06.165136",
-  "total_found": 726,
+  "scraped_at": "2026-07-14T21:35:05.048757",
+  "total_found": 724,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -58,7 +58,7 @@
       "baths": "1",
       "size_m2": 79,
       "type": "Terraced",
-      "image": "https://media.onthemarket.com/properties/19523166/1616606108/image-0-480x320.jpg",
+      "image": "https://media.onthemarket.com/properties/19523166/1615739761/image-0-480x320.jpg",
       "search_area": "East London",
       "tenure": "Leasehold",
       "lease_years": 961,
@@ -1706,27 +1706,6 @@
       }
     },
     {
-      "id": "OTM19924482",
-      "first_seen": "2026-07-14T04:21:51.550453",
-      "title": "3 bedroom semi-detached house for sale",
-      "suburb": "East Ham",
-      "postcode": "E6",
-      "url": "https://www.onthemarket.com/details/19924482/",
-      "price": 650000,
-      "beds": "3",
-      "baths": "3",
-      "size_m2": null,
-      "type": "Semi-detached",
-      "image": "https://media.onthemarket.com/properties/19924482/1629169559/image-0-480x320.jpg",
-      "search_area": "East London",
-      "tenure": "Freehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 2650,
-        "est_levy": 200
-      }
-    },
-    {
       "id": "OTM19548847",
       "first_seen": "2026-07-12T15:31:13.107132",
       "title": "3 bedroom flat for sale",
@@ -2015,6 +1994,27 @@
       "search_area": "East London",
       "tenure": "Freehold",
       "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 2100,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM19065652",
+      "first_seen": "2026-07-12T15:31:13.107132",
+      "title": "2 bedroom flat for sale",
+      "suburb": "East Ham",
+      "postcode": "E6",
+      "url": "https://www.onthemarket.com/details/19065652/",
+      "price": 375000,
+      "beds": "2",
+      "baths": "2",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/19065652/1620482076/image-0-480x320.jpg",
+      "search_area": "East London",
+      "tenure": "Leasehold",
+      "lease_years": 245,
       "dcf": {
         "est_monthly_rent": 2100,
         "est_levy": 200
@@ -4390,27 +4390,6 @@
       "lease_years": 127,
       "dcf": {
         "est_monthly_rent": 2500,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM19922700",
-      "first_seen": "2026-07-13T18:15:30.413124",
-      "title": "2 bedroom terraced house for sale",
-      "suburb": "Croydon",
-      "postcode": "CR0",
-      "url": "https://www.onthemarket.com/details/19922700/",
-      "price": 350000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "Terraced",
-      "image": "https://media.onthemarket.com/properties/19922700/1629063607/image-0-480x320.jpg",
-      "search_area": "South London",
-      "tenure": "Freehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 1950,
         "est_levy": 200
       }
     },
@@ -14029,27 +14008,6 @@
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 2000,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM19843263",
-      "first_seen": "2026-07-12T15:31:13.107132",
-      "title": "2 bedroom terraced house for sale",
-      "suburb": "Reading",
-      "postcode": "RG1",
-      "url": "https://www.onthemarket.com/details/19843263/",
-      "price": 325000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "Terraced",
-      "image": "https://media.onthemarket.com/properties/19843263/1626387419/image-0-480x320.jpg",
-      "search_area": "Commuter Belt",
-      "tenure": "Freehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 1600,
         "est_levy": 200
       }
     },
