@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-07-14T22:35:58.622815",
-  "total_found": 726,
+  "scraped_at": "2026-07-14T23:32:11.845309",
+  "total_found": 727,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -13712,6 +13712,27 @@
       "search_area": "Commuter Belt",
       "tenure": "Leasehold",
       "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1600,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM19773835",
+      "first_seen": "2026-07-14T23:25:18.504127",
+      "title": "2 bedroom apartment for sale",
+      "suburb": "Reading",
+      "postcode": "RG1",
+      "url": "https://www.onthemarket.com/details/19773835/",
+      "price": 315000,
+      "beds": "2",
+      "baths": "2",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/19773835/1626891998/image-0-480x320.jpg",
+      "search_area": "Commuter Belt",
+      "tenure": "Leasehold",
+      "lease_years": 977,
       "dcf": {
         "est_monthly_rent": 1600,
         "est_levy": 200
