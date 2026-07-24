@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-24T05:06:47.956568",
+  "scraped_at": "2026-07-24T07:50:23.285797",
   "total_found": 713,
   "price_min": 300000,
   "price_max": 800000,
@@ -2525,6 +2525,27 @@
       }
     },
     {
+      "id": "OTM19633453",
+      "first_seen": "2026-07-24T07:43:46.919532",
+      "title": "2 bedroom flat for sale",
+      "suburb": "Lewisham",
+      "postcode": "SE13",
+      "url": "https://www.onthemarket.com/details/19633453/",
+      "price": 340000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/19633453/1630154853/image-0-480x320.jpg",
+      "search_area": "South London",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1950,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM19730918",
       "first_seen": "2026-07-23T23:51:11.553819",
       "title": "2 bedroom apartment for sale",
@@ -2855,27 +2876,6 @@
       "search_area": "South London",
       "tenure": "Leasehold",
       "lease_years": 111,
-      "dcf": {
-        "est_monthly_rent": 1950,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM16711852",
-      "first_seen": "2026-07-20T23:46:18.560329",
-      "title": "2 bedroom apartment for sale",
-      "suburb": "Lewisham",
-      "postcode": "SE13",
-      "url": "https://www.onthemarket.com/details/16711852/",
-      "price": 325000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/16711852/1630713755/image-0-480x320.jpg",
-      "search_area": "South London",
-      "tenure": "Freehold",
-      "lease_years": null,
       "dcf": {
         "est_monthly_rent": 1950,
         "est_levy": 200
@@ -14844,7 +14844,7 @@
       "type": "House",
       "image": "https://media.onthemarket.com/properties/19984156/1631171171/image-0-480x320.jpg",
       "search_area": "Commuter Belt",
-      "tenure": "Leasehold",
+      "tenure": "Freehold",
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 1600,
