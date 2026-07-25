@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-25T21:20:47.115891",
+  "scraped_at": "2026-07-25T22:29:23.233456",
   "total_found": 706,
   "price_min": 300000,
   "price_max": 800000,
@@ -4121,27 +4121,6 @@
       }
     },
     {
-      "id": "OTM20007796",
-      "first_seen": "2026-07-25T20:05:15.408697",
-      "title": "2 bedroom flat for sale",
-      "suburb": "Croydon",
-      "postcode": "CR0",
-      "url": "https://www.onthemarket.com/details/20007796/",
-      "price": 310000,
-      "beds": "2",
-      "baths": "2",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/20007796/1631994318/image-0-480x320.jpeg",
-      "search_area": "South London",
-      "tenure": "Leasehold",
-      "lease_years": 965,
-      "dcf": {
-        "est_monthly_rent": 1950,
-        "est_levy": 200
-      }
-    },
-    {
       "id": "OTM20007781",
       "first_seen": "2026-07-25T20:05:15.408697",
       "title": "2 bedroom flat for sale",
@@ -4241,6 +4220,27 @@
       "search_area": "South London",
       "tenure": "Freehold",
       "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1950,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20007796",
+      "first_seen": "2026-07-25T20:05:15.408697",
+      "title": "2 bedroom flat for sale",
+      "suburb": "Croydon",
+      "postcode": "CR0",
+      "url": "https://www.onthemarket.com/details/20007796/",
+      "price": 310000,
+      "beds": "2",
+      "baths": "2",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/20007796/1631994318/image-0-480x320.jpeg",
+      "search_area": "South London",
+      "tenure": "Leasehold",
+      "lease_years": 965,
       "dcf": {
         "est_monthly_rent": 1950,
         "est_levy": 200
