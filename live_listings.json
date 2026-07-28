@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-07-28T04:48:40.436300",
-  "total_found": 703,
+  "scraped_at": "2026-07-28T07:38:29.203717",
+  "total_found": 706,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -14390,6 +14390,27 @@
       }
     },
     {
+      "id": "OTM19657607",
+      "first_seen": "2026-07-28T07:31:42.486428",
+      "title": "2 bedroom apartment for sale",
+      "suburb": "Chelmsford",
+      "postcode": "CM1",
+      "url": "https://www.onthemarket.com/details/19657607/",
+      "price": 375000,
+      "beds": "2",
+      "baths": "2",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/19657607/1632222177/image-0-480x320.jpg",
+      "search_area": "Commuter Belt",
+      "tenure": "Leasehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1600,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM19968318",
       "first_seen": "2026-07-20T16:51:24.770209",
       "title": "2 bedroom flat for sale",
@@ -14554,6 +14575,48 @@
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 2000,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM19982053",
+      "first_seen": "2026-07-28T07:31:42.486428",
+      "title": "2 bedroom penthouse for sale",
+      "suburb": "Chelmsford",
+      "postcode": "CM1",
+      "url": "https://www.onthemarket.com/details/19982053/",
+      "price": 325000,
+      "beds": "2",
+      "baths": "2",
+      "size_m2": null,
+      "type": "House",
+      "image": "https://media.onthemarket.com/properties/19982053/1631345291/image-0-480x320.jpg",
+      "search_area": "Commuter Belt",
+      "tenure": "Leasehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1600,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM17146893",
+      "first_seen": "2026-07-28T07:31:42.486428",
+      "title": "2 bedroom apartment for sale",
+      "suburb": "Chelmsford",
+      "postcode": "CM1",
+      "url": "https://www.onthemarket.com/details/17146893/",
+      "price": 300000,
+      "beds": "2",
+      "baths": "2",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/17146893/1605225017/image-0-480x320.jpg",
+      "search_area": "Commuter Belt",
+      "tenure": "Leasehold",
+      "lease_years": 119,
+      "dcf": {
+        "est_monthly_rent": 1600,
         "est_levy": 200
       }
     },
