@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-07-29T20:14:52.374513",
-  "total_found": 700,
+  "scraped_at": "2026-07-29T21:31:14.037959",
+  "total_found": 702,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -1702,6 +1702,48 @@
       "lease_years": 104,
       "dcf": {
         "est_monthly_rent": 2100,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20034061",
+      "first_seen": "2026-07-29T21:24:32.310067",
+      "title": "2 bedroom terraced house for sale",
+      "suburb": "East Ham",
+      "postcode": "E6",
+      "url": "https://www.onthemarket.com/details/20034061/",
+      "price": 375000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "Terraced",
+      "image": "https://media.onthemarket.com/properties/20034061/1633025867/image-0-480x320.jpg",
+      "search_area": "East London",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 2100,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20034080",
+      "first_seen": "2026-07-29T21:24:32.310067",
+      "title": "3 bedroom terraced house for sale",
+      "suburb": "East Ham",
+      "postcode": "E6",
+      "url": "https://www.onthemarket.com/details/20034080/",
+      "price": 370000,
+      "beds": "3",
+      "baths": "2",
+      "size_m2": null,
+      "type": "Terraced",
+      "image": "https://media.onthemarket.com/properties/20034080/1633026149/image-0-480x320.jpg",
+      "search_area": "East London",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 2650,
         "est_levy": 200
       }
     },
@@ -13340,6 +13382,27 @@
       }
     },
     {
+      "id": "OTM20034170",
+      "first_seen": "2026-07-29T21:24:32.310067",
+      "title": "3 bedroom detached house for sale",
+      "suburb": "Reading",
+      "postcode": "RG1",
+      "url": "https://www.onthemarket.com/details/20034170/",
+      "price": 475000,
+      "beds": "3",
+      "baths": "3",
+      "size_m2": null,
+      "type": "Detached",
+      "image": "https://media.onthemarket.com/properties/20034170/1633033220/image-0-480x320.jpg",
+      "search_area": "Commuter Belt",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 2000,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM20029800",
       "first_seen": "2026-07-29T14:41:22.647949",
       "title": "3 bedroom apartment for sale",
@@ -13648,27 +13711,6 @@
       "image": "https://media.onthemarket.com/properties/19670069/1620305087/image-0-480x320.jpg",
       "search_area": "Commuter Belt",
       "tenure": "Freehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 1600,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM19666631",
-      "first_seen": "2026-07-19T05:10:32.869561",
-      "title": "2 bedroom apartment for sale",
-      "suburb": "Reading",
-      "postcode": "RG1",
-      "url": "https://www.onthemarket.com/details/19666631/",
-      "price": 515000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/19666631/1620129396/image-0-480x320.jpg",
-      "search_area": "Commuter Belt",
-      "tenure": "Leasehold",
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 1600,
