@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-30T20:17:15.113017",
+  "scraped_at": "2026-07-30T21:45:22.152663",
   "total_found": 711,
   "price_min": 300000,
   "price_max": 800000,
@@ -11723,27 +11723,6 @@
       }
     },
     {
-      "id": "OTM20041830",
-      "first_seen": "2026-07-30T20:10:41.542057",
-      "title": "3 bedroom terraced house for sale",
-      "suburb": "Ilford",
-      "postcode": "IG1",
-      "url": "https://www.onthemarket.com/details/20041830/",
-      "price": 559000,
-      "beds": "3",
-      "baths": "2",
-      "size_m2": null,
-      "type": "Terraced",
-      "image": "https://media.onthemarket.com/properties/20041830/1633341561/image-0-480x320.jpg",
-      "search_area": "Outer London",
-      "tenure": "Freehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 2100,
-        "est_levy": 200
-      }
-    },
-    {
       "id": "OTM19974107",
       "first_seen": "2026-07-21T13:15:13.221909",
       "title": "2 bedroom flat for sale",
@@ -11803,6 +11782,27 @@
       "lease_years": 103,
       "dcf": {
         "est_monthly_rent": 1700,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20041830",
+      "first_seen": "2026-07-30T20:10:41.542057",
+      "title": "3 bedroom terraced house for sale",
+      "suburb": "Ilford",
+      "postcode": "IG1",
+      "url": "https://www.onthemarket.com/details/20041830/",
+      "price": 559000,
+      "beds": "3",
+      "baths": "2",
+      "size_m2": null,
+      "type": "Terraced",
+      "image": "https://media.onthemarket.com/properties/20041830/1633341561/image-0-480x320.jpg",
+      "search_area": "Outer London",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 2100,
         "est_levy": 200
       }
     },
