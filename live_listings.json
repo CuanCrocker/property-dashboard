@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-08-08T09:13:56.999824",
-  "total_found": 718,
+  "scraped_at": "2026-08-08T10:07:33.604575",
+  "total_found": 719,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -5728,7 +5728,7 @@
       "baths": "1",
       "size_m2": null,
       "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/20091347/1635406762/image-0-480x320.jpg",
+      "image": "https://media.onthemarket.com/properties/20091347/1635357911/image-0-480x320.jpg",
       "search_area": "South West London",
       "tenure": "Leasehold",
       "lease_years": 115,
@@ -5744,7 +5744,7 @@
       "suburb": "Clapham",
       "postcode": "SW4",
       "url": "https://www.onthemarket.com/details/18641252/",
-      "price": 625000,
+      "price": 650000,
       "beds": "2",
       "baths": "1",
       "size_m2": 72,
@@ -7912,7 +7912,7 @@
       "baths": "1",
       "size_m2": null,
       "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/20091347/1635406762/image-0-480x320.jpg",
+      "image": "https://media.onthemarket.com/properties/20091347/1635357911/image-0-480x320.jpg",
       "search_area": "South West London",
       "tenure": "Leasehold",
       "lease_years": 115,
@@ -12622,6 +12622,27 @@
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 1700,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20096275",
+      "first_seen": "2026-08-08T10:00:51.663824",
+      "title": "3 bedroom end of terrace house for sale",
+      "suburb": "Dagenham",
+      "postcode": "RM10",
+      "url": "https://www.onthemarket.com/details/20096275/",
+      "price": 430000,
+      "beds": "3",
+      "baths": "2",
+      "size_m2": null,
+      "type": "House",
+      "image": "https://media.onthemarket.com/properties/20096275/1635540148/image-0-480x320.jpg",
+      "search_area": "Outer London",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 2100,
         "est_levy": 200
       }
     },
