@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-08-09T19:15:49.583134",
-  "total_found": 720,
+  "scraped_at": "2026-08-09T20:00:01.765935",
+  "total_found": 721,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -14930,6 +14930,27 @@
       "search_area": "Commuter Belt",
       "tenure": "Leasehold",
       "lease_years": 990,
+      "dcf": {
+        "est_monthly_rent": 1600,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20082538",
+      "first_seen": "2026-08-06T14:43:02.796433",
+      "title": "2 bedroom end of terrace house for sale",
+      "suburb": "Basildon",
+      "postcode": "SS14",
+      "url": "https://www.onthemarket.com/details/20082538/",
+      "price": 325000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": 81,
+      "type": "House",
+      "image": "https://media.onthemarket.com/properties/20082538/1635053259/image-0-480x320.jpg",
+      "search_area": "Commuter Belt",
+      "tenure": "Freehold",
+      "lease_years": null,
       "dcf": {
         "est_monthly_rent": 1600,
         "est_levy": 200
