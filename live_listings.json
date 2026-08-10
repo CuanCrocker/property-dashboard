@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-10T22:11:23.916709",
+  "scraped_at": "2026-08-10T23:09:57.464027",
   "total_found": 723,
   "price_min": 300000,
   "price_max": 800000,
@@ -4606,7 +4606,7 @@
     {
       "id": "OTM20095295",
       "first_seen": "2026-08-08T22:53:32.616075",
-      "title": "2 bedroom house for sale",
+      "title": "2 bedroom terraced house for sale",
       "suburb": "Bromley",
       "postcode": "BR1",
       "url": "https://www.onthemarket.com/details/20095295/",
@@ -4614,7 +4614,7 @@
       "beds": "2",
       "baths": "1",
       "size_m2": null,
-      "type": "House",
+      "type": "Terraced",
       "image": "https://media.onthemarket.com/properties/20095295/1635449596/image-0-480x320.jpg",
       "search_area": "South London",
       "tenure": "Freehold",
@@ -5759,27 +5759,6 @@
       }
     },
     {
-      "id": "OTM20089751",
-      "first_seen": "2026-08-10T20:07:28.895462",
-      "title": "2 bedroom flat for sale",
-      "suburb": "Clapham",
-      "postcode": "SW4",
-      "url": "https://www.onthemarket.com/details/20089751/",
-      "price": 450000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/20089751/1635333649/image-0-480x320.jpg",
-      "search_area": "South West London",
-      "tenure": "Leasehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 2300,
-        "est_levy": 200
-      }
-    },
-    {
       "id": "OTM19942234",
       "first_seen": "2026-08-07T09:29:02.489422",
       "title": "2 bedroom flat for sale",
@@ -6004,6 +5983,27 @@
       "image": "https://media.onthemarket.com/properties/19953064/1630078957/image-0-480x320.jpg",
       "search_area": "South West London",
       "tenure": "Leasehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 2300,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20068585",
+      "first_seen": "2026-08-10T23:03:09.146888",
+      "title": "2 bedroom flat for sale",
+      "suburb": "Clapham",
+      "postcode": "SW4",
+      "url": "https://www.onthemarket.com/details/20068585/",
+      "price": 600000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/20068585/1634605672/image-0-480x320.jpg",
+      "search_area": "South West London",
+      "tenure": "Freehold",
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 2300,
