@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-08-10T05:07:55.348866",
-  "total_found": 723,
+  "scraped_at": "2026-08-10T06:55:02.587111",
+  "total_found": 724,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -9476,6 +9476,27 @@
       }
     },
     {
+      "id": "OTM20099077",
+      "first_seen": "2026-08-10T06:48:37.231914",
+      "title": "3 bedroom flat for sale",
+      "suburb": "Walthamstow",
+      "postcode": "E17",
+      "url": "https://www.onthemarket.com/details/20099077/",
+      "price": 600000,
+      "beds": "3",
+      "baths": "2",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/20099077/1635810005/image-0-480x320.jpg",
+      "search_area": "North London",
+      "tenure": "Leasehold",
+      "lease_years": 995,
+      "dcf": {
+        "est_monthly_rent": 2600,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM19456399",
       "first_seen": "2026-08-05T11:34:54.387426",
       "title": "3 bedroom apartment for sale",
@@ -9719,27 +9740,6 @@
       "size_m2": null,
       "type": "Apartment",
       "image": "https://media.onthemarket.com/properties/20047410/1634458463/image-0-480x320.jpg",
-      "search_area": "North London",
-      "tenure": "Leasehold",
-      "lease_years": 992,
-      "dcf": {
-        "est_monthly_rent": 2050,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM20047411",
-      "first_seen": "2026-08-09T20:58:58.449144",
-      "title": "2 bedroom apartment for sale",
-      "suburb": "Walthamstow",
-      "postcode": "E17",
-      "url": "https://www.onthemarket.com/details/20047411/",
-      "price": 347000,
-      "beds": "2",
-      "baths": "2",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/20047411/1634460126/image-0-480x320.jpg",
       "search_area": "North London",
       "tenure": "Leasehold",
       "lease_years": 992,
@@ -12449,6 +12449,27 @@
       "size_m2": null,
       "type": "Semi-detached",
       "image": "https://media.onthemarket.com/properties/19101482/1619750532/image-0-480x320.jpg",
+      "search_area": "Outer London",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 2100,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20099058",
+      "first_seen": "2026-08-10T06:48:37.231914",
+      "title": "3 bedroom semi-detached house for sale",
+      "suburb": "Romford",
+      "postcode": "RM1",
+      "url": "https://www.onthemarket.com/details/20099058/",
+      "price": 550000,
+      "beds": "3",
+      "baths": "2",
+      "size_m2": null,
+      "type": "Semi-detached",
+      "image": "https://media.onthemarket.com/properties/20099058/1635807653/image-0-480x320.jpg",
       "search_area": "Outer London",
       "tenure": "Freehold",
       "lease_years": null,
