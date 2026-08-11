@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-08-11T21:41:36.681654",
-  "total_found": 714,
+  "scraped_at": "2026-08-11T22:37:10.335155",
+  "total_found": 716,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -1202,27 +1202,6 @@
       }
     },
     {
-      "id": "OTM20057542",
-      "first_seen": "2026-08-03T14:14:29.422481",
-      "title": "2 bedroom apartment for sale",
-      "suburb": "Bethnal Green",
-      "postcode": "E2",
-      "url": "https://www.onthemarket.com/details/20057542/",
-      "price": 700000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/20057542/1634294724/image-0-480x320.jpg",
-      "search_area": "East London",
-      "tenure": "Leasehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 2100,
-        "est_levy": 200
-      }
-    },
-    {
       "id": "OTM19808489",
       "first_seen": "2026-08-03T11:53:16.846405",
       "title": "2 bedroom maisonette for sale",
@@ -1261,6 +1240,27 @@
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 2100,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM19720851",
+      "first_seen": "2026-08-11T22:30:41.952913",
+      "title": "3 bedroom property for sale",
+      "suburb": "Bethnal Green",
+      "postcode": "E2",
+      "url": "https://www.onthemarket.com/details/19720851/",
+      "price": 500000,
+      "beds": "3",
+      "baths": "2",
+      "size_m2": 84,
+      "type": "House",
+      "image": "https://media.onthemarket.com/properties/19720851/1621905268/image-0-480x320.jpg",
+      "search_area": "East London",
+      "tenure": "Leasehold",
+      "lease_years": 85,
+      "dcf": {
+        "est_monthly_rent": 2650,
         "est_levy": 200
       }
     },
@@ -4238,6 +4238,48 @@
       "size_m2": null,
       "type": "Terraced",
       "image": "https://media.onthemarket.com/properties/18596888/1591686823/image-0-480x320.jpg",
+      "search_area": "South London",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1950,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM16366671",
+      "first_seen": "2026-08-11T22:30:41.952913",
+      "title": "3 bedroom apartment for sale",
+      "suburb": "Croydon",
+      "postcode": "CR0",
+      "url": "https://www.onthemarket.com/details/16366671/",
+      "price": 450000,
+      "beds": "3",
+      "baths": "2",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/16366671/1636339861/image-0-480x320.jpg",
+      "search_area": "South London",
+      "tenure": "Leasehold",
+      "lease_years": 107,
+      "dcf": {
+        "est_monthly_rent": 2500,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20120474",
+      "first_seen": "2026-08-11T22:30:41.952913",
+      "title": "2 bedroom link detached house for sale",
+      "suburb": "Croydon",
+      "postcode": "CR0",
+      "url": "https://www.onthemarket.com/details/20120474/",
+      "price": 325000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": 66,
+      "type": "Detached",
+      "image": "https://media.onthemarket.com/properties/20120474/1636339863/image-0-480x320.jpg",
       "search_area": "South London",
       "tenure": "Freehold",
       "lease_years": null,
@@ -10022,27 +10064,6 @@
       }
     },
     {
-      "id": "OTM20064038",
-      "first_seen": "2026-08-04T11:00:24.508897",
-      "title": "2 bedroom flat for sale",
-      "suburb": "Enfield",
-      "postcode": "EN1",
-      "url": "https://www.onthemarket.com/details/20064038/",
-      "price": 325000,
-      "beds": "2",
-      "baths": "2",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/20064038/1634517475/image-0-480x320.jpg",
-      "search_area": "North London",
-      "tenure": "Leasehold",
-      "lease_years": 105,
-      "dcf": {
-        "est_monthly_rent": 2050,
-        "est_levy": 200
-      }
-    },
-    {
       "id": "OTM19625499",
       "first_seen": "2026-08-03T16:44:34.081347",
       "title": "3 bedroom house for sale",
@@ -10079,6 +10100,27 @@
       "search_area": "North London",
       "tenure": "Leasehold",
       "lease_years": 88,
+      "dcf": {
+        "est_monthly_rent": 2050,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM18257287",
+      "first_seen": "2026-08-11T22:30:41.952913",
+      "title": "2 bedroom flat for sale",
+      "suburb": "Enfield",
+      "postcode": "EN1",
+      "url": "https://www.onthemarket.com/details/18257287/",
+      "price": 300000,
+      "beds": "2",
+      "baths": "2",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/18257287/1631192012/image-0-480x320.jpg",
+      "search_area": "North London",
+      "tenure": "Leasehold",
+      "lease_years": 235,
       "dcf": {
         "est_monthly_rent": 2050,
         "est_levy": 200
