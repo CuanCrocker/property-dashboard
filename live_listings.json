@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-08-12T20:38:26.936597",
-  "total_found": 720,
+  "scraped_at": "2026-08-12T21:40:56.913934",
+  "total_found": 721,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -5227,6 +5227,27 @@
       "image": "https://media.onthemarket.com/properties/20056956/1634278800/image-0-480x320.jpg",
       "search_area": "South London",
       "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1950,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20128005",
+      "first_seen": "2026-08-12T21:34:05.122190",
+      "title": "2 bedroom apartment for sale",
+      "suburb": "Abbey Wood",
+      "postcode": "SE2",
+      "url": "https://www.onthemarket.com/details/20128005/",
+      "price": 410000,
+      "beds": "2",
+      "baths": "2",
+      "size_m2": 75,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/20128005/1636610126/image-0-480x320.jpg",
+      "search_area": "South London",
+      "tenure": "Leasehold",
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 1950,
