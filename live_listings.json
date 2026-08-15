@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-08-15T09:21:56.320492",
-  "total_found": 728,
+  "scraped_at": "2026-08-15T09:53:05.258483",
+  "total_found": 730,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -8405,21 +8405,21 @@
       }
     },
     {
-      "id": "OTM19951126",
-      "first_seen": "2026-08-10T16:22:42.838977",
-      "title": "2 bedroom maisonette for sale",
+      "id": "OTM19433207",
+      "first_seen": "2026-08-15T09:46:27.195863",
+      "title": "2 bedroom flat for sale",
       "suburb": "Kingston",
       "postcode": "KT1",
-      "url": "https://www.onthemarket.com/details/19951126/",
-      "price": 435000,
+      "url": "https://www.onthemarket.com/details/19433207/",
+      "price": 450000,
       "beds": "2",
-      "baths": "1",
+      "baths": "2",
       "size_m2": null,
       "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/19951126/1635175511/image-0-480x320.jpg",
+      "image": "https://media.onthemarket.com/properties/19433207/1635982826/image-0-480x320.jpg",
       "search_area": "South West London",
       "tenure": "Leasehold",
-      "lease_years": 931,
+      "lease_years": 239,
       "dcf": {
         "est_monthly_rent": 2300,
         "est_levy": 200
@@ -11807,6 +11807,27 @@
       }
     },
     {
+      "id": "OTM19970994",
+      "first_seen": "2026-08-15T09:46:27.195863",
+      "title": "2 bedroom flat for sale",
+      "suburb": "Hounslow",
+      "postcode": "TW3",
+      "url": "https://www.onthemarket.com/details/19970994/",
+      "price": 425000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/19970994/1630808370/image-0-480x320.jpg",
+      "search_area": "West London",
+      "tenure": "Leasehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1800,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM20134556",
       "first_seen": "2026-08-13T16:23:53.778580",
       "title": "2 bedroom flat for sale",
@@ -13294,6 +13315,27 @@
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 2100,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20145480",
+      "first_seen": "2026-08-15T09:46:27.195863",
+      "title": "2 bedroom bungalow for sale",
+      "suburb": "Dartford",
+      "postcode": "DA1",
+      "url": "https://www.onthemarket.com/details/20145480/",
+      "price": 425000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": 63,
+      "type": "House",
+      "image": "https://media.onthemarket.com/properties/20145480/1637340952/image-0-480x320.jpg",
+      "search_area": "Outer London",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1700,
         "est_levy": 200
       }
     },
