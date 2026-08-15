@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-08-15T15:16:02.218325",
-  "total_found": 729,
+  "scraped_at": "2026-08-15T15:48:19.210614",
+  "total_found": 730,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -2987,6 +2987,27 @@
       }
     },
     {
+      "id": "OTM12504364",
+      "first_seen": "2026-08-15T15:41:40.924053",
+      "title": "2 bedroom apartment for sale",
+      "suburb": "Peckham",
+      "postcode": "SE15",
+      "url": "https://www.onthemarket.com/details/12504364/",
+      "price": 545000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": 76,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/12504364/1637377627/image-0-480x320.jpg",
+      "search_area": "South London",
+      "tenure": "Leasehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1950,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM20145796",
       "first_seen": "2026-08-15T11:40:39.610619",
       "title": "2 bedroom apartment for sale",
@@ -3317,27 +3338,6 @@
       "search_area": "South London",
       "tenure": "Leasehold",
       "lease_years": 99,
-      "dcf": {
-        "est_monthly_rent": 1950,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM20092671",
-      "first_seen": "2026-08-07T15:43:17.200145",
-      "title": "2 bedroom apartment for sale",
-      "suburb": "Peckham",
-      "postcode": "SE15",
-      "url": "https://www.onthemarket.com/details/20092671/",
-      "price": 600000,
-      "beds": "2",
-      "baths": "3",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/20092671/1635381636/image-0-480x320.jpg",
-      "search_area": "South London",
-      "tenure": "Freehold",
-      "lease_years": null,
       "dcf": {
         "est_monthly_rent": 1950,
         "est_levy": 200
@@ -13435,7 +13435,7 @@
       "baths": "2",
       "size_m2": null,
       "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/19669025/1620291879/image-0-480x320.jpg",
+      "image": "https://media.onthemarket.com/properties/19669025/1620836639/image-0-480x320.jpg",
       "search_area": "Outer London",
       "tenure": "Leasehold",
       "lease_years": 993,
@@ -14759,6 +14759,27 @@
       "size_m2": null,
       "type": "Semi-detached",
       "image": "https://media.onthemarket.com/properties/20025924/1632754529/image-0-480x320.jpg",
+      "search_area": "Commuter Belt",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 2000,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM19990203",
+      "first_seen": "2026-08-15T15:41:40.924053",
+      "title": "3 bedroom end of terrace house for sale",
+      "suburb": "Luton",
+      "postcode": "LU1",
+      "url": "https://www.onthemarket.com/details/19990203/",
+      "price": 375000,
+      "beds": "3",
+      "baths": "2",
+      "size_m2": null,
+      "type": "House",
+      "image": "https://media.onthemarket.com/properties/19990203/1631390391/image-0-480x320.jpg",
       "search_area": "Commuter Belt",
       "tenure": "Freehold",
       "lease_years": null,
