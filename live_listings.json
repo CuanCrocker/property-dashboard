@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-16T07:13:32.170202",
+  "scraped_at": "2026-08-16T07:58:02.290536",
   "total_found": 728,
   "price_min": 300000,
   "price_max": 800000,
@@ -8321,27 +8321,6 @@
       }
     },
     {
-      "id": "OTM19937137",
-      "first_seen": "2026-08-16T06:21:52.461331",
-      "title": "2 bedroom end of terrace house for sale",
-      "suburb": "Kingston",
-      "postcode": "KT1",
-      "url": "https://www.onthemarket.com/details/19937137/",
-      "price": 640000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "House",
-      "image": "https://media.onthemarket.com/properties/19937137/1629526049/image-0-480x320.jpg",
-      "search_area": "South West London",
-      "tenure": "Freehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 2300,
-        "est_levy": 200
-      }
-    },
-    {
       "id": "OTM19018938",
       "first_seen": "2026-07-12T15:31:13.107132",
       "title": "2 bedroom duplex for sale",
@@ -8737,6 +8716,27 @@
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 3000,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20026359",
+      "first_seen": "2026-08-16T07:51:33.769533",
+      "title": "2 bedroom flat for sale",
+      "suburb": "Kingston",
+      "postcode": "KT1",
+      "url": "https://www.onthemarket.com/details/20026359/",
+      "price": 300000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": 73,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/20026359/1632764029/image-0-480x320.jpg",
+      "search_area": "South West London",
+      "tenure": "Leasehold",
+      "lease_years": 85,
+      "dcf": {
+        "est_monthly_rent": 2300,
         "est_levy": 200
       }
     },
