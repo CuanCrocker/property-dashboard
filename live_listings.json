@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-08-19T19:33:12.226379",
-  "total_found": 726,
+  "scraped_at": "2026-08-19T19:54:37.599358",
+  "total_found": 727,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -20,6 +20,27 @@
       "search_area": "East London",
       "tenure": "Leasehold",
       "lease_years": 247,
+      "dcf": {
+        "est_monthly_rent": 2100,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20171645",
+      "first_seen": "2026-08-19T19:47:57.487984",
+      "title": "2 bedroom apartment for sale",
+      "suburb": "Hackney",
+      "postcode": "E8",
+      "url": "https://www.onthemarket.com/details/20171645/",
+      "price": 650000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/20171645/1638362567/image-0-480x320.jpg",
+      "search_area": "East London",
+      "tenure": "Freehold",
+      "lease_years": null,
       "dcf": {
         "est_monthly_rent": 2100,
         "est_levy": 200
@@ -398,27 +419,6 @@
       "search_area": "East London",
       "tenure": "Leasehold",
       "lease_years": 110,
-      "dcf": {
-        "est_monthly_rent": 2100,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM19020045",
-      "first_seen": "2026-07-24T17:00:30.307397",
-      "title": "2 bedroom flat for sale",
-      "suburb": "Hackney",
-      "postcode": "E8",
-      "url": "https://www.onthemarket.com/details/19020045/",
-      "price": 425000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/19020045/1630157399/image-0-480x320.jpg",
-      "search_area": "East London",
-      "tenure": "Leasehold",
-      "lease_years": null,
       "dcf": {
         "est_monthly_rent": 2100,
         "est_levy": 200
@@ -5101,6 +5101,27 @@
       "image": "https://media.onthemarket.com/properties/20097404/1635582994/image-0-480x320.jpg",
       "search_area": "South London",
       "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 2500,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20171686",
+      "first_seen": "2026-08-19T19:47:57.487984",
+      "title": "3 bedroom flat for sale",
+      "suburb": "Abbey Wood",
+      "postcode": "SE2",
+      "url": "https://www.onthemarket.com/details/20171686/",
+      "price": 650000,
+      "beds": "3",
+      "baths": "3",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/20171686/1638364886/image-0-480x320.jpg",
+      "search_area": "South London",
+      "tenure": "Leasehold",
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 2500,
