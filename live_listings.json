@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-08-20T17:32:55.566008",
-  "total_found": 717,
+  "scraped_at": "2026-08-20T18:01:00.649295",
+  "total_found": 718,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -4331,6 +4331,48 @@
       }
     },
     {
+      "id": "OTM20178944",
+      "first_seen": "2026-08-20T17:54:27.419340",
+      "title": "2 bedroom semi-detached bungalow for sale",
+      "suburb": "Croydon",
+      "postcode": "CR0",
+      "url": "https://www.onthemarket.com/details/20178944/",
+      "price": 525000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "Semi-detached",
+      "image": "https://media.onthemarket.com/properties/20178944/1638583576/image-0-480x320.jpg",
+      "search_area": "South London",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1950,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20178991",
+      "first_seen": "2026-08-20T17:54:27.419340",
+      "title": "3 bedroom semi-detached house for sale",
+      "suburb": "Croydon",
+      "postcode": "CR0",
+      "url": "https://www.onthemarket.com/details/20178991/",
+      "price": 600000,
+      "beds": "3",
+      "baths": "3",
+      "size_m2": null,
+      "type": "Semi-detached",
+      "image": "https://media.onthemarket.com/properties/20178991/1638584244/image-0-480x320.jpg",
+      "search_area": "South London",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 2500,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM9505006",
       "first_seen": "2026-08-19T18:59:42.639763",
       "title": "2 bedroom apartment for sale",
@@ -4385,27 +4427,6 @@
       "size_m2": null,
       "type": "Detached",
       "image": "https://media.onthemarket.com/properties/19197194/1607998634/image-0-480x320.jpg",
-      "search_area": "South London",
-      "tenure": "Freehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 1950,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM20166217",
-      "first_seen": "2026-08-19T10:51:56.201163",
-      "title": "2 bedroom terraced house for sale",
-      "suburb": "Croydon",
-      "postcode": "CR0",
-      "url": "https://www.onthemarket.com/details/20166217/",
-      "price": 355000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "Terraced",
-      "image": "https://media.onthemarket.com/properties/20166217/1638265434/image-0-480x320.jpg",
       "search_area": "South London",
       "tenure": "Freehold",
       "lease_years": null,
@@ -5749,10 +5770,10 @@
       "baths": "2",
       "size_m2": null,
       "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/20176497/1638542618/image-0-480x320.jpg",
+      "image": "https://media.onthemarket.com/properties/20176497/1638586386/image-0-480x320.jpg",
       "search_area": "South West London",
       "tenure": "Leasehold",
-      "lease_years": null,
+      "lease_years": 112,
       "dcf": {
         "est_monthly_rent": 3000,
         "est_levy": 200
