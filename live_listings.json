@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-21T16:26:37.987278",
+  "scraped_at": "2026-08-21T17:05:00.176215",
   "total_found": 727,
   "price_min": 300000,
   "price_max": 800000,
@@ -2693,6 +2693,27 @@
       }
     },
     {
+      "id": "OTM20187610",
+      "first_seen": "2026-08-21T16:58:04.991377",
+      "title": "2 bedroom flat for sale",
+      "suburb": "Lewisham",
+      "postcode": "SE13",
+      "url": "https://www.onthemarket.com/details/20187610/",
+      "price": 365000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/20187610/1638843518/image-0-480x320.jpg",
+      "search_area": "South London",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1950,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM20174804",
       "first_seen": "2026-08-21T15:00:10.584755",
       "title": "2 bedroom apartment for sale",
@@ -2876,27 +2897,6 @@
       "search_area": "South London",
       "tenure": "Freehold",
       "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 1950,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM19662409",
-      "first_seen": "2026-08-14T14:07:51.164690",
-      "title": "2 bedroom flat for sale",
-      "suburb": "Lewisham",
-      "postcode": "SE13",
-      "url": "https://www.onthemarket.com/details/19662409/",
-      "price": 390000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/19662409/1619903265/image-0-480x320.jpg",
-      "search_area": "South London",
-      "tenure": "Leasehold",
-      "lease_years": 112,
       "dcf": {
         "est_monthly_rent": 1950,
         "est_levy": 200
@@ -5423,6 +5423,27 @@
       }
     },
     {
+      "id": "OTM19568501",
+      "first_seen": "2026-08-21T16:58:04.991377",
+      "title": "2 bedroom flat for sale",
+      "suburb": "Clapham",
+      "postcode": "SW4",
+      "url": "https://www.onthemarket.com/details/19568501/",
+      "price": 550000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/19568501/1625484779/image-0-480x320.jpg",
+      "search_area": "South West London",
+      "tenure": "Leasehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 2300,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM19690554",
       "first_seen": "2026-08-21T16:19:57.831391",
       "title": "2 bedroom flat for sale",
@@ -5773,27 +5794,6 @@
       "image": "https://media.onthemarket.com/properties/19818171/1633265393/image-0-480x320.jpg",
       "search_area": "South West London",
       "tenure": "Leasehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 2300,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM19289058",
-      "first_seen": "2026-08-17T16:52:05.268479",
-      "title": "2 bedroom flat for sale",
-      "suburb": "Clapham",
-      "postcode": "SW4",
-      "url": "https://www.onthemarket.com/details/19289058/",
-      "price": 750000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/19289058/1637782593/image-0-480x320.jpg",
-      "search_area": "South West London",
-      "tenure": "Freehold",
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 2300,
@@ -7586,6 +7586,48 @@
       }
     },
     {
+      "id": "OTM19568501",
+      "first_seen": "2026-08-21T16:58:04.991377",
+      "title": "2 bedroom flat for sale",
+      "suburb": "Battersea",
+      "postcode": "SW11",
+      "url": "https://www.onthemarket.com/details/19568501/",
+      "price": 550000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/19568501/1625484779/image-0-480x320.jpg",
+      "search_area": "South West London",
+      "tenure": "Leasehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 2300,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20187606",
+      "first_seen": "2026-08-21T16:58:04.991377",
+      "title": "2 bedroom flat for sale",
+      "suburb": "Battersea",
+      "postcode": "SW11",
+      "url": "https://www.onthemarket.com/details/20187606/",
+      "price": 615000,
+      "beds": "2",
+      "baths": "2",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/20187606/1638843470/image-0-480x320.jpg",
+      "search_area": "South West London",
+      "tenure": "Leasehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 2300,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM20185951",
       "first_seen": "2026-08-21T15:00:10.584755",
       "title": "2 bedroom terraced house for sale",
@@ -7832,48 +7874,6 @@
       "search_area": "South West London",
       "tenure": "Leasehold",
       "lease_years": 105,
-      "dcf": {
-        "est_monthly_rent": 2300,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM20172054",
-      "first_seen": "2026-08-20T02:10:19.304566",
-      "title": "2 bedroom flat for sale",
-      "suburb": "Battersea",
-      "postcode": "SW11",
-      "url": "https://www.onthemarket.com/details/20172054/",
-      "price": 400000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/20172054/1638392858/image-0-480x320.jpg",
-      "search_area": "South West London",
-      "tenure": "Leasehold",
-      "lease_years": 86,
-      "dcf": {
-        "est_monthly_rent": 2300,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM20170613",
-      "first_seen": "2026-08-19T16:53:00.981843",
-      "title": "2 bedroom flat for sale",
-      "suburb": "Battersea",
-      "postcode": "SW11",
-      "url": "https://www.onthemarket.com/details/20170613/",
-      "price": 620000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/20170613/1638343007/image-0-480x320.jpg",
-      "search_area": "South West London",
-      "tenure": "Leasehold",
-      "lease_years": null,
       "dcf": {
         "est_monthly_rent": 2300,
         "est_levy": 200
@@ -8342,6 +8342,27 @@
       }
     },
     {
+      "id": "OTM19255918",
+      "first_seen": "2026-08-21T16:58:04.991377",
+      "title": "2 bedroom flat for sale",
+      "suburb": "Kingston",
+      "postcode": "KT1",
+      "url": "https://www.onthemarket.com/details/19255918/",
+      "price": 325000,
+      "beds": "2",
+      "baths": "2",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/19255918/1638834293/image-0-480x320.jpg",
+      "search_area": "South West London",
+      "tenure": "Leasehold",
+      "lease_years": 969,
+      "dcf": {
+        "est_monthly_rent": 2300,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM20187152",
       "first_seen": "2026-08-21T16:19:57.831391",
       "title": "2 bedroom maisonette for sale",
@@ -8690,27 +8711,6 @@
       "size_m2": null,
       "type": "Terraced",
       "image": "https://media.onthemarket.com/properties/20089829/1635334915/image-0-480x320.jpg",
-      "search_area": "South West London",
-      "tenure": "Freehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 2300,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM20089441",
-      "first_seen": "2026-08-07T11:13:46.021557",
-      "title": "2 bedroom flat for sale",
-      "suburb": "Kingston",
-      "postcode": "KT1",
-      "url": "https://www.onthemarket.com/details/20089441/",
-      "price": 675000,
-      "beds": "2",
-      "baths": "2",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/20089441/1637784000/image-0-480x320.jpg",
       "search_area": "South West London",
       "tenure": "Freehold",
       "lease_years": null,
@@ -12206,6 +12206,27 @@
       }
     },
     {
+      "id": "OTM20187791",
+      "first_seen": "2026-08-21T16:58:04.991377",
+      "title": "2 bedroom flat for sale",
+      "suburb": "Barking",
+      "postcode": "IG11",
+      "url": "https://www.onthemarket.com/details/20187791/",
+      "price": 325000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/20187791/1638847210/image-0-480x320.jpg",
+      "search_area": "Outer London",
+      "tenure": "Leasehold",
+      "lease_years": 989,
+      "dcf": {
+        "est_monthly_rent": 1700,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM20174676",
       "first_seen": "2026-08-21T15:00:10.584755",
       "title": "2 bedroom apartment for sale",
@@ -12451,27 +12472,6 @@
       "image": "https://media.onthemarket.com/properties/20149204/1638837162/image-0-480x320.jpg",
       "search_area": "Outer London",
       "tenure": "Freehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 1700,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM20145978",
-      "first_seen": "2026-08-15T12:16:37.758751",
-      "title": "2 bedroom apartment for sale",
-      "suburb": "Barking",
-      "postcode": "IG11",
-      "url": "https://www.onthemarket.com/details/20145978/",
-      "price": 300000,
-      "beds": "2",
-      "baths": "2",
-      "size_m2": 79,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/20145978/1637358439/image-0-480x320.jpg",
-      "search_area": "Outer London",
-      "tenure": "Leasehold",
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 1700,
