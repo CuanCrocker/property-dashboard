@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-08-21T18:27:27.365656",
-  "total_found": 725,
+  "scraped_at": "2026-08-21T19:10:59.635388",
+  "total_found": 726,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -5381,6 +5381,27 @@
       }
     },
     {
+      "id": "OTM18513910",
+      "first_seen": "2026-08-21T19:04:13.219965",
+      "title": "2 bedroom flat for sale",
+      "suburb": "Clapham",
+      "postcode": "SW4",
+      "url": "https://www.onthemarket.com/details/18513910/",
+      "price": 550000,
+      "beds": "2",
+      "baths": "2",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/18513910/1588729660/image-0-480x320.jpg",
+      "search_area": "South West London",
+      "tenure": "Leasehold",
+      "lease_years": 108,
+      "dcf": {
+        "est_monthly_rent": 2300,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM19568501",
       "first_seen": "2026-08-21T16:58:04.991377",
       "title": "2 bedroom flat for sale",
@@ -5732,27 +5753,6 @@
       "search_area": "South West London",
       "tenure": "Leasehold",
       "lease_years": 171,
-      "dcf": {
-        "est_monthly_rent": 2300,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM19818171",
-      "first_seen": "2026-08-18T14:02:49.570393",
-      "title": "2 bedroom flat for sale",
-      "suburb": "Clapham",
-      "postcode": "SW4",
-      "url": "https://www.onthemarket.com/details/19818171/",
-      "price": 450000,
-      "beds": "2",
-      "baths": "2",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/19818171/1633265393/image-0-480x320.jpg",
-      "search_area": "South West London",
-      "tenure": "Leasehold",
-      "lease_years": null,
       "dcf": {
         "est_monthly_rent": 2300,
         "est_levy": 200
@@ -15037,6 +15037,27 @@
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 2000,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20188887",
+      "first_seen": "2026-08-21T19:04:13.219965",
+      "title": "2 bedroom terraced house for sale",
+      "suburb": "Basildon",
+      "postcode": "SS14",
+      "url": "https://www.onthemarket.com/details/20188887/",
+      "price": 340000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "Terraced",
+      "image": "https://media.onthemarket.com/properties/20188887/1638862535/image-0-480x320.jpg",
+      "search_area": "Commuter Belt",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1600,
         "est_levy": 200
       }
     },
