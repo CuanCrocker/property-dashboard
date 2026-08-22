@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-08-22T14:17:26.063272",
-  "total_found": 726,
+  "scraped_at": "2026-08-22T14:50:53.108832",
+  "total_found": 727,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -2714,6 +2714,27 @@
       }
     },
     {
+      "id": "OTM20191016",
+      "first_seen": "2026-08-22T14:44:12.731820",
+      "title": "2 bedroom flat for sale",
+      "suburb": "Lewisham",
+      "postcode": "SE13",
+      "url": "https://www.onthemarket.com/details/20191016/",
+      "price": 495000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/20191016/1639004207/image-0-480x320.jpg",
+      "search_area": "South London",
+      "tenure": "Leasehold",
+      "lease_years": 943,
+      "dcf": {
+        "est_monthly_rent": 1950,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM20190318",
       "first_seen": "2026-08-22T10:45:56.036114",
       "title": "2 bedroom flat for sale",
@@ -2897,27 +2918,6 @@
       "search_area": "South London",
       "tenure": "Leasehold",
       "lease_years": 85,
-      "dcf": {
-        "est_monthly_rent": 1950,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM17269698",
-      "first_seen": "2026-08-17T10:53:45.856929",
-      "title": "2 bedroom apartment for sale",
-      "suburb": "Lewisham",
-      "postcode": "SE13",
-      "url": "https://www.onthemarket.com/details/17269698/",
-      "price": 425000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/17269698/1634031057/image-0-480x320.jpg",
-      "search_area": "South London",
-      "tenure": "Leasehold",
-      "lease_years": 987,
       "dcf": {
         "est_monthly_rent": 1950,
         "est_levy": 200
@@ -4426,7 +4426,7 @@
       "baths": "2",
       "size_m2": null,
       "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/20180330/1638806997/image-0-480x320.jpg",
+      "image": "https://media.onthemarket.com/properties/20180330/1639004860/image-0-480x320.jpg",
       "search_area": "South London",
       "tenure": "Leasehold",
       "lease_years": 245,
@@ -4955,6 +4955,27 @@
       "search_area": "South London",
       "tenure": "Freehold",
       "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1950,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20191016",
+      "first_seen": "2026-08-22T14:44:12.731820",
+      "title": "2 bedroom flat for sale",
+      "suburb": "Catford",
+      "postcode": "SE6",
+      "url": "https://www.onthemarket.com/details/20191016/",
+      "price": 495000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/20191016/1639004207/image-0-480x320.jpg",
+      "search_area": "South London",
+      "tenure": "Leasehold",
+      "lease_years": 943,
       "dcf": {
         "est_monthly_rent": 1950,
         "est_levy": 200
@@ -14180,6 +14201,27 @@
       }
     },
     {
+      "id": "OTM20191045",
+      "first_seen": "2026-08-22T14:44:12.731820",
+      "title": "3 bedroom end of terrace house for sale",
+      "suburb": "Slough",
+      "postcode": "SL1",
+      "url": "https://www.onthemarket.com/details/20191045/",
+      "price": 535000,
+      "beds": "3",
+      "baths": "2",
+      "size_m2": null,
+      "type": "House",
+      "image": "https://media.onthemarket.com/properties/20191045/1639005669/image-0-480x320.jpg",
+      "search_area": "Commuter Belt",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 2000,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM18477184",
       "first_seen": "2026-08-22T00:36:37.126875",
       "title": "2 bedroom apartment for sale",
@@ -14428,27 +14470,6 @@
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 2000,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM20165270",
-      "first_seen": "2026-08-22T04:01:39.275254",
-      "title": "2 bedroom semi-detached house for sale",
-      "suburb": "Slough",
-      "postcode": "SL1",
-      "url": "https://www.onthemarket.com/details/20165270/",
-      "price": 400000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "Semi-detached",
-      "image": "https://media.onthemarket.com/properties/20165270/1638243067/image-0-480x320.jpg",
-      "search_area": "Commuter Belt",
-      "tenure": "Freehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 1600,
         "est_levy": 200
       }
     },
