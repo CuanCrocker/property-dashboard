@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-22T12:24:21.200446",
+  "scraped_at": "2026-08-22T13:13:44.441516",
   "total_found": 726,
   "price_min": 300000,
   "price_max": 800000,
@@ -1628,7 +1628,7 @@
       "suburb": "Leyton",
       "postcode": "E10",
       "url": "https://www.onthemarket.com/details/20158765/",
-      "price": 500000,
+      "price": 525000,
       "beds": "2",
       "baths": "1",
       "size_m2": null,
@@ -12878,6 +12878,27 @@
       }
     },
     {
+      "id": "OTM20173624",
+      "first_seen": "2026-08-22T13:07:05.442525",
+      "title": "3 bedroom terraced house for sale",
+      "suburb": "Dagenham",
+      "postcode": "RM10",
+      "url": "https://www.onthemarket.com/details/20173624/",
+      "price": 400000,
+      "beds": "3",
+      "baths": "2",
+      "size_m2": null,
+      "type": "Terraced",
+      "image": "https://media.onthemarket.com/properties/20173624/1638493374/image-0-480x320.jpg",
+      "search_area": "Outer London",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 2100,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM20165871",
       "first_seen": "2026-08-19T10:51:56.201163",
       "title": "2 bedroom bungalow for sale",
@@ -13042,27 +13063,6 @@
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 2100,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM20095913",
-      "first_seen": "2026-08-08T07:26:35.565029",
-      "title": "2 bedroom terraced house for sale",
-      "suburb": "Dagenham",
-      "postcode": "RM10",
-      "url": "https://www.onthemarket.com/details/20095913/",
-      "price": 350000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "Terraced",
-      "image": "https://media.onthemarket.com/properties/20095913/1635527689/image-0-480x320.jpg",
-      "search_area": "Outer London",
-      "tenure": "Freehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 1700,
         "est_levy": 200
       }
     },
