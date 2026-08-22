@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-08-22T09:23:07.234570",
-  "total_found": 724,
+  "scraped_at": "2026-08-22T09:54:39.240580",
+  "total_found": 726,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -5122,6 +5122,27 @@
       "image": "https://media.onthemarket.com/properties/19786673/1623947838/image-0-480x320.jpg",
       "search_area": "South London",
       "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1950,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM19457072",
+      "first_seen": "2026-07-12T15:31:13.107132",
+      "title": "2 bedroom apartment for sale",
+      "suburb": "Abbey Wood",
+      "postcode": "SE2",
+      "url": "https://www.onthemarket.com/details/19457072/",
+      "price": 435000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/19457072/1628920399/image-0-480x320.jpg",
+      "search_area": "South London",
+      "tenure": "Leasehold",
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 1950,
@@ -12143,6 +12164,27 @@
       }
     },
     {
+      "id": "OTM17913749",
+      "first_seen": "2026-08-22T09:48:11.485601",
+      "title": "2 bedroom apartment for sale",
+      "suburb": "Barking",
+      "postcode": "IG11",
+      "url": "https://www.onthemarket.com/details/17913749/",
+      "price": 300000,
+      "beds": "2",
+      "baths": "2",
+      "size_m2": 74,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/17913749/1588915198/image-0-480x320.jpg",
+      "search_area": "Outer London",
+      "tenure": "Leasehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1700,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM20187791",
       "first_seen": "2026-08-21T16:58:04.991377",
       "title": "2 bedroom flat for sale",
@@ -12391,27 +12433,6 @@
       "lease_years": 986,
       "dcf": {
         "est_monthly_rent": 2100,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM19940085",
-      "first_seen": "2026-08-17T16:52:05.268479",
-      "title": "2 bedroom end of terrace house for sale",
-      "suburb": "Barking",
-      "postcode": "IG11",
-      "url": "https://www.onthemarket.com/details/19940085/",
-      "price": 360000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "House",
-      "image": "https://media.onthemarket.com/properties/19940085/1637777086/image-0-480x320.jpg",
-      "search_area": "Outer London",
-      "tenure": "Freehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 1700,
         "est_levy": 200
       }
     },
@@ -14338,7 +14359,7 @@
       "baths": "2",
       "size_m2": null,
       "type": "Detached",
-      "image": "https://media.onthemarket.com/properties/20173395/1638489856/image-0-480x320.jpg",
+      "image": "https://media.onthemarket.com/properties/20173395/1638974982/image-0-480x320.jpg",
       "search_area": "Commuter Belt",
       "tenure": "Freehold",
       "lease_years": null,
@@ -14846,6 +14867,27 @@
       "search_area": "Commuter Belt",
       "tenure": "Leasehold",
       "lease_years": 121,
+      "dcf": {
+        "est_monthly_rent": 1600,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20190122",
+      "first_seen": "2026-08-22T09:48:11.485601",
+      "title": "2 bedroom detached house for sale",
+      "suburb": "Chelmsford",
+      "postcode": "CM1",
+      "url": "https://www.onthemarket.com/details/20190122/",
+      "price": 350000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "Detached",
+      "image": "https://media.onthemarket.com/properties/20190122/1638972736/image-0-480x320.jpg",
+      "search_area": "Commuter Belt",
+      "tenure": "Freehold",
+      "lease_years": null,
       "dcf": {
         "est_monthly_rent": 1600,
         "est_levy": 200
