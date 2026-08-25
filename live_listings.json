@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-08-25T23:22:17.667293",
-  "total_found": 731,
+  "scraped_at": "2026-08-25T23:51:44.603413",
+  "total_found": 732,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -5633,6 +5633,27 @@
       }
     },
     {
+      "id": "OTM20016860",
+      "first_seen": "2026-08-25T23:44:59.457290",
+      "title": "2 bedroom flat for sale",
+      "suburb": "Clapham",
+      "postcode": "SW4",
+      "url": "https://www.onthemarket.com/details/20016860/",
+      "price": 600000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/20016860/1632387894/image-0-480x320.jpg",
+      "search_area": "South West London",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 2300,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM19940455",
       "first_seen": "2026-08-25T15:11:25.998109",
       "title": "2 bedroom apartment for sale",
@@ -5981,27 +6002,6 @@
       "size_m2": null,
       "type": "Apartment",
       "image": "https://media.onthemarket.com/properties/19908635/1628497475/image-0-480x320.jpg",
-      "search_area": "South West London",
-      "tenure": "Freehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 2300,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM20177029",
-      "first_seen": "2026-08-20T15:01:18.765258",
-      "title": "2 bedroom flat for sale",
-      "suburb": "Clapham",
-      "postcode": "SW4",
-      "url": "https://www.onthemarket.com/details/20177029/",
-      "price": 795000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/20177029/1638552539/image-0-480x320.jpg",
       "search_area": "South West London",
       "tenure": "Freehold",
       "lease_years": null,
@@ -14911,6 +14911,27 @@
       "lease_years": 97,
       "dcf": {
         "est_monthly_rent": 1600,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM19815668",
+      "first_seen": "2026-08-25T23:44:59.457290",
+      "title": "3 bedroom detached house for sale",
+      "suburb": "Chelmsford",
+      "postcode": "CM1",
+      "url": "https://www.onthemarket.com/details/19815668/",
+      "price": 685000,
+      "beds": "3",
+      "baths": "2",
+      "size_m2": null,
+      "type": "Detached",
+      "image": "https://media.onthemarket.com/properties/19815668/1639414699/image-0-480x320.webp",
+      "search_area": "Commuter Belt",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 2000,
         "est_levy": 200
       }
     },
