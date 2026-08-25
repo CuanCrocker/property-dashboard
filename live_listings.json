@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-08-25T04:12:28.234576",
-  "total_found": 733,
+  "scraped_at": "2026-08-25T05:08:12.859243",
+  "total_found": 734,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -14785,6 +14785,27 @@
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 2000,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20086290",
+      "first_seen": "2026-08-25T05:01:19.774895",
+      "title": "2 bedroom semi-detached house for sale",
+      "suburb": "Luton",
+      "postcode": "LU1",
+      "url": "https://www.onthemarket.com/details/20086290/",
+      "price": 325000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "Semi-detached",
+      "image": "https://media.onthemarket.com/properties/20086290/1635172797/image-0-480x320.jpg",
+      "search_area": "Commuter Belt",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1600,
         "est_levy": 200
       }
     },
