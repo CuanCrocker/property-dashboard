@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-09-08T20:33:50.202191",
-  "total_found": 708,
+  "scraped_at": "2026-09-08T22:56:45.145121",
+  "total_found": 710,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -4132,7 +4132,7 @@
       "baths": "1",
       "size_m2": null,
       "type": "Detached",
-      "image": "https://media.onthemarket.com/properties/20281925/1642415020/image-1-480x320.jpg",
+      "image": "https://media.onthemarket.com/properties/20281925/1642779042/image-0-480x320.jpg",
       "search_area": "South London",
       "tenure": "Freehold",
       "lease_years": null,
@@ -4153,7 +4153,7 @@
       "baths": "1",
       "size_m2": null,
       "type": "Detached",
-      "image": "https://media.onthemarket.com/properties/20281928/1642413540/image-1-480x320.jpg",
+      "image": "https://media.onthemarket.com/properties/20281928/1642779044/image-0-480x320.jpg",
       "search_area": "South London",
       "tenure": "Freehold",
       "lease_years": null,
@@ -4472,6 +4472,27 @@
       "search_area": "South London",
       "tenure": "Leasehold",
       "lease_years": 106,
+      "dcf": {
+        "est_monthly_rent": 1950,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20295158",
+      "first_seen": "2026-09-08T22:50:24.029101",
+      "title": "2 bedroom terraced house for sale",
+      "suburb": "Bromley",
+      "postcode": "BR1",
+      "url": "https://www.onthemarket.com/details/20295158/",
+      "price": 550000,
+      "beds": "2",
+      "baths": "2",
+      "size_m2": 22,
+      "type": "Terraced",
+      "image": "https://media.onthemarket.com/properties/20295158/1642779455/image-0-480x320.jpg",
+      "search_area": "South London",
+      "tenure": "Freehold",
+      "lease_years": null,
       "dcf": {
         "est_monthly_rent": 1950,
         "est_levy": 200
@@ -10757,6 +10778,27 @@
       }
     },
     {
+      "id": "OTM20295263",
+      "first_seen": "2026-09-08T22:50:24.029101",
+      "title": "2 bedroom house for sale",
+      "suburb": "Harrow",
+      "postcode": "HA1",
+      "url": "https://www.onthemarket.com/details/20295263/",
+      "price": 335000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "House",
+      "image": "https://media.onthemarket.com/properties/20295263/1642794452/image-0-480x320.jpg",
+      "search_area": "West London",
+      "tenure": "Leasehold",
+      "lease_years": 975,
+      "dcf": {
+        "est_monthly_rent": 1800,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM18764247",
       "first_seen": "2026-09-08T13:58:32.522419",
       "title": "2 bedroom apartment for sale",
@@ -11114,27 +11156,6 @@
       }
     },
     {
-      "id": "OTM18077881",
-      "first_seen": "2026-08-30T08:25:23.313931",
-      "title": "2 bedroom apartment for sale",
-      "suburb": "Harrow",
-      "postcode": "HA1",
-      "url": "https://www.onthemarket.com/details/18077881/",
-      "price": 480000,
-      "beds": "2",
-      "baths": "1",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/18077881/1639914099/image-0-480x320.jpg",
-      "search_area": "West London",
-      "tenure": "Leasehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 1800,
-        "est_levy": 200
-      }
-    },
-    {
       "id": "OTM19720090",
       "first_seen": "2026-09-08T20:27:15.448946",
       "title": "3 bedroom flat for sale",
@@ -11443,6 +11464,27 @@
       "image": "https://media.onthemarket.com/properties/20175286/1638519100/image-0-480x320.png",
       "search_area": "West London",
       "tenure": "Leasehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1800,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20174481",
+      "first_seen": "2026-09-08T22:50:24.029101",
+      "title": "4 bedroom terraced house for sale",
+      "suburb": "Hounslow",
+      "postcode": "TW3",
+      "url": "https://www.onthemarket.com/details/20174481/",
+      "price": 600000,
+      "beds": "4",
+      "baths": "3",
+      "size_m2": null,
+      "type": "Terraced",
+      "image": "https://media.onthemarket.com/properties/20174481/1638508915/image-0-480x320.jpg",
+      "search_area": "West London",
+      "tenure": "Freehold",
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 1800,
