@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-09-12T21:11:58.491438",
-  "total_found": 723,
+  "scraped_at": "2026-09-12T23:13:23.506405",
+  "total_found": 722,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -1276,7 +1276,7 @@
       "baths": "1",
       "size_m2": null,
       "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/19765427/1623195165/image-0-480x320.jpg",
+      "image": "https://media.onthemarket.com/properties/19765427/1623195247/image-0-480x320.jpg",
       "search_area": "East London",
       "tenure": "Leasehold",
       "lease_years": 189,
@@ -4268,6 +4268,27 @@
       }
     },
     {
+      "id": "OTM19763385",
+      "first_seen": "2026-09-12T23:06:42.444629",
+      "title": "2 bedroom apartment for sale",
+      "suburb": "Croydon",
+      "postcode": "CR0",
+      "url": "https://www.onthemarket.com/details/19763385/",
+      "price": 300000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/19763385/1643806869/image-0-480x320.jpg",
+      "search_area": "South London",
+      "tenure": "Leasehold",
+      "lease_years": 142,
+      "dcf": {
+        "est_monthly_rent": 1950,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM20324890",
       "first_seen": "2026-09-12T18:51:17.235746",
       "title": "3 bedroom terraced house for sale",
@@ -4411,27 +4432,6 @@
       "lease_years": 992,
       "dcf": {
         "est_monthly_rent": 1950,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM20318148",
-      "first_seen": "2026-09-11T15:28:49.733086",
-      "title": "3 bedroom flat for sale",
-      "suburb": "Croydon",
-      "postcode": "CR0",
-      "url": "https://www.onthemarket.com/details/20318148/",
-      "price": 399999,
-      "beds": "3",
-      "baths": "2",
-      "size_m2": null,
-      "type": "Apartment",
-      "image": "https://media.onthemarket.com/properties/20318148/1643564920/image-0-480x320.jpg",
-      "search_area": "South London",
-      "tenure": "Leasehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 2500,
         "est_levy": 200
       }
     },
@@ -5251,27 +5251,6 @@
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 1950,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM19780832",
-      "first_seen": "2026-09-12T21:05:18.756698",
-      "title": "3 bedroom end of terrace house for sale",
-      "suburb": "Catford",
-      "postcode": "SE6",
-      "url": "https://www.onthemarket.com/details/19780832/",
-      "price": 500000,
-      "beds": "3",
-      "baths": "3",
-      "size_m2": null,
-      "type": "House",
-      "image": "https://media.onthemarket.com/properties/19780832/1642719287/image-0-480x320.jpg",
-      "search_area": "South London",
-      "tenure": "Freehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 2500,
         "est_levy": 200
       }
     },
