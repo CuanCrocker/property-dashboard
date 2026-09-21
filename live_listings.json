@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-09-21T20:09:24.856910",
-  "total_found": 733,
+  "scraped_at": "2026-09-21T23:31:30.461197",
+  "total_found": 734,
   "price_min": 300000,
   "price_max": 800000,
   "listings": [
@@ -4310,6 +4310,48 @@
       }
     },
     {
+      "id": "OTM20383201",
+      "first_seen": "2026-09-21T23:24:48.061592",
+      "title": "2 bedroom end of terrace house for sale",
+      "suburb": "Croydon",
+      "postcode": "CR0",
+      "url": "https://www.onthemarket.com/details/20383201/",
+      "price": 375000,
+      "beds": "2",
+      "baths": "1",
+      "size_m2": null,
+      "type": "House",
+      "image": "https://media.onthemarket.com/properties/20383201/1646147395/image-0-480x320.jpg",
+      "search_area": "South London",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1950,
+        "est_levy": 200
+      }
+    },
+    {
+      "id": "OTM20383202",
+      "first_seen": "2026-09-21T23:24:48.061592",
+      "title": "2 bedroom apartment for sale",
+      "suburb": "Croydon",
+      "postcode": "CR0",
+      "url": "https://www.onthemarket.com/details/20383202/",
+      "price": 395000,
+      "beds": "2",
+      "baths": "2",
+      "size_m2": null,
+      "type": "Apartment",
+      "image": "https://media.onthemarket.com/properties/20383202/1646147399/image-0-480x320.jpg",
+      "search_area": "South London",
+      "tenure": "Freehold",
+      "lease_years": null,
+      "dcf": {
+        "est_monthly_rent": 1950,
+        "est_levy": 200
+      }
+    },
+    {
       "id": "OTM20382842",
       "first_seen": "2026-09-21T20:02:55.180677",
       "title": "2 bedroom terraced house for sale",
@@ -4432,27 +4474,6 @@
       "lease_years": null,
       "dcf": {
         "est_monthly_rent": 1950,
-        "est_levy": 200
-      }
-    },
-    {
-      "id": "OTM20373732",
-      "first_seen": "2026-09-19T17:34:45.460948",
-      "title": "3 bedroom semi-detached house for sale",
-      "suburb": "Croydon",
-      "postcode": "CR0",
-      "url": "https://www.onthemarket.com/details/20373732/",
-      "price": 485000,
-      "beds": "3",
-      "baths": "2",
-      "size_m2": null,
-      "type": "Semi-detached",
-      "image": "https://media.onthemarket.com/properties/20373732/1645707070/image-0-480x320.jpg",
-      "search_area": "South London",
-      "tenure": "Freehold",
-      "lease_years": null,
-      "dcf": {
-        "est_monthly_rent": 2500,
         "est_levy": 200
       }
     },
